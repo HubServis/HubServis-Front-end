@@ -1,11 +1,11 @@
 import './App.css'
+import Home from './pages/home'
 
 function App() {
 
   return (
     <>
-      <h1>Hello World!</h1>
-      <h2>Welcome to HubServis</h2>
+      <Home/>
     </>
   )
 }
