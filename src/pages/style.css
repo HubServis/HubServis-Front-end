@@ -1,0 +1,90 @@
+.banner{
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 45px 20px;
+    /* background: red; */
+    /* max-height: 500px; */
+}
+
+#bg-banner{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+}
+
+.banner > #container-search{
+    max-width: 500px;
+    margin: 67px 0px 0px 60px;
+    /* background: red; */
+}
+
+#container-search > h1{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#container-search > h4{
+    font-size: 24px;
+    color: #009933;
+}
+
+.banner > #ilustration{
+    height: 100%;
+    max-height: 392px;
+    max-width: 540px;
+    padding: 10px 10px 0px 0px;
+}
+
+.container-input{
+    width: 100%;
+    background: white;
+    border: 2px solid #3BAE4E;
+    border-radius: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container-input > span{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0px 0px 0px 16px;
+}
+
+.container-input > span > input{
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    color: #30883F;
+    margin: 0px 4px;
+}
+
+.container-input > span > input::placeholder{
+    color: #30883F;
+}
+
+.container-input > span > input:active{
+    border: none;
+}
+
+.container-input > span > img{
+    width: 18px;
+    height: 18px;
+}
+
+.container-input > .btn-send{
+   background: #009933; 
+   border: none;
+   color: white;
+   font-weight: bold;
+   font-size: 14px;
+   padding: 16px 40px;
+   border-radius: 9px;
+}
