@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css';
-import { AppBar } from '../components';
-import bgBanner from '../assets/bg-banner-home.svg';
-import ilustration from '../assets/ilustracao-banner.svg';
-import search from '../assets/search.svg';
+import { AppBar } from '../../components';
+import bgBanner from '../../assets/bg-banner-home.svg';
+import ilustration from '../../assets/ilustracao-banner.svg';
+import search from '../../assets/search.svg';
 
 const Home = () => {
     return (
