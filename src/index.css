@@ -6,3 +6,14 @@
   box-sizing: border-box;
   font-family: 'Poppins';
 }
+
+:root{
+  --strong-green: #00E125;
+  --dark-green: #20712D;
+  --light-green: #97FFA8;
+  --white: #FFFFFF;
+  --dark-gray: #414141;
+  --black: #1E1E1E;
+  --lighting-green: #1E1E1E;
+  --gray-almost-white: #F4F4F4;
+}

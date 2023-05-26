@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { AppBar } from '../../components';
+import { AppBar, CategorySelector } from '../../components';
 import bgBanner from '../../assets/bg-banner-home.svg';
 import ilustration from '../../assets/ilustracao-banner.svg';
 import search from '../../assets/search.svg';
@@ -8,7 +8,9 @@ import search from '../../assets/search.svg';
 const Home = () => {
     return (
         <>
-            <AppBar/>
+            <AppBar>
+                <a href="http://">Home</a>
+            </AppBar>
             <section>
                 <div className='banner'>
                     <img src={bgBanner} alt="" id="bg-banner"/>
@@ -25,6 +27,10 @@ const Home = () => {
                     </div>
                     <img src={ilustration} alt="" id="ilustration"/>
                 </div>
+
+                <CategorySelector/>
+
+                <hr id="divisor-category-highlights"/>
             </section>
         </>
     );

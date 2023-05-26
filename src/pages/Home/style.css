@@ -1,3 +1,7 @@
+section{
+    margin: auto;
+}
+
 .banner{
     max-width: 1440px;
     display: flex;
@@ -87,4 +91,13 @@
    font-size: 14px;
    padding: 16px 40px;
    border-radius: 9px;
+}
+
+#divisor-category-highlights{
+    max-width: 1440px;
+    height: 1px;
+    width: 100%;
+    margin: 28px auto 70px auto;
+    background: var(--gray-almost-white);
+    border: none;
 }
