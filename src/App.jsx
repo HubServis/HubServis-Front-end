@@ -1,14 +1,14 @@
-import './App.css'
-import Home from './pages/Home/Home'
-import Test from './pages/TestePermissions/test'
+import './App.css';
+import Home from './pages/Home/Home';
+import Routers from './root/router';
 
 function App() {
-
   return (
-    <>
+    <div className='app'>
       {/* <Test/> */}
-      <Home/>
-    </>
+      <Routers />
+      {/* <Home /> */}
+    </div>
   )
 }
 

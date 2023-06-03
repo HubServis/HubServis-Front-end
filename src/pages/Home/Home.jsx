@@ -9,9 +9,12 @@ const Home = () => {
     return (
         <>
             <AppBar>
-                <a href="http://">Home</a>
+                <a href="http://">Sobre</a>
+                <a href="http://">Planos</a>
+                <a href="http://">Anuncios e eventos</a>
+                <a href="http://">Suporte</a>
             </AppBar>
-            <section>
+            <section id='section-banner'>
                 <div className='banner'>
                     <img src={bgBanner} alt="" id="bg-banner"/>
                     <div id="container-search">

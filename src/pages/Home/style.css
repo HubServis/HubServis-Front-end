@@ -1,15 +1,14 @@
-section{
+section-banner{
     margin: auto;
+    max-width: 1440px;
 }
 
 .banner{
-    max-width: 1440px;
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin: 45px auto;
-    /* background: red; */
-    /* max-height: 500px; */
+    height: 29.3rem;
+    margin: 45px 20px;
 }
 
 #bg-banner{
