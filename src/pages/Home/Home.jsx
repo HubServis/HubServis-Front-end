@@ -31,10 +31,10 @@ const Home = () => {
                     <img src={ilustration} alt="" id="ilustration"/>
                 </div>
 
-                <CategorySelector/>
 
                 <hr id="divisor-category-highlights"/>
             </section>
+            <CategorySelector/>
         </>
     );
 }
