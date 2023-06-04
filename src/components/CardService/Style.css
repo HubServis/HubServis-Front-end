@@ -1,0 +1,64 @@
+.container-card{
+    max-width: 15.4rem;
+    margin: 20px 10px;
+    transition: all .4s ease;
+}
+
+.container-card:hover{
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid var(--light-green);
+}
+
+.image-container{
+    max-width: 15.4rem;
+    height: 14rem;
+}
+
+.image-container>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.6rem;
+}
+
+/* .image-container > svg{
+    position: absolute;
+    z-index: 2;
+    left: 217px;
+    margin-top: 7px;
+} */
+
+.business-name{
+    font-size: 12px;
+    color: var(--gray-opacity-44);
+    font-weight: 500;
+    margin: 9px 0px 6px 0px;
+}
+
+.title-service{
+    color: var(--dark-gray);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.price-service{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.price-and-more{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-plus{
+    background-color: var(--strong-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 6.2rem;
+}

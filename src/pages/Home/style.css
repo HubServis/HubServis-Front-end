@@ -95,8 +95,31 @@ section-banner{
 #divisor-category-highlights{
     max-width: 1440px;
     height: 1px;
-    width: 100%;
-    margin: 28px auto 70px auto;
+    width: 95%;
+    margin: 1.75rem auto 4.3rem auto;
     background: var(--gray-almost-white);
     border: none;
+}
+
+.section-service{
+    margin: 5rem 2.3rem 2.5rem 2.3rem;
+}
+
+.section-service > h2,
+.section-all-services > h2{
+    margin-bottom: 2rem;
+}
+
+.section-service > .cards,
+.section-all-services > .cards-all-services{
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-all-services > .cards-all-services{
+    flex-wrap: wrap;
+}
+
+.section-all-services {
+    margin: 5rem 2.3rem 2.5rem 2.3rem;
 }
