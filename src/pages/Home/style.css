@@ -110,6 +110,12 @@ section-banner{
     margin-bottom: 2rem;
 }
 
+.title-section-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .section-service > .cards,
 .section-all-services > .cards-all-services{
     display: flex;

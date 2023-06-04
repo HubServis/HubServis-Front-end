@@ -4,6 +4,7 @@ import { Heart, Plus } from "@phosphor-icons/react";
 import { Avaliations } from "../";
 
 const CardService = () => {
+
 	return (
 		<div className="container-card">
 			<div className="image-container">
@@ -12,7 +13,8 @@ const CardService = () => {
 					alt="image card service"
 				/>
 				<i>
-					<Heart size={24} color="#97FFA8" />
+					<Heart size={24} color="#97FFA8" weight="fill"/>
+					{/* <Heart size={24} color="#97FFA8" /> */}
 				</i>
 			</div>
 			<p className="business-name">Beleza em Harmonia</p>
@@ -23,8 +25,11 @@ const CardService = () => {
 					<Avaliations />
 				</span>
 				<div>
-					<div className="icon-plus">
-						<Plus size={32} color="#ffffff" />
+					<div className="tooltip">
+						<span className="tooltiptext">Ver mais</span>
+						<div className="icon-plus">
+							<Plus size={32} color="#ffffff" />
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,11 @@
 import React from "react";
 import "./style.css";
-import { AppBar, CategorySelector, CardService } from "../../components";
+import {
+	AppBar,
+	CategorySelector,
+	CardService,
+	BtnOutlinedGreen,
+} from "../../components";
 import bgBanner from "../../assets/bg-banner-home.svg";
 import ilustration from "../../assets/ilustracao-banner.svg";
 import search from "../../assets/search.svg";
@@ -40,7 +45,15 @@ const Home = () => {
 			<hr id="divisor-category-highlights" />
 
 			<section className="section-service">
-				<h2>Destaques</h2>
+				<span className="title-section-box">
+					<h2>Destaques</h2>
+					<BtnOutlinedGreen
+						onclick={() => console.log("view all services button")}
+					>
+						Ver Todos
+					</BtnOutlinedGreen>
+				</span>
+
 				<div className="cards">
 					<CardService />
 					<CardService />
@@ -52,7 +65,14 @@ const Home = () => {
 			<hr id="divisor-category-highlights" />
 
 			<section className="section-all-services">
-				<h2>Todos</h2>
+				<span className="title-section-box">
+					<h2>Todos</h2>
+					<BtnOutlinedGreen
+						onclick={() => console.log("view all services button")}
+					>
+						Ver Todos
+					</BtnOutlinedGreen>
+				</span>
 				<div className="cards-all-services">
 					<CardService />
 					<CardService />
