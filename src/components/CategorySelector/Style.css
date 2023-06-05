@@ -1,6 +1,8 @@
 #section-category{
+    max-width: 1440px;
     padding: 0px 40px;
-    margin-top: 115px;
+    margin: auto;
+    /* margin-top: 0px 0px 0px 0px; */
 }
 
 #section-category > h2{

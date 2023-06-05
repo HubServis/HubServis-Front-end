@@ -1,4 +1,4 @@
-section-banner{
+#section-banner{
     margin: auto;
     max-width: 1440px;
 }
@@ -101,8 +101,10 @@ section-banner{
     border: none;
 }
 
-.section-service{
-    margin: 5rem 2.3rem 2.5rem 2.3rem;
+.section-service,
+.section-all-services{
+    max-width: 1440px;
+    margin: 5rem auto 2.5rem auto;
 }
 
 .section-service > h2,
@@ -126,6 +128,16 @@ section-banner{
     flex-wrap: wrap;
 }
 
-.section-all-services {
-    margin: 5rem 2.3rem 2.5rem 2.3rem;
+.section-advertising{
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+}
+
+.section-advertising div:nth-child(1) > h2{
+    margin-bottom: 20px;
+}
+
+.section-advertising div:nth-child(1) > p{
+    margin-bottom: 90px;
 }

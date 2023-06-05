@@ -5,10 +5,12 @@ import {
 	CategorySelector,
 	CardService,
 	BtnOutlinedGreen,
+	BtnFillGreen
 } from "../../components";
 import bgBanner from "../../assets/bg-banner-home.svg";
 import ilustration from "../../assets/ilustracao-banner.svg";
 import search from "../../assets/search.svg";
+import ilutrationGraph from '../../assets/ilustration-graph.png';
 
 const Home = () => {
 	return (
@@ -84,6 +86,19 @@ const Home = () => {
 					<CardService />
 				</div>
 				<hr id="divisor-category-highlights" />
+				<section className="section-advertising">
+					<div>
+						<h2>Economize tempo com a HubServis</h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+						<BtnFillGreen
+							onclick={() => console.log("view all services button")}
+						>
+							Explorar
+						</BtnFillGreen>
+					</div>
+
+					<img src={ilutrationGraph} alt="" />
+				</section>
 			</section>
 		</>
 	);
