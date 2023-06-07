@@ -1,13 +1,11 @@
 import './App.css';
 import Home from './pages/Home/Home';
-import Routers from './root/router';
+import Routers from './routes';
 
 function App() {
   return (
     <div className='app'>
-      {/* <Test/> */}
       <Routers />
-      {/* <Home /> */}
     </div>
   )
 }
