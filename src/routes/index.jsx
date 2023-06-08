@@ -21,7 +21,7 @@ const Routers = () => {
 			<ScrollToTop />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				{/* <Route path="/post/:id" element={ <Post/>} /> Passando rotas  */}
+				{/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</HashRouter>

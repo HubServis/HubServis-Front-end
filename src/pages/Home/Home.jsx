@@ -48,7 +48,7 @@ const Home = () => {
 
 			<section className="section-service">
 				<span className="title-section-box">
-					<h2>Destaques</h2>
+					<h2 className="font-[600]">Destaques</h2>
 					<BtnOutlinedGreen
 						onclick={() => console.log("view all services button")}
 					>
@@ -68,7 +68,7 @@ const Home = () => {
 
 			<section className="section-all-services">
 				<span className="title-section-box">
-					<h2>Todos</h2>
+					<h2 className="font-[600]">Todos</h2>
 					<BtnOutlinedGreen
 						onclick={() => console.log("view all services button")}
 					>

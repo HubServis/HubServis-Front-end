@@ -4,7 +4,7 @@ import './Style.css';
 
 const Avaliations = () => {
 	return (
-		<span className="container-avaliations">
+		<span className="container-avaliations flex">
 			<Star size={16} color="#00E125" weight="fill"/>
 			<Star size={16} color="#00E125" weight="fill"/>
 			<Star size={16} color="#00E125" weight="fill"/>
