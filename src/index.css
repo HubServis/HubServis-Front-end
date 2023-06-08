@@ -22,3 +22,7 @@
   --gray-almost-white: #F4F4F4;
   --gray-opacity-44: rgba(65, 65, 65, 0.44);
 }
+
+.h2-title-section{
+  @apply font-[700] text-xl;
+}
