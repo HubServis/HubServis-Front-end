@@ -16,7 +16,7 @@ const Home = () => {
 	return (
 		<>
 			<AppBar>
-				<a href="http://">Sobre</a>
+				<a href="/service">Sobre</a>
 				<a href="http://">Planos</a>
 				<a href="http://">Anuncios e eventos</a>
 				<a href="http://">Suporte</a>
@@ -80,14 +80,14 @@ const Home = () => {
 					</BtnOutlinedGreen>
 				</span>
 				<div className="cards-all-services">
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
 				</div>
 				<hr id="divisor-category-highlights" />
 				<section className="section-advertising">

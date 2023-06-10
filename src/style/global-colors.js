@@ -1,0 +1,9 @@
+  export var strong_green = "#00E125";
+  export var dark_green = "#20712D";
+  export var light_green = "#97FFA8";
+  export var white= "#FFFFFF";
+  export var dark_gray = "#414141";
+  export var black= "#1E1E1E";
+  export var lighting_green = "#1E1E1E";
+  export var gray_almost_white = "#F4F4F4";
+  export var gray_opacity_44 = "rgba(65, 65, 65, 0.44)";

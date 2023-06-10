@@ -3,7 +3,7 @@ import "./Style.css";
 import { Heart, Plus } from "@phosphor-icons/react";
 import { Avaliations } from "../";
 
-const CardService = () => {
+const CardService = ({id}) => {
 
 	return (
 		<div className="container-card">
@@ -28,7 +28,9 @@ const CardService = () => {
 					<div className="tooltip">
 						<span className="tooltiptext">Ver mais</span>
 						<div className="icon-plus">
-							<Plus size={32} color="#ffffff" />
+							<a href={`/service/${id}`}>
+								<Plus size={32} color="#ffffff" />
+							</a>
 						</div>
 					</div>
 				</div>
