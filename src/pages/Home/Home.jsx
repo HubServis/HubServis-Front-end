@@ -80,14 +80,14 @@ const Home = () => {
 					</BtnOutlinedGreen>
 				</span>
 				<div className="cards-all-services">
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
-					<CardService />
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
+					<CardService id={"1"}/>
 				</div>
 				<hr id="divisor-category-highlights" />
 				<section className="section-advertising">
