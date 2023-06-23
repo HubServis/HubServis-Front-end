@@ -6,4 +6,6 @@
   export var black= "#1E1E1E";
   export var lighting_green = "#1E1E1E";
   export var gray_almost_white = "#F4F4F4";
+  export var gray = '#ADB5BD';
   export var gray_opacity_44 = "rgba(65, 65, 65, 0.44)";
+  export var medium_light_black = "#2C2C2C";

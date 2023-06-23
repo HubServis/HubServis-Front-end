@@ -1,11 +1,10 @@
 import React from 'react';
+import {MenuSidebar} from '../../components';
 
 const TestePage = () => {
     return (
 		<>
-			<nav className="max-w-[296px] h-screen bg-[var(--black)]">
-				
-			</nav>
+			<MenuSidebar />
 		</>
 	);
 }
