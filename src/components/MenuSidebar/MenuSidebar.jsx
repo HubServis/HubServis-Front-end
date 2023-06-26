@@ -6,7 +6,7 @@ import { gray } from '../../style/global-colors';
 import imgProfile from '../../assets/profile-exemple.png';
 
 const MenuSidebar = () => {
-    const [selected, setSelected] = useState(1);
+    const [selected, setSelected] = useState(0);
 
     const reduceString = (str, numCaracters) => {
         if (str.length <= numCaracters) {
