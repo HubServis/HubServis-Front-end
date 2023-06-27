@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
 import { useLocation } from "react-router-dom";
 import ViewService from "../pages/ViewService";
+import TestePage from "../pages/TestePage/TestePage";
 
 const ScrollToTop = () => {
 	const { pathname } = useLocation();
@@ -20,9 +21,10 @@ const Routers = () => {
 		<BrowserRouter>
 			<ScrollToTop />
 			<Routes>
-					<Route index path="/" element={<Home />} />
-					<Route path="*" element={<NotFound />} />
-					<Route path="/service/:id" element={<ViewService />} />
+				<Route index path="/" element={<Home />} />
+				<Route path="*" element={<NotFound />} />
+				<Route path="/service/:id" element={<ViewService />} />
+				<Route path="/teste" element={<TestePage />} />
 				{/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
 			</Routes>
 		</BrowserRouter>
