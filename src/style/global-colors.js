@@ -8,4 +8,5 @@
   export var gray_almost_white = "#F4F4F4";
   export var gray = '#ADB5BD';
   export var gray_opacity_44 = "rgba(65, 65, 65, 0.44)";
+  export var gray_opacity_50 = "#495057";
   export var medium_light_black = "#2C2C2C";

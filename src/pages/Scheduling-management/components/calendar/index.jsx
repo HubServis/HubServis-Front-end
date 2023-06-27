@@ -4,6 +4,7 @@ import {
 	ArrowCircleRight,
 	Trash,
 	X,
+	MapPin,
 } from "@phosphor-icons/react";
 import {
 	SevenColGrid,
@@ -13,6 +14,7 @@ import {
 	StyledEvent,
 	SeeMore,
 	PortalWrapper,
+	Header,
 } from "./styled";
 import { DAYS, MOCKAPPS, MONTHS } from "./conts";
 import {
@@ -23,6 +25,7 @@ import {
 	nextMonth,
 	prevMonth,
 } from "./utils";
+import { dark_gray, gray_opacity_50 } from "../../../../style/global-colors";
 
 const CalendarScheduling = () => {
 	const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
@@ -87,17 +90,30 @@ const CalendarScheduling = () => {
 
 	return (
 		<Wrapper>
-			<DateControls>
-				<ArrowCircleLeft
-					size={32}
-					onClick={() => prevMonth(currentDate, setCurrentDate)}
-				/>
-				{MONTHS[currentMonth]} {currentYear}
-				<ArrowCircleRight
-					size={32}
-					onClick={() => nextMonth(currentDate, setCurrentDate)}
-				/>
-			</DateControls>
+			<Header>
+				<div className="title-header">
+					<h1>Tabela de Horários</h1>
+					<h2>
+						{MONTHS[currentMonth]} de {currentYear}
+					</h2>
+				</div>
+				<DateControls>
+					<ArrowCircleLeft
+						size={40}
+						onClick={() => prevMonth(currentDate, setCurrentDate)}
+						color={dark_gray}
+					/>
+					<ArrowCircleRight
+						size={40}
+						onClick={() => nextMonth(currentDate, setCurrentDate)}
+						color={dark_gray}
+					/>
+					<div className="location">
+						<MapPin size={20} color={gray_opacity_50} />
+						<p>São Paulo, Brasil</p>
+					</div>
+				</DateControls>
+			</Header>
 			<SevenColGrid>
 				{DAYS.map((day, index) => (
 					<HeadDays className="nonDRAG" key={index}>
@@ -105,7 +121,6 @@ const CalendarScheduling = () => {
 					</HeadDays>
 				))}
 			</SevenColGrid>
-
 			<SevenColGrid
 				fullheight={true}
 				is28Days={getDaysInMonth(currentDate) === 28}
@@ -151,7 +166,7 @@ const CalendarScheduling = () => {
 									: ""
 							}`}
 						>
-							{day}
+							<p className="day">{day}</p>
 						</span>
 						<EventWrapper>
 							{events.map(
@@ -168,12 +183,10 @@ const CalendarScheduling = () => {
 											onDragStart={(e) => drag(index, e)}
 											onClick={() => handleOnClickEvent(ev)}
 											draggable
-											className="StyledEvent"
 											id={`${ev.color} ${ev.title}`}
 											key={ev.title}
-											bgColor={ev.color}
 										>
-											{ev.title}
+											<p>{ev.title}</p>
 										</StyledEvent>
 									)
 							)}
