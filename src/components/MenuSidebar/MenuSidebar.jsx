@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../assets/HS-DESIGN.png';
-import CardSelect from './components/cardSelect';
+import CardSelect from './components/CardSelect';
 import { House, CalendarCheck, CurrencyCircleDollar, UserCircle, Toolbox, Package, UsersThree, ToggleRight, Gear } from "@phosphor-icons/react";
 import { gray } from '../../style/global-colors';
 import imgProfile from '../../assets/profile-exemple.png';
