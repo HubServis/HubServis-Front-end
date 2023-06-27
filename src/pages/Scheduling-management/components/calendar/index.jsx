@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import "./style.css";
 import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
 import { DAYS, MONTHS } from "./count";
-import { range, getDaysInMonth } from "./utils";
+import { range, getDaysInMonth, getSortedDays, getDateObj, areDatesTheSame } from "./utils";
+import { CalenderBody, StyledDay } from "./styled";
 
 const CalendarScheduling = ({ startingDate }) => {
 	const [currentMonth, setCurrentMonth] = useState(startingDate.getMonth());
 	const [currentYear, setCurrentYear] = useState(startingDate.getFullYear());
+	const DAYSINAMONTH = getDaysInMonth(currentMonth, currentYear);
 
-	// parou aqui, integrar styledComponents no projeto: https://youtu.be/gcRZ8Ysgquc?t=662
+	// parou aqui: https://youtu.be/gcRZ8Ysgquc?t=934
 
 	return (
 		<>
@@ -20,20 +22,23 @@ const CalendarScheduling = ({ startingDate }) => {
 					</p>
 					<ArrowCircleRight size={32} />
 				</div>
-
 				<div className="sevenColorGrid">
-					{DAYS.map((day) => (
+					{getSortedDays(currentMonth, currentYear).map((day) => (
 						<span className="text-center bg-green-400 text-xl">{day}</span>
 					))}
 				</div>
-
-				<div className="CalenderBody">
-					{range(getDaysInMonth(currentMonth, currentYear)).map((day) => (
-						<span className="border-black border-[1px] text-right p-2 ">
+				<CalenderBody fourCol={DAYSINAMONTH === 28}>
+					{range(DAYSINAMONTH).map((day) => (
+						<StyledDay
+							active={areDatesTheSame(
+								new Date(),
+								getDateObj(day, currentMonth, currentYear)
+							)}
+						>
 							{day}
-						</span>
+						</StyledDay>
 					))}
-				</div>
+				</CalenderBody>
 			</div>
 		</>
 	);
