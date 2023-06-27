@@ -13,3 +13,12 @@ export const StyledDay = styled.span`
     padding: 5px;
     ${({active}) => active && `background: pink`};
 `;
+
+export const StyledEvents = styled.span`
+    display: grid;
+    text-align: left;
+    background: ${({bgColor}) => bgColor || 'purple'};
+    color: white;
+    padding: 2px 5px;
+    border-radius: 8px;
+`;

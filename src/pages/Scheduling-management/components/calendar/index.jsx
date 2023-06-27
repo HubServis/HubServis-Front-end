@@ -8,10 +8,11 @@ import {
 	getSortedDays,
 	getDateObj,
 	areDatesTheSame,
+	getRandomDarkColor,
 } from "./utils";
-import { CalenderBody, StyledDay } from "./styled";
+import { CalenderBody, StyledDay, StyledEvents } from "./styled";
 
-const CalendarScheduling = ({ startingDate }) => {
+const CalendarScheduling = ({ startingDate, eventsArr, addEvent }) => {
 	const [currentMonth, setCurrentMonth] = useState(startingDate.getMonth());
 	const [currentYear, setCurrentYear] = useState(startingDate.getFullYear());
 	const DAYSINAMONTH = getDaysInMonth(currentMonth, currentYear);
@@ -34,6 +35,10 @@ const CalendarScheduling = ({ startingDate }) => {
 		}
 	};
 
+	const onAddEvent = (date) => {
+		addEvent(date, getRandomDarkColor());
+	}
+
 	return (
 		<>
 			<div className="w-full h-screen  border border-solid m-[5px]">
@@ -45,19 +50,29 @@ const CalendarScheduling = ({ startingDate }) => {
 					<ArrowCircleRight size={32} onClick={nextMonth} />
 				</div>
 				<div className="sevenColorGrid">
-					{getSortedDays(currentMonth, currentYear).map((day) => (
-						<span className="text-center bg-green-400 text-xl">{day}</span>
+					{getSortedDays(currentMonth, currentYear).map((day, index) => (
+						<span className="text-center bg-green-400 text-xl" key={index}>{day}</span>
 					))}
 				</div>
 				<CalenderBody fourCol={DAYSINAMONTH === 28}>
-					{range(DAYSINAMONTH).map((day) => (
-						<StyledDay
+					{range(DAYSINAMONTH).map((day, index) => (
+						<StyledDay key={index}
+							onClick={() =>
+								onAddEvent(getDateObj(day, currentMonth, currentYear))
+							}
 							active={areDatesTheSame(
 								new Date(),
 								getDateObj(day, currentMonth, currentYear)
 							)}
 						>
-							{day}
+							<p>{day}</p>
+							{eventsArr.map(
+								(event, index) =>
+									areDatesTheSame(
+										getDateObj(day, currentMonth, currentYear),
+										event.date
+									) && <StyledEvents key={index} bgColor={event?.color}>{event.title}</StyledEvents>
+							)}
 						</StyledDay>
 					))}
 				</CalenderBody>
