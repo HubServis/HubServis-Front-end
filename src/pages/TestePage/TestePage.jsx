@@ -1,14 +1,13 @@
 import React from 'react';
-import CalendarScheduling from '../Scheduling-management/components/calendar';
+import SchedulingManagement from '../Scheduling-management/components/Scheduling-Management';
 
 const TestePage = () => {
 
-    return (
-			<>
-				{/* <MenuSidebar /> */}
-				<CalendarScheduling/>
-			</>
-		);
+	return (
+		<>
+			<SchedulingManagement />
+		</>
+	);
 }
- 
+
 export default TestePage;

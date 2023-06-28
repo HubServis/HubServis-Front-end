@@ -23,6 +23,7 @@ export const Wrapper = styled.div`
 	border-radius: 8px;
 	margin: 10px 10px;
 	height: 98vh;
+	width: calc(100% - 296px);
 `;
 
 export const StyledEvent = styled.span`
@@ -55,7 +56,7 @@ export const StyledEvent = styled.span`
 export const SevenColGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
-	${(props) => props.fullheight && `height: calc(100% - 80px);`}
+	${(props) => props.fullheight && `height: calc(100% - 165px);`}
 	${(props) =>
 		props.fullheight &&
 		`grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
