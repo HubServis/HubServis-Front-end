@@ -5,7 +5,7 @@ import { House, CalendarCheck, CurrencyCircleDollar, UserCircle, Toolbox, Packag
 import { gray } from '../../style/global-colors';
 import imgProfile from '../../assets/profile-exemple.png';
 
-const MenuSidebar = () => {
+const MenuSidebar = ({ children }) => {
     const [selected, setSelected] = useState(0);
 
     const reduceString = (str, numCaracters) => {
@@ -17,7 +17,7 @@ const MenuSidebar = () => {
     }
 
     return (
-        <>
+        <div className='flex'>
             <nav className="max-w-[296px] h-screen bg-[var(--black)] pt-10 flex flex-col justify-between">
                 <div>
                     <div className='flex items-center gap-2 ml-9 mb-10'>
@@ -104,7 +104,7 @@ const MenuSidebar = () => {
                     <div className='bg-[#2C2C2C] mx-3 px-4 mb-3 py-2 rounded-[10px] w-[60px] h-[60px] flex items-center cursor-pointer'>
                         <ToggleRight fill={gray} size={30} />
                     </div>
-                    
+
                     <div className='flex bg-[#2C2C2C] mx-3 px-4 py-2 rounded-[10px] gap-1'>
                         <span className='max-w-[44px] max-h-[44px] overflow-hidden border border-[var(--strong-green)] rounded-full border-[2px]'>
                             <img src={imgProfile} alt="profile photo" className='object-cover' />
@@ -116,7 +116,8 @@ const MenuSidebar = () => {
                     </div>
                 </div>
             </nav>
-        </>
+            {children}
+        </div>
     );
 }
 

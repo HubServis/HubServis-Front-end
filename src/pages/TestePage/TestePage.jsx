@@ -1,12 +1,13 @@
 import React from 'react';
-import {MenuSidebar} from '../../components';
+import SchedulingManagement from '../Scheduling-management/components/Scheduling-Management';
 
 const TestePage = () => {
-    return (
+
+	return (
 		<>
-			<MenuSidebar />
+			<SchedulingManagement />
 		</>
 	);
 }
- 
+
 export default TestePage;
