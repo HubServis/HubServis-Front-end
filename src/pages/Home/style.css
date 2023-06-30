@@ -1,11 +1,14 @@
-.banner{
+#section-banner{
+    margin: auto;
     max-width: 1440px;
+}
+
+.banner{
     display: flex;
     justify-content: space-between;
     position: relative;
+    height: 29.3rem;
     margin: 45px 20px;
-    /* background: red; */
-    /* max-height: 500px; */
 }
 
 #bg-banner{
@@ -87,4 +90,55 @@
    font-size: 14px;
    padding: 16px 40px;
    border-radius: 9px;
+}
+
+#divisor-category-highlights{
+    max-width: 1440px;
+    height: 1px;
+    width: 95%;
+    margin: 1.75rem auto 4.3rem auto;
+    background: var(--gray-almost-white);
+    border: none;
+}
+
+.section-service,
+.section-all-services{
+    max-width: 1440px;
+    margin: 5rem auto 2.5rem auto;
+    padding: 0 38px;
+}
+
+.section-service > h2,
+.section-all-services > h2{
+    margin-bottom: 2rem;
+}
+
+.title-section-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-service > .cards,
+.section-all-services > .cards-all-services{
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-all-services > .cards-all-services{
+    flex-wrap: wrap;
+}
+
+.section-advertising{
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+}
+
+.section-advertising div:nth-child(1) > h2{
+    margin-bottom: 20px;
+}
+
+.section-advertising div:nth-child(1) > p{
+    margin-bottom: 90px;
 }

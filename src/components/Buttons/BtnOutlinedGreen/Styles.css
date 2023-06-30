@@ -1,0 +1,10 @@
+.btn-outlined-green{
+    font-weight: 600;
+    font-size: 14;
+    color: var(--light-green);
+    padding: 1rem 1.8rem;
+    background-color: transparent;
+    border: 2px solid var(--light-green);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
