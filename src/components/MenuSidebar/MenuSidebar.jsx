@@ -30,7 +30,7 @@ const MenuSidebar = ({ children }) => {
   return expand ? (
     <div className="flex">
       <nav
-        className="max-w-[296px] h-screen bg-[var(--black)] pt-10 flex flex-col justify-between duration-200"
+        className="max-w-[296px] bg-[var(--black)] pt-10 flex flex-col justify-between duration-200"
         onMouseLeave={() => setExpand(false)}
       >
         <div>
@@ -187,7 +187,7 @@ const MenuSidebar = ({ children }) => {
   ) : (
     <div className="flex flex-row">
       <nav
-        className="max-w-[90px] pt-6 h-screen bg-[var(--black)] flex flex-col items-center justify-between duration-500"
+        className="max-w-[90px] pt-6 bg-[var(--black)] flex flex-col items-center justify-between duration-500"
         onMouseOver={() => setExpand(true)}
       >
         <div className="flex flex-col items-center mt-3">
