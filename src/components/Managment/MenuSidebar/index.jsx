@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import logo from "../../assets/HS-DESIGN.png";
+import { useState } from "react";
+import logo from "../../../assets/HS-DESIGN.png";
 import CardSelect from "./components/CardSelect";
 import {
   House,
@@ -12,10 +12,10 @@ import {
   ToggleRight,
   Gear,
 } from "@phosphor-icons/react";
-import { gray } from "../../style/global-colors";
-import imgProfile from "../../assets/profile-exemple.png";
+import { gray } from "../../../style/global-colors.js";
+import imgProfile from "../../../assets/profile-exemple.png";
 
-const MenuSidebar = ({ children }) => {
+export const MenuSidebar = ({ children, context, setContext }) => {
   const [selected, setSelected] = useState(0);
   const [expand, setExpand] = useState(false);
 
@@ -30,11 +30,11 @@ const MenuSidebar = ({ children }) => {
   return expand ? (
     <div className="flex">
       <nav
-        className="max-w-[296px] bg-[var(--black)] pt-10 flex flex-col justify-between duration-200"
+        className="max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-between duration-200 h-100%"
         onMouseLeave={() => setExpand(false)}
       >
-        <div>
-          <div className="flex items-center gap-2 ml-9 mb-10">
+        <div className="flex flex-col items-start mt-3">
+          <div className="flex items-center gap-2 ml-5 mb-10">
             <img src={logo} alt="HubServis Logo" className="w-[50px] rounded" />
             <h1 className="font-extrabold text-[26px] text-[var(--dark-green)]">
               HubServis
@@ -60,8 +60,9 @@ const MenuSidebar = ({ children }) => {
               style={{ color: "white" }}
               className="ml-[5rem] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]">Agendamentos</p>
-              <p className="max-w-[fit-content]">Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(0)}>Agendamentos</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(1)}>Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(2)}>Bloqueios</p>
             </div>
           </CardSelect>
 
@@ -75,8 +76,8 @@ const MenuSidebar = ({ children }) => {
               style={{ color: "white" }}
               className="ml-[5rem] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]">Agendamentos</p>
-              <p className="max-w-[fit-content]">Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(3)}>Comandas</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(4)}>Relatórios</p>
             </div>
           </CardSelect>
 
@@ -90,8 +91,7 @@ const MenuSidebar = ({ children }) => {
               style={{ color: "white" }}
               className="ml-[5rem] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]">Agendamentos</p>
-              <p className="max-w-[fit-content]">Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(5)}>Listagem</p>
             </div>
           </CardSelect>
 
@@ -105,8 +105,8 @@ const MenuSidebar = ({ children }) => {
               style={{ color: "white" }}
               className="ml-[5rem] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]">Agendamentos</p>
-              <p className="max-w-[fit-content]">Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(6)}>Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(7)}>Categorias</p>
             </div>
           </CardSelect>
 
@@ -120,8 +120,8 @@ const MenuSidebar = ({ children }) => {
               style={{ color: "white" }}
               className="ml-[5rem] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]">Agendamentos</p>
-              <p className="max-w-[fit-content]">Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(8)}>Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(9)}>Categorias</p>
             </div>
           </CardSelect>
 
@@ -135,8 +135,8 @@ const MenuSidebar = ({ children }) => {
               style={{ color: "white" }}
               className="ml-[5rem] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]">Agendamentos</p>
-              <p className="max-w-[fit-content]">Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(10)}>Profissionais</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(11)}>Expedientes</p>
             </div>
           </CardSelect>
 
@@ -150,8 +150,8 @@ const MenuSidebar = ({ children }) => {
               style={{ color: "white" }}
               className="ml-[5rem] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]">Agendamentos</p>
-              <p className="max-w-[fit-content]">Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(12)}>Agendamentos</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(13)}>Listagem</p>
             </div>
           </CardSelect>
 
@@ -185,9 +185,9 @@ const MenuSidebar = ({ children }) => {
       {children}
     </div>
   ) : (
-    <div className="flex flex-row">
+    <div className="flex">
       <nav
-        className="max-w-[90px] pt-6 bg-[var(--black)] flex flex-col items-center justify-between duration-500"
+        className="max-w-[90px] pt-6 bg-[var(--black)] flex flex-col items-center justify-between duration-200 h-100%"
         onMouseOver={() => setExpand(true)}
       >
         <div className="flex flex-col items-center mt-3">
@@ -283,5 +283,3 @@ const MenuSidebar = ({ children }) => {
     </div>
   );
 };
-
-export default MenuSidebar;

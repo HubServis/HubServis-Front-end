@@ -1,6 +1,6 @@
 import React from "react";
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
-import { gray } from "../../../style/global-colors";
+import { gray } from "../../../../style/global-colors";
 
 const CardSelect = ({
   children,

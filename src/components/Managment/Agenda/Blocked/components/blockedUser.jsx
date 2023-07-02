@@ -1,4 +1,4 @@
-export const BlockedUsers = () => {
+export const BlockedUser = () => {
   return (
     <div className="h-[72px]bg">
       <div></div>

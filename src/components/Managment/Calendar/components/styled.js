@@ -21,9 +21,7 @@ export const Header = styled.div`
 export const Wrapper = styled.div`
 	border: 2px solid var(--light-green);
 	border-radius: 8px;
-	margin: 10px 10px;
 	height: 98vh;
-	width: calc(100% - 296px);
 `;
 
 export const StyledEvent = styled.span`
