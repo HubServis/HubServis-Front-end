@@ -1,4 +1,3 @@
-import calendarCheck from "../../../../../assets/Managment/CalendarCheckGreen.svg";
 import pencil from "../../../../../assets/Managment/pencil.svg";
 import trash from "../../../../../assets/Managment/trash.svg";
 import checkMark from "../../../../../assets/Managment/selection.svg";
