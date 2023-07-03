@@ -28,12 +28,12 @@ export const MenuSidebar = ({ children, context, setContext }) => {
   };
 
   return expand ? (
-    <div className="flex">
+    <div className="flex h-screen">
       <nav
         className="max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-between duration-200 h-100%"
         onMouseLeave={() => setExpand(false)}
       >
-        <div className="flex flex-col items-start mt-3">
+        <div className="flex flex-col items-start mt-3 gap-[5px]">
           <div className="flex items-center gap-2 ml-5 mb-10">
             <img src={logo} alt="HubServis Logo" className="w-[50px] rounded" />
             <h1 className="font-extrabold text-[26px] text-[var(--dark-green)]">
@@ -46,6 +46,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             clickFunction={() => setSelected(1)}
             title="Home"
             icon={<House fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <p>Hello World</p>
           </CardSelect>
@@ -55,14 +56,21 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             clickFunction={() => setSelected(2)}
             title="Agenda"
             icon={<CalendarCheck fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] max-w-[fit-content] "
+              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]" onClick={() => setContext(0)}>Agendamentos</p>
-              <p className="max-w-[fit-content]" onClick={() => setContext(1)}>Listagem</p>
-              <p className="max-w-[fit-content]" onClick={() => setContext(2)}>Bloqueios</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(0)}>
+                Agendamentos
+              </p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(1)}>
+                Listagem
+              </p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(2)}>
+                Bloqueios
+              </p>
             </div>
           </CardSelect>
 
@@ -71,13 +79,18 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             clickFunction={() => setSelected(3)}
             title="Financeiro"
             icon={<CurrencyCircleDollar fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] max-w-[fit-content] "
+              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]" onClick={() => setContext(3)}>Comandas</p>
-              <p className="max-w-[fit-content]" onClick={() => setContext(4)}>Relatórios</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(3)}>
+                Comandas
+              </p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(4)}>
+                Relatórios
+              </p>
             </div>
           </CardSelect>
 
@@ -86,12 +99,15 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             clickFunction={() => setSelected(4)}
             title="Clientes"
             icon={<UserCircle fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] max-w-[fit-content] "
+              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]" onClick={() => setContext(5)}>Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(5)}>
+                Listagem
+              </p>
             </div>
           </CardSelect>
 
@@ -100,13 +116,18 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             clickFunction={() => setSelected(5)}
             title="Serviços"
             icon={<Toolbox fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] max-w-[fit-content] "
+              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]" onClick={() => setContext(6)}>Listagem</p>
-              <p className="max-w-[fit-content]" onClick={() => setContext(7)}>Categorias</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(6)}>
+                Listagem
+              </p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(7)}>
+                Categorias
+              </p>
             </div>
           </CardSelect>
 
@@ -115,13 +136,18 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             clickFunction={() => setSelected(6)}
             title="Produtos"
             icon={<Package fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] max-w-[fit-content] "
+              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]" onClick={() => setContext(8)}>Listagem</p>
-              <p className="max-w-[fit-content]" onClick={() => setContext(9)}>Categorias</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(8)}>
+                Listagem
+              </p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(9)}>
+                Categorias
+              </p>
             </div>
           </CardSelect>
 
@@ -130,28 +156,38 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             clickFunction={() => setSelected(7)}
             title="Equipe"
             icon={<UsersThree fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] max-w-[fit-content] "
+              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]" onClick={() => setContext(10)}>Profissionais</p>
-              <p className="max-w-[fit-content]" onClick={() => setContext(11)}>Expedientes</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(10)}>
+                Profissionais
+              </p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(11)}>
+                Expedientes
+              </p>
             </div>
           </CardSelect>
 
           <CardSelect
-            open={selected == 7 && true}
-            clickFunction={() => setSelected(7)}
+            open={selected == 8 && true}
+            clickFunction={() => setSelected(8)}
             title="Settings"
             icon={<Gear fill={gray} size={30} className="" />}
+            isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] max-w-[fit-content] "
+              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p className="max-w-[fit-content]" onClick={() => setContext(12)}>Agendamentos</p>
-              <p className="max-w-[fit-content]" onClick={() => setContext(13)}>Listagem</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(12)}>
+                Agendamentos
+              </p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(13)}>
+                Listagem
+              </p>
             </div>
           </CardSelect>
 
@@ -185,7 +221,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
       {children}
     </div>
   ) : (
-    <div className="flex">
+    <div className="flex h-screen">
       <nav
         className="max-w-[90px] pt-6 bg-[var(--black)] flex flex-col items-center justify-between duration-200 h-100%"
         onMouseOver={() => setExpand(true)}
@@ -194,71 +230,32 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           <img
             src={logo}
             alt="HubServis Logo"
-            className="max-w-[50px] rounded mb-[10px] mt-[10px]"
+            className="max-w-[50px] rounded mb-[45px] mt-[0px]"
+          />
+
+          <CardSelect isEnabled={false} icon={<House fill={gray} size={30} className="" />} />
+
+          <CardSelect
+            icon={<CalendarCheck fill={gray} size={30} className="" />}
           />
 
           <CardSelect
-            icon={<House fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
-
-          <CardSelect
-            clickFunction={() => setSelected(2)}
-            icon={<CalendarCheck fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
-
-          <CardSelect
-            clickFunction={() => setSelected(3)}
             icon={<CurrencyCircleDollar fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
+          />
 
           <CardSelect
-            clickFunction={() => setSelected(4)}
             icon={<UserCircle fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
+          />
+
+          <CardSelect icon={<Toolbox fill={gray} size={30} className="" />} />
+
+          <CardSelect icon={<Package fill={gray} size={30} className="" />} />
 
           <CardSelect
-            clickFunction={() => setSelected(5)}
-            icon={<Toolbox fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
-
-          <CardSelect
-            clickFunction={() => setSelected(6)}
-            icon={<Package fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
-
-          <CardSelect
-            clickFunction={() => setSelected(7)}
             icon={<UsersThree fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
+          />
 
-          <CardSelect
-            clickFunction={() => setSelected(7)}
-            icon={<Gear fill={gray} size={30} className="" />}
-            isEnabled={expand}
-          >
-            <p>Hello World</p>
-          </CardSelect>
+          <CardSelect icon={<Gear fill={gray} size={30} className="" />} />
 
           <hr className="w-[98%] m-auto bg-[var(--dark-gray)] border-[var(--dark-gray)] mt-7" />
         </div>

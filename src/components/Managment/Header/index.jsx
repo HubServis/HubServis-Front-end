@@ -17,6 +17,7 @@ export const HeaderManagment = () => {
         <input
           className="text-[#30883F] outline-none"
           placeholder="Search here"
+          type="search"
           onChange={(event) => setSearch(event.target.value)}
         />
       </div>
@@ -31,7 +32,9 @@ export const HeaderManagment = () => {
 
         <div className="flex items-center gap-[10px]">
           <img src={clockIcon} alt="clock icon" />
-          <p className="whitespace-nowrap">{date.getHours()}</p>
+          <p className="whitespace-nowrap">
+            {date.getHours()}:{date.getMinutes()}
+          </p>
         </div>
 
         <div className="p-[9px] border-[1px] rounded-[8px] border-black">
