@@ -1,4 +1,6 @@
-export const ListCategory = () => {
+import { BtnToggle } from '../../../../Buttons/BtnToggle';
+
+export const ProfessionalListModel = () => {
   return (
     <div className="py-[14px] px-[24px] flex justify-between items-center border-2 rounded-[8px] border-[var(--light-green)]">
       <div className="flex items-center">
@@ -10,12 +12,16 @@ export const ListCategory = () => {
       </div>
 
       <div className="flex items-center">
-        <p>Serviço</p>
+        <p>Horário geral</p>
+      </div>
+
+      <div className="flex items-center">
+        <p>Nome</p>
       </div>
 
       <div className="flex gap-[10px]">
-        <p>Ativado</p>
-        <div></div>
+		<p>Ativado</p>
+		<BtnToggle />
       </div>
     </div>
   );

@@ -2,15 +2,15 @@ import { useState } from "react";
 
 import crossIcon from "../../../../assets/Managment/plus.svg";
 
-import { NewClientModal } from "./components/newClientModal";
-import { ListUserModel } from "./components/listUserModel";
+import { ListProductsModel } from "./components/listProductsModel";
+import { NewProductModal } from "./components/newProductModal";
 
-export const ClientList = () => {
+export const ProductList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="py-[22px] px-[17px] border-2 rounded-[8px] border-[var(--light-green)]">
-      <h2 className="font-bold text-[20px]">Listagem de Clientes</h2>
+      <h2 className="font-bold text-[20px]">Listagem de Produtos</h2>
 
       <div className="mt-[65px]">
         <div className="flex justify-between">
@@ -19,7 +19,7 @@ export const ClientList = () => {
             onClick={() => setIsOpen(true)}
           >
             <img src={crossIcon} alt="cross icon" />
-            <p>Novo cliente</p>
+            <p>Novo Produto</p>
           </div>
 
           <div className="flex w-[150px] h-[56px] py-[10px] px-[19px] border-2 rounded-[8px] border-[var(--light-green)]">
@@ -35,12 +35,12 @@ export const ClientList = () => {
         </div>
 
         <div className="overflow-auto max-h-[500px] flex flex-col mt-[35px] gap-[20px]">
-          <ListUserModel />
-          <ListUserModel />
+          <ListProductsModel />
+          <ListProductsModel />
         </div>
       </div>
 
-      <NewClientModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <NewProductModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };

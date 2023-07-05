@@ -2,15 +2,15 @@ import { useState } from "react";
 
 import crossIcon from "../../../../assets/Managment/plus.svg";
 
-import { ListCategoryModel } from "./components/listCategoryModel";
-import { NewCategoryModal } from "./components/newCategoryModal";
+import { OfficeHourModel } from "./components/officeHourModel";
+import { NewOfficeHourModal } from "./components/newOfficeHourModal";
 
-export const CategoryServiceList = () => {
+export const OfficeHour = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="py-[22px] px-[17px] border-2 rounded-[8px] border-[var(--light-green)]">
-      <h2 className="font-bold text-[20px]">Categoria de Serviços</h2>
+      <h2 className="font-bold text-[20px]">Expediente de profissionais</h2>
 
       <div className="mt-[65px]">
         <div className="flex justify-between">
@@ -19,17 +19,17 @@ export const CategoryServiceList = () => {
             onClick={() => setIsOpen(true)}
           >
             <img src={crossIcon} alt="cross icon" />
-            <p>Nova categoria</p>
+            <p>Novo expediente</p>
           </div>
         </div>
 
         <div className="overflow-auto max-h-[500px] flex flex-col mt-[35px] gap-[20px]">
-          <ListCategoryModel />
-          <ListCategoryModel />
+          <OfficeHourModel />
+          <OfficeHourModel />
         </div>
       </div>
 
-      <NewCategoryModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <NewOfficeHourModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };

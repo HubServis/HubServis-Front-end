@@ -7,24 +7,30 @@ import { ListAgenda } from "../../components/Managment/Agenda/List";
 import { BlockList } from "../../components/Managment/Agenda/Blocked";
 import { ClientList } from "../../components/Managment/Clients/List";
 import { ServiceList } from "../../components/Managment/Services/List";
-import { CategoryList } from "../../components/Managment/Services/Category";
+import { CategoryServiceList } from "../../components/Managment/Services/Category";
+import { ProductList } from "../../components/Managment/Products/List";
+import { ProductCategory } from "../../components/Managment/Products/Category";
+import { ProffesionalList } from "../../components/Managment/Professional/List";
+import { OfficeHour } from "../../components/Managment/Professional/OfficeHour";
 
 const contextPages = [
   { section: <Calendar /> },
   { section: <ListAgenda /> },
   { section: <BlockList /> },
+
   { section: <Calendar /> },
   { section: <Calendar /> },
+
   { section: <ClientList /> },
+
   { section: <ServiceList /> },
-  { section: <CategoryList /> },
-  { section: <Calendar /> },
-  { section: <Calendar /> },
-  { section: <Calendar /> },
-  { section: <Calendar /> },
-  { section: <Calendar /> },
-  { section: <Calendar /> },
-  { section: <Calendar /> },
+  { section: <CategoryServiceList /> },
+
+  { section: <ProductList /> },
+  { section: <ProductCategory /> },
+
+  { section: <ProffesionalList /> },
+  { section: <OfficeHour /> },
 ];
 
 export const MainManagment = () => {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { BlockedUser } from "./components/blockedUser";
+import { BlockedUserModel } from "./components/blockedUserModel";
 import { NewBlockModal } from "./components/newBlockModal";
 
 import crossIcon from "../../../../assets/Managment/plus.svg";
@@ -22,8 +22,8 @@ export const BlockList = () => {
         </div>
 
         <div className="overflow-auto max-h-[500px] flex flex-col mt-[35px] gap-[20px]">
-          <BlockedUser />
-          <BlockedUser />
+          <BlockedUserModel />
+          <BlockedUserModel />
         </div>
       </div>
 

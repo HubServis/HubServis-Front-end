@@ -1,11 +1,10 @@
 import pencil from "../../../../../assets/Managment/pencil.svg";
 import trash from "../../../../../assets/Managment/trash.svg";
 import checkMark from "../../../../../assets/Managment/selection.svg";
-import phone from '../../../../../assets/Managment/phone.svg';
 import paypal from '../../../../../assets/Managment/paypalLogo.svg';
-import timer from '../../../../../assets/Managment/timer.svg';
+import receipt from '../../../../../assets/Managment/Receipt.svg';
 
-export const ListService = () => {
+export const ListProductsModel = () => {
   return (
     <div className="py-[14px] px-[24px] flex justify-between items-center border-2 rounded-[8px] border-[var(--light-green)]">
       <div className="flex items-center">
@@ -17,8 +16,7 @@ export const ListService = () => {
       </div>
 
       <div className="flex items-center">
-		<img src={phone} alt="telephone" />
-        <p>(11) 99962-4565</p>
+        <p>Item</p>
       </div>
 
       <div className="flex items-center">
@@ -27,8 +25,12 @@ export const ListService = () => {
       </div>
 
       <div className="flex items-center">
-        <img src={timer} alt="Calendar Check" />
-        <p>20/07/2023 - 07:00 AM</p>
+        <img src={receipt} alt="Calendar Check" />
+        <p>R$ 6,00</p>
+      </div>
+
+      <div className="flex items-center">
+        <p>quantidade</p>
       </div>
 
       <div className="flex gap-[10px]">

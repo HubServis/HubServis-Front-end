@@ -1,6 +1,6 @@
 import calendarBlackIcon from "../../../../assets/Managment/calendarBlank.svg";
 
-import { ListUser } from "./components/listUser";
+import { ListUserModel } from "./components/listUserModel";
 
 export const ListAgenda = () => {
   return (
@@ -40,8 +40,8 @@ export const ListAgenda = () => {
       </div>
 
       <div className="overflow-auto max-h-[500px] flex flex-col mt-[40px] gap-[20px]">
-        <ListUser />
-        <ListUser />
+        <ListUserModel />
+        <ListUserModel />
       </div>
     </div>
   );

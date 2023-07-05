@@ -4,7 +4,7 @@ import trash from "../../../../../assets/Managment/trash.svg";
 import checkMark from "../../../../../assets/Managment/selection.svg";
 import person from "../../../../../assets/Managment/image 88.png";
 
-export const ListUser = () => {
+export const ListUserModel = () => {
   return (
     <div className="py-[14px] px-[24px] flex justify-between items-center border-2 rounded-[8px] border-[var(--light-green)]">
       <div className="flex items-center">

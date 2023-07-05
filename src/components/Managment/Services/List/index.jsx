@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import crossIcon from "../../../../assets/Managment/plus.svg";
 
-import { ListService } from "./components/listService";
+import { ListServiceModel } from "./components/listServiceModel";
 import { NewServiceModal } from "./components/newServiceModal";
 
 export const ServiceList = () => {
@@ -10,7 +10,7 @@ export const ServiceList = () => {
 
   return (
     <div className="py-[22px] px-[17px] border-2 rounded-[8px] border-[var(--light-green)]">
-      <h2 className="font-bold text-[20px]">Listagem de Clientes</h2>
+      <h2 className="font-bold text-[20px]">Listagem de Serviço</h2>
 
       <div className="mt-[65px]">
         <div className="flex justify-between">
@@ -35,8 +35,8 @@ export const ServiceList = () => {
         </div>
 
         <div className="overflow-auto max-h-[500px] flex flex-col mt-[35px] gap-[20px]">
-          <ListService />
-          <ListService />
+          <ListServiceModel />
+          <ListServiceModel />
         </div>
       </div>
 
