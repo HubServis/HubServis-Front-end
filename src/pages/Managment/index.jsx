@@ -12,13 +12,14 @@ import { ProductList } from "../../components/Managment/Products/List";
 import { ProductCategory } from "../../components/Managment/Products/Category";
 import { ProffesionalList } from "../../components/Managment/Professional/List";
 import { OfficeHour } from "../../components/Managment/Professional/OfficeHour";
+import { Command } from "../../components/Managment/Financeiro/Command";
 
 const contextPages = [
   { section: <Calendar /> },
   { section: <ListAgenda /> },
   { section: <BlockList /> },
 
-  { section: <Calendar /> },
+  { section: <Command /> },
   { section: <Calendar /> },
 
   { section: <ClientList /> },

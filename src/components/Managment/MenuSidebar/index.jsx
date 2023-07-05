@@ -28,7 +28,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
   };
 
   return expand ? (
-    <div className="flex h-screen">
+    <div className="flex h-[100%]">
       <nav
         className="max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-between duration-200 h-100%"
         onMouseLeave={() => setExpand(false)}
@@ -221,7 +221,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
       {children}
     </div>
   ) : (
-    <div className="flex h-screen">
+    <div className="flex h-[100%]">
       <nav
         className="max-w-[90px] pt-6 bg-[var(--black)] flex flex-col items-center justify-between duration-200 h-100%"
         onMouseOver={() => setExpand(true)}
@@ -233,7 +233,10 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             className="max-w-[50px] rounded mb-[45px] mt-[0px]"
           />
 
-          <CardSelect isEnabled={false} icon={<House fill={gray} size={30} className="" />} />
+          <CardSelect
+            isEnabled={false}
+            icon={<House fill={gray} size={30} className="" />}
+          />
 
           <CardSelect
             icon={<CalendarCheck fill={gray} size={30} className="" />}
