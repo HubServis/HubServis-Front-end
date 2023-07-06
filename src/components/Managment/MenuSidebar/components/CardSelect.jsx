@@ -18,10 +18,10 @@ const CardSelect = ({
       >
         <span className={`flex items-center ${ isEnabled ? "gap-[15px]" : "gap-[0px]" }`}>
           {icon}
-          <p className="text-[var(--gray)] text-base">{title || ""}</p>
+          <p className="hidden group-hover/menu:block text-[var(--gray)] text-base">{title || ""}</p>
         </span>
         {isEnabled && (
-          <div>
+          <div className="hidden group-hover/menu:block">
             {open ? (
               <CaretUp fill={gray} size={20} />
             ) : (
