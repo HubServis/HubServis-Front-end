@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 	border-radius: 8px;
 	margin: 10px 10px;
 	height: 100%;
-	width: calc(100% - 296px);
+	width: 100%;
 `;
 
 export const StyledEvent = styled.span`

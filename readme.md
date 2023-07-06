@@ -1,3 +1,4 @@
-## Anotações:
- - Calendario não está trocando o mês no subTitulo
- - Calendário está quebrando na parte de baixo
+## Anotações
+
+## Check list
+- [] arrumar responsividade calendario e menu
