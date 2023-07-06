@@ -17,7 +17,6 @@ import imgProfile from "../../../assets/profile-exemple.png";
 
 export const MenuSidebar = ({ children, context, setContext }) => {
   const [selected, setSelected] = useState(0);
-  const [expand, setExpand] = useState(false);
 
   const reduceString = (str, numCaracters) => {
     if (str.length <= numCaracters) {
@@ -27,40 +26,51 @@ export const MenuSidebar = ({ children, context, setContext }) => {
     }
   };
 
-  return expand ? (
+  const toogleBtnNavigation = (num) => {
+    if (selected == num) {
+      setSelected(0);
+      return;
+    }
+
+    setSelected(num);
+  };
+  
+  return (
     <div className="flex h-[100%]">
-      <nav
-        className="max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-between duration-200 h-100%"
-        onMouseLeave={() => setExpand(false)}
-      >
+      <nav className="max-w-[90px] group/menu hover:max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-between duration-200 h-screen">
         <div className="flex flex-col items-start mt-3 gap-[5px]">
           <div className="flex items-center gap-2 ml-5 mb-10">
             <img src={logo} alt="HubServis Logo" className="w-[50px] rounded" />
-            <h1 className="font-extrabold text-[26px] text-[var(--dark-green)]">
+            <h1 className="hidden group-hover/menu:block font-extrabold text-[26px] text-[var(--dark-green)]">
               HubServis
             </h1>
           </div>
 
           <CardSelect
             open={selected == 1 && true}
-            clickFunction={() => setSelected(1)}
+            clickFunction={() => toogleBtnNavigation(1)}
             title="Home"
             icon={<House fill={gray} size={30} className="" />}
             isEnabled={true}
           >
-            <p>Hello World</p>
+            <div
+              style={{ color: "white" }}
+              className="hidden group-hover/menu:flex ml-[5rem] flex-col gap-[10px] max-w-[fit-content] "
+            >
+              <p>Hello World</p>
+            </div>
           </CardSelect>
 
           <CardSelect
             open={selected == 2 && true}
-            clickFunction={() => setSelected(2)}
+            clickFunction={() => toogleBtnNavigation(2)}
             title="Agenda"
             icon={<CalendarCheck fill={gray} size={30} className="" />}
             isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="hidden group-hover/menu:flex ml-[5rem] flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(0)}>
                 Agendamentos
@@ -76,14 +86,14 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
           <CardSelect
             open={selected == 3 && true}
-            clickFunction={() => setSelected(3)}
+            clickFunction={() => toogleBtnNavigation(3)}
             title="Financeiro"
             icon={<CurrencyCircleDollar fill={gray} size={30} className="" />}
             isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(3)}>
                 Comandas
@@ -96,14 +106,14 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
           <CardSelect
             open={selected == 4 && true}
-            clickFunction={() => setSelected(4)}
+            clickFunction={() => toogleBtnNavigation(4)}
             title="Clientes"
             icon={<UserCircle fill={gray} size={30} className="" />}
             isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(5)}>
                 Listagem
@@ -113,14 +123,14 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
           <CardSelect
             open={selected == 5 && true}
-            clickFunction={() => setSelected(5)}
+            clickFunction={() => toogleBtnNavigation(5)}
             title="Serviços"
             icon={<Toolbox fill={gray} size={30} className="" />}
             isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(6)}>
                 Listagem
@@ -133,14 +143,14 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
           <CardSelect
             open={selected == 6 && true}
-            clickFunction={() => setSelected(6)}
+            clickFunction={() => toogleBtnNavigation(6)}
             title="Produtos"
             icon={<Package fill={gray} size={30} className="" />}
             isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(8)}>
                 Listagem
@@ -153,14 +163,14 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
           <CardSelect
             open={selected == 7 && true}
-            clickFunction={() => setSelected(7)}
+            clickFunction={() => toogleBtnNavigation(7)}
             title="Equipe"
             icon={<UsersThree fill={gray} size={30} className="" />}
             isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(10)}>
                 Profissionais
@@ -173,14 +183,14 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
           <CardSelect
             open={selected == 8 && true}
-            clickFunction={() => setSelected(8)}
+            clickFunction={() => toogleBtnNavigation(8)}
             title="Settings"
             icon={<Gear fill={gray} size={30} className="" />}
             isEnabled={true}
           >
             <div
               style={{ color: "white" }}
-              className="ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(12)}>
                 Agendamentos
@@ -191,7 +201,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
             </div>
           </CardSelect>
 
-          <hr className="w-full max-w-[230px] m-auto bg-[var(--dark-gray)] border-[var(--dark-gray)] mt-7" />
+          <hr className="w-[60px] group-hover/menu:w-full max-w-[230px] m-auto bg-[var(--dark-gray)] border-[var(--dark-gray)] mt-7" />
         </div>
 
         <div className="mb-10 mt-3">
@@ -200,14 +210,14 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           </div>
 
           <div className="flex bg-[#2C2C2C] mx-3 px-4 py-2 rounded-[10px] gap-1">
-            <span className="max-w-[44px] max-h-[44px] overflow-hidden border border-[var(--strong-green)] rounded-full border-[2px]">
+            <span className="max-w-[44px] max-h-11 overflow-hidden border border-[var(--strong-green)] rounded-full border-[2px]">
               <img
                 src={imgProfile}
                 alt="profile photo"
                 className="object-cover"
               />
             </span>
-            <div>
+            <div className="hidden group-hover/menu:block">
               <h4 className="text-[var(--strong-green)] font-medium text-base">
                 Ramilthon
               </h4>
@@ -220,66 +230,70 @@ export const MenuSidebar = ({ children, context, setContext }) => {
       </nav>
       {children}
     </div>
-  ) : (
-    <div className="flex h-[100%]">
-      <nav
-        className="max-w-[90px] pt-6 bg-[var(--black)] flex flex-col items-center justify-between duration-200 h-100%"
-        onMouseOver={() => setExpand(true)}
-      >
-        <div className="flex flex-col items-center mt-3">
-          <img
-            src={logo}
-            alt="HubServis Logo"
-            className="max-w-[50px] rounded mb-[45px] mt-[0px]"
-          />
-
-          <CardSelect
-            isEnabled={false}
-            icon={<House fill={gray} size={30} className="" />}
-          />
-
-          <CardSelect
-            icon={<CalendarCheck fill={gray} size={30} className="" />}
-          />
-
-          <CardSelect
-            icon={<CurrencyCircleDollar fill={gray} size={30} className="" />}
-          />
-
-          <CardSelect
-            icon={<UserCircle fill={gray} size={30} className="" />}
-          />
-
-          <CardSelect icon={<Toolbox fill={gray} size={30} className="" />} />
-
-          <CardSelect icon={<Package fill={gray} size={30} className="" />} />
-
-          <CardSelect
-            icon={<UsersThree fill={gray} size={30} className="" />}
-          />
-
-          <CardSelect icon={<Gear fill={gray} size={30} className="" />} />
-
-          <hr className="w-[98%] m-auto bg-[var(--dark-gray)] border-[var(--dark-gray)] mt-7" />
-        </div>
-
-        <div className="flex flex-col items-center mb-10 mt-3">
-          <div className="bg-[#2C2C2C] mx-3 px-4 mb-3 py-2 rounded-[10px] w-[60px] h-[60px] flex items-center cursor-pointer">
-            <ToggleRight fill={gray} size={30} />
-          </div>
-
-          <div className="w-[60px] flex bg-[#2C2C2C] py-2 rounded-[10px] gap-1 justify-center">
-            <span className="max-w-[44px] max-h-[44px] overflow-hidden border border-[var(--strong-green)] rounded-full border-[2px]">
-              <img
-                src={imgProfile}
-                alt="profile photo"
-                className="object-cover"
-              />
-            </span>
-          </div>
-        </div>
-      </nav>
-      {children}
-    </div>
   );
+  /*
+    : (
+      <div className="flex h-[100%]">
+        <nav
+          className="max-w-[90px] pt-6 bg-[var(--black)] flex flex-col items-center justify-between duration-200 h-screen"
+          onMouseOver={() => setExpand(true)}
+        >
+          <div className="flex flex-col items-center mt-3">
+            <img
+              src={logo}
+              alt="HubServis Logo"
+              className="max-w-[50px] rounded mb-[45px] mt-[0px]"
+            />
+  
+            <CardSelect
+              isEnabled={false}
+              icon={<House fill={gray} size={30} className="" />}
+            />
+  
+            <CardSelect
+              icon={<CalendarCheck fill={gray} size={30} className="" />}
+            />
+  
+            <CardSelect
+              icon={<CurrencyCircleDollar fill={gray} size={30} className="" />}
+            />
+  
+            <CardSelect
+              icon={<UserCircle fill={gray} size={30} className="" />}
+            />
+  
+            <CardSelect icon={<Toolbox fill={gray} size={30} className="" />} />
+  
+            <CardSelect icon={<Package fill={gray} size={30} className="" />} />
+  
+            <CardSelect
+              icon={<UsersThree fill={gray} size={30} className="" />}
+            />
+  
+            <CardSelect icon={<Gear fill={gray} size={30} className="" />} />
+  
+            <hr className="w-[98%] m-auto bg-[var(--dark-gray)] border-[var(--dark-gray)] mt-7" />
+          </div>
+  
+          <div className="flex flex-col items-center mb-10 mt-3">
+            <div className="bg-[#2C2C2C] mx-3 px-4 mb-3 py-2 rounded-[10px] w-[60px] h-[60px] flex items-center cursor-pointer">
+              <ToggleRight fill={gray} size={30} />
+            </div>
+  
+            <div className="w-[60px] flex bg-[#2C2C2C] py-2 rounded-[10px] gap-1 justify-center">
+              <span className="max-w-[44px] max-h-[44px] overflow-hidden border border-[var(--strong-green)] rounded-full border-[2px]">
+                <img
+                  src={imgProfile}
+                  alt="profile photo"
+                  className="object-cover"
+                />
+              </span>
+            </div>
+          </div>
+        </nav>
+        <main className="flex flex-col h-full">
+          {children}
+        </main>
+      </div>
+      );*/
 };

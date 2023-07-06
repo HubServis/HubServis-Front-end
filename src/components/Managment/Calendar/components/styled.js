@@ -21,7 +21,9 @@ export const Header = styled.div`
 export const Wrapper = styled.div`
 	border: 2px solid var(--light-green);
 	border-radius: 8px;
-	height: 98vh;
+	margin: 10px 10px;
+	height: 100%;
+	width: 100%;
 `;
 
 export const StyledEvent = styled.span`
@@ -54,12 +56,14 @@ export const StyledEvent = styled.span`
 export const SevenColGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
-	${(props) => props.fullheight && `height: calc(100% - 165px);`}
+	${(props) => props.fullheight && `height: calc(100% - 100px);`}
 	${(props) =>
 		props.fullheight &&
-		`grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
+		`grid-template-rows: repeat(${props.is28Days ? 4 : 5}, minmax(100px, 1fr));`}
   	
 	div {
+		height: 100%;
+		min-height: 100px;
 		border: 2px solid var(--light-green);
 		border-left: none;
 		border-top: none;
@@ -87,9 +91,7 @@ export const SevenColGrid = styled.div`
 		}
 
 		span.active > .day {
-			background-color: pink;
-			border-bottom: 2px solid red;
-			position: relative;
+			color: red;
 		}
 
 		/*
