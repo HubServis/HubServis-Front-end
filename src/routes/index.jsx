@@ -8,6 +8,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import ViewService from "../pages/ViewService";
 
 import { MainManagment } from "../pages/Managment";
+import HomeManagment from "../pages/HomeManagment/HomeManagment";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -27,7 +28,8 @@ const Routers = () => {
         <Route index path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/service/:id" element={<ViewService />} />
-        <Route path="/managment" element={<MainManagment />} />
+        <Route path="/managment" element={<MainManagment />} /> {/* future private route */}
+        <Route path="/home/managment" element={<HomeManagment />} /> {/* future private route */}
         {/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
       </Routes>
     </BrowserRouter>
