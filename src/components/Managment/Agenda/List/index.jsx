@@ -40,8 +40,12 @@ export const ListAgenda = () => {
       </div>
 
       <div className="overflow-auto max-h-[500px] flex flex-col mt-[40px] gap-[20px]">
-        <ListUserModel />
-        <ListUserModel />
+        <ListUserModel status={2}/>
+        <ListUserModel status={0}/>
+        <ListUserModel status={1}/>
+        <ListUserModel status={2}/>
+        <ListUserModel status={0}/>
+        <ListUserModel status={1}/>
       </div>
     </div>
   );
