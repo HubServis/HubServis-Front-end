@@ -13,15 +13,23 @@ const CardSelect = ({
   return (
     <>
       <div
-        className={`${ isEnabled ? "w-[265px]" : "w-[auto]"} items-center hover:bg-[var(--medium-light-black)] rounded-xl mx-4 py-[10px] px-[15px] flex justify-between my-1`}
+        className={`${
+          isEnabled ? "w-[265px]" : "w-[auto]"
+        } items-center hover:bg-[var(--medium-light-black)] rounded-xl mx-4 py-[10px] px-[15px] flex justify-between my-1`}
         onClick={() => clickFunction()}
       >
-        <span className={`flex items-center ${ isEnabled ? "gap-[15px]" : "gap-[0px]" }`}>
+        <span
+          className={`flex items-center ${
+            isEnabled ? "gap-[15px]" : "gap-[0px]"
+          }`}
+        >
           {icon}
-          <p className="hidden group-hover/menu:block text-[var(--gray)] text-base">{title || ""}</p>
+          <p className="hidden group-hover/menu:block text-[var(--gray)] text-base">
+            {title || ""}
+          </p>
         </span>
         {isEnabled && (
-          <div className="hidden group-hover/menu:block">
+          <div className="hidden group-hover/menu:block cursor-pointer">
             {open ? (
               <CaretUp fill={gray} size={20} />
             ) : (

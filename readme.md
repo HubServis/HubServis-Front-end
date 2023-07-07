@@ -1,4 +1,5 @@
 ## Anotações
 
 ## Check list
-- [] arrumar responsividade calendario e menu
+- [x] arrumar responsividade calendario e menu
+- [] arrumar header managment para cada tela individualmente

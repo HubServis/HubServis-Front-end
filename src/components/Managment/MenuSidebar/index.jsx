@@ -55,7 +55,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex-col gap-[10px] max-w-[fit-content] "
             >
               <p>Hello World</p>
             </div>
@@ -70,7 +70,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(0)}>
                 Agendamentos
@@ -93,7 +93,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(3)}>
                 Comandas
@@ -113,7 +113,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(5)}>
                 Listagem
@@ -130,7 +130,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(6)}>
                 Listagem
@@ -150,7 +150,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(8)}>
                 Listagem
@@ -170,7 +170,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(10)}>
                 Profissionais
@@ -190,7 +190,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           >
             <div
               style={{ color: "white" }}
-              className="hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
+              className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex flex-col gap-[10px] max-w-[fit-content] "
             >
               <p className="max-w-[fit-content]" onClick={() => setContext(12)}>
                 Agendamentos
