@@ -5,7 +5,7 @@ import checkMark from "../../../../../assets/Managment/selection.svg";
 import person from "../../../../../assets/Managment/image 88.png";
 import { CheckBox } from '../../../../../components';
 
-export const ListUserModel = ({status}) => {
+export const ListUserModel = ({name, service, date, status}) => {
 
   const WidgetStatus = ({statusType = 1}) => {
     const types = {
@@ -23,15 +23,15 @@ export const ListUserModel = ({status}) => {
         <div className="mr-[10px] bg-[var(--dark-green)] w-[5px] h-[45px] rounded-[10px]" />
         <div className="flex items-center gap-[6px]">
           <img src={person} alt="avatar" />
-          <p>Ricardo Almeida</p>
+          <p>{name}</p>
         </div>
       </div>
 
-      <p>Corte de cabelo</p>
+      <p>{service}</p>
 
       <div className="flex items-center gap-2">
         <img src={calendarCheck} alt="Calendar Check" />
-        <p>20/07/2023 - 07:00 AM</p>
+        <p>{date}</p>
       </div>
       
       <WidgetStatus statusType={status}/>

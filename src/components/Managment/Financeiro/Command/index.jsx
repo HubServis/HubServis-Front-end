@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BarChart } from "./components/barChart";
 import { PizzaChart } from "./components/pizzaChart";
 import { CommandListModel } from './components/commandListModel';
+import SelectFilter from '../../../SelectFilter';
 
 export const Command = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,16 +61,7 @@ export const Command = () => {
               </div>
             </div>
 
-            <div className="flex w-[150px] h-[56px] py-[10px] px-[19px] border-2 rounded-[8px] border-[var(--light-green)]">
-              <select
-                className="w-[100%] text-[20px] outline-none"
-                placeholder="Test"
-              >
-                <option>Ativos</option>
-                <option>Pendentes</option>
-                <option>Cancelados</option>
-              </select>
-            </div>
+            <SelectFilter/>
           </div>
         </div>
 

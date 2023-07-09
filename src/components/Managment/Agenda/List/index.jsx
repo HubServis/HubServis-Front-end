@@ -1,8 +1,55 @@
+import React, { useState } from "react";
 import calendarBlackIcon from "../../../../assets/Managment/calendarBlank.svg";
-
 import { ListUserModel } from "./components/listUserModel";
+import SelectFilter from "../../../SelectFilter";
 
 export const ListAgenda = () => {
+  const ApiResponse = [
+    {
+      name: "Ricardo Sla",
+      service: "Corte de Cabelo",
+      date: "20/07/2023 - 07:00 AM",
+      status: 0,
+    },
+    {
+      name: "Ricardo Sla 2",
+      service: "Alisamento de Cabelo",
+      date: "23/07/2023 - 07:00 AM",
+      status: 1,
+    },
+    {
+      name: "Amanda",
+      service: "Alisamento de Cabelo",
+      date: "20/07/2023 - 07:00 AM",
+      status: 2,
+    },
+    {
+      name: "Ricardo Sla 2",
+      service: "Alisamento de Cabelo",
+      date: "21/07/2023 - 07:00 AM",
+      status: 1,
+    },
+    {
+      name: "Ramilthon",
+      service: "Corte afro",
+      date: "22/07/2023 - 07:00 AM",
+      status: 0,
+    },
+  ];
+
+  const ListRows = () => {
+    return ApiResponse.map((data) => {
+      return (
+        <ListUserModel
+          name={data.name}
+          service={data.service}
+          date={data.date}
+          status={data.status}
+        />
+      );
+    });
+  };
+
   return (
     <div className="py-[22px] px-[17px] border-2 rounded-[8px] border-[var(--light-green)]">
       <h2 className="font-bold text-[20px]">Agendamentos</h2>
@@ -15,7 +62,7 @@ export const ListAgenda = () => {
 
               <div className="flex py-[10px] px-[19px] border-2 rounded-[8px] border-[var(--light-green)]">
                 <img src={calendarBlackIcon} alt="blank calendar" />
-                <input type="date"/>
+                <input type="date" />
               </div>
             </div>
 
@@ -29,23 +76,12 @@ export const ListAgenda = () => {
             </div>
           </div>
 
-          <div className="flex min-w-[200px] h-[56px] py-[10px] px-[19px] border-2 rounded-[8px] border-[var(--light-green)]">
-            <select className="w-[100%] text-[16px] outline-none bg-transparent" placeholder="Test">
-              <option>Ativos</option>
-              <option>Pendentes</option>
-              <option>Cancelados</option>
-            </select>
-          </div>
+          <SelectFilter/>
         </div>
       </div>
 
       <div className="overflow-auto max-h-[500px] flex flex-col mt-[40px] gap-[20px]">
-        <ListUserModel status={2}/>
-        <ListUserModel status={0}/>
-        <ListUserModel status={1}/>
-        <ListUserModel status={2}/>
-        <ListUserModel status={0}/>
-        <ListUserModel status={1}/>
+        <ListRows />
       </div>
     </div>
   );
