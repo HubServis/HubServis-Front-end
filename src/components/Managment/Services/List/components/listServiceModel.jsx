@@ -4,6 +4,7 @@ import checkMark from "../../../../../assets/Managment/selection.svg";
 import phone from '../../../../../assets/Managment/phone.svg';
 import paypal from '../../../../../assets/Managment/paypalLogo.svg';
 import timer from '../../../../../assets/Managment/timer.svg';
+import { CheckBox } from '../../../../../components';
 
 export const ListServiceModel = () => {
   return (
@@ -31,10 +32,10 @@ export const ListServiceModel = () => {
         <p>20/07/2023 - 07:00 AM</p>
       </div>
 
-      <div className="flex gap-[10px]">
-        <img src={pencil} alt="pencil" />
+      <div className="flex gap-[10px] items-center">
+        <img src={pencil} alt="pencil"/>
         <img src={trash} alt="trash" />
-        <img src={checkMark} alt="check mark" />
+        <CheckBox/>
       </div>
     </div>
   );

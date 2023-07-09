@@ -3,6 +3,8 @@ import trash from "../../../../../assets/Managment/trash.svg";
 import checkMark from "../../../../../assets/Managment/selection.svg";
 import paypal from '../../../../../assets/Managment/paypalLogo.svg';
 import receipt from '../../../../../assets/Managment/Receipt.svg';
+import { CheckBox } from '../../../../../components';
+
 
 export const ListProductsModel = () => {
   return (
@@ -32,11 +34,11 @@ export const ListProductsModel = () => {
       <div className="flex items-center">
         <p>quantidade</p>
       </div>
-
-      <div className="flex gap-[10px]">
-        <img src={pencil} alt="pencil" />
+      
+      <div className="flex gap-[10px] items-center">
+        <img src={pencil} alt="pencil"/>
         <img src={trash} alt="trash" />
-        <img src={checkMark} alt="check mark" />
+        <CheckBox/>
       </div>
     </div>
   );

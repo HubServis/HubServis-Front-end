@@ -3,6 +3,7 @@ import pencil from "../../../../../assets/Managment/pencil.svg";
 import trash from "../../../../../assets/Managment/trash.svg";
 import checkMark from "../../../../../assets/Managment/selection.svg";
 import person from "../../../../../assets/Managment/image 88.png";
+import { CheckBox } from '../../../../../components';
 
 export const ListUserModel = ({status}) => {
 
@@ -35,10 +36,10 @@ export const ListUserModel = ({status}) => {
       
       <WidgetStatus statusType={status}/>
 
-      <div className="flex gap-[10px]">
-        <img src={pencil} alt="pencil" />
+      <div className="flex gap-[10px] items-center">
+        <img src={pencil} alt="pencil"/>
         <img src={trash} alt="trash" />
-        <img src={checkMark} alt="check mark" />
+        <CheckBox/>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Avaliations from './Avaliations/Avaliations';
 import BtnOutlinedGreen from './Buttons/BtnOutlinedGreen/BtnOutlinedGreen';
 import BtnFillGreen from './Buttons/BtnFillGreen/BtnFillGreen';
 import { MenuSidebar } from './Managment/MenuSidebar';
+import CheckBox from './CheckBox';
 
 export {
     AppBar,
@@ -12,4 +13,5 @@ export {
     BtnOutlinedGreen,
     BtnFillGreen,
     MenuSidebar,
+    CheckBox
 }

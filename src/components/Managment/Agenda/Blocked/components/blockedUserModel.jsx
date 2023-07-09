@@ -3,6 +3,7 @@ import pencil from "../../../../../assets/Managment/pencil.svg";
 import trash from "../../../../../assets/Managment/trash.svg";
 import checkMark from "../../../../../assets/Managment/selection.svg";
 import person from "../../../../../assets/Managment/image 88.png";
+import { CheckBox } from '../../../../../components';
 
 export const BlockedUserModel = () => {
   return (
@@ -24,10 +25,10 @@ export const BlockedUserModel = () => {
 
       <p>Status</p>
 
-      <div className="flex gap-[10px]">
+      <div className="flex gap-[10px] items-center">
         <img src={pencil} alt="pencil" />
         <img src={trash} alt="trash" />
-        <img src={checkMark} alt="check mark" />
+        <CheckBox/>
       </div>
     </div>
   );
