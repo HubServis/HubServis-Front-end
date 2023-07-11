@@ -16,6 +16,7 @@ import DefaultInput from './Inputs/DefaultInput';
 import PhoneInput from './Inputs/PhoneInput';
 import EmailInput from './Inputs/EmailInput';
 import CPFInput from './Inputs/CPFInput';
+import Shortly from './Shortly';
 
 export {
     AppBar,
@@ -35,5 +36,6 @@ export {
     DefaultInput,
     PhoneInput,
     EmailInput,
-    CPFInput
+    CPFInput,
+    Shortly
 }

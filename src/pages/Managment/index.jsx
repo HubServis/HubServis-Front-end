@@ -13,6 +13,7 @@ import { ProductCategory } from "../../components/Managment/Products/Category";
 import { ProffesionalList } from "../../components/Managment/Professional/List";
 import { OfficeHour } from "../../components/Managment/Professional/OfficeHour";
 import { Command } from "../../components/Managment/Financeiro/Command";
+import Report from "../../components/Managment/Financeiro/Report";
 
 const contextPages = [
   { section: <Calendar /> },
@@ -20,7 +21,7 @@ const contextPages = [
   { section: <BlockList /> },
 
   { section: <Command /> },
-  { section: <Calendar /> },
+  { section: <Report /> },
 
   { section: <ClientList /> },
 
