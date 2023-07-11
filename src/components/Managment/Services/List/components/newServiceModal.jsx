@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import { X, Plus } from "@phosphor-icons/react";
 import HoursOrMinuts from "./HoursOrMinuts";
+import LargeSelect from "../../../../Inputs/LargeSelect";
 
 const onModalOpen =
   "block absolute top-0 left-0 w-[100vw] h-[100vh] bg-[#4141414D]";
@@ -7,6 +9,7 @@ const onModalOpen =
 const onModalClosed = "hidden duration-300 ease-in-out";
 
 export const NewServiceModal = ({ isOpen, setIsOpen }) => {
+
   return (
     <div className={isOpen ? onModalOpen : onModalClosed}>
       <div className="bg-white w-[calc(650px-5%)] py-[30px] px-[30px] absolute left-[calc(50%-265px)] top-[calc(50%-400px)] rounded-[8px]">
@@ -72,23 +75,15 @@ export const NewServiceModal = ({ isOpen, setIsOpen }) => {
 
             <div className="w-[50%] flex flex-col">
               <p className="font-medium text-[var(--gray-opacity-50)]">Categorias:</p>
-              <select
-                id=""
-                name=""
-                className="py-[10px] px-[6px] w-[100%] h-[100%] border-2 rounded-[8px] border-[var(--light-green)]"
-              >
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-              </select>
+              <LargeSelect placeholder={"---"}/>
             </div>
           </div>
 
           <div className="mt-[10px] flex justify-end">
-            <div className="flex items-center py-[2px] px-[10px] rounded-[8px] border-[var(--light-green)] bg-[var(--strong-green)] text-white font-bold">
+            <div className="flex items-center gap-2 py-[10px] px-[16px] rounded-[8px] border-[var(--light-green)] bg-[var(--strong-green)] text-white font-bold">
               <Plus size={40} />
-              <button className="py-[12px] px-[10px] text-white font-bold">
-                Novo
+              <button className="text-white font-bold">
+                Nova
               </button>
             </div>
           </div>
