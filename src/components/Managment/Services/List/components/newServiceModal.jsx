@@ -1,4 +1,5 @@
 import { X, Plus } from "@phosphor-icons/react";
+import HoursOrMinuts from "./HoursOrMinuts";
 
 const onModalOpen =
   "block absolute top-0 left-0 w-[100vw] h-[100vh] bg-[#4141414D]";
@@ -12,7 +13,7 @@ export const NewServiceModal = ({ isOpen, setIsOpen }) => {
 
         <div className="flex flex-col gap-[15px] overflow-hidden h-[500px]">
           <div className="flex justify-between">
-            <h2 className="font-normal text-[20px]">Cadastro de Serviço</h2>
+            <h2 className="font-semibold text-[20px] text-[var(--gray-opacity-50)]">Cadastro de Serviço</h2>
             <X
               size={26}
               onClick={() => setIsOpen(false)}
@@ -21,7 +22,7 @@ export const NewServiceModal = ({ isOpen, setIsOpen }) => {
           </div>
 
           <div>
-            <p>Nome do serviço:</p>
+            <p className="font-medium text-[var(--gray-opacity-50)]">Nome do serviço:</p>
             <input
               id=""
               name=""
@@ -30,7 +31,7 @@ export const NewServiceModal = ({ isOpen, setIsOpen }) => {
           </div>
 
           <div className="flex flex-col">
-            <p>Preço unitário:</p>
+            <p className="font-medium text-[var(--gray-opacity-50)]">Preço unitário:</p>
             <div className="flex pr-[2px] border-2 rounded-[8px] border-[var(--light-green)]">
               <div className="h-[50px] px-[15px] flex items-center border-r-2 border-[var(--light-green)]">
                 <p>R$</p>
@@ -44,35 +45,16 @@ export const NewServiceModal = ({ isOpen, setIsOpen }) => {
           </div>
 
           <div>
-            <p>Duração do atendimento:</p>
-            <div className="flex border-2 rounded-[8px] border-[var(--light-green)]">
-              <div className="flex w-[100%] h-[56px] py-[10px] px-[19px] border-r-2 border-[var(--light-green)]">
-                <select
-                  className="w-[100%] text-[16px] outline-none"
-                  placeholder="Test"
-                >
-                  <option>1h</option>
-                  <option>2h</option>
-                  <option>3h</option>
-                </select>
-              </div>
-
-              <div className="flex w-[100%] h-[56px] py-[10px] px-[19px]">
-                <select
-                  className="w-[100%] text-[16px] outline-none"
-                  placeholder="Test"
-                >
-                  <option>05 mim</option>
-                  <option>10 mim</option>
-                  <option>20 mim</option>
-                </select>
-              </div>
+            <p className="font-medium text-[var(--gray-opacity-50)]font-medium text-[var(--gray-opacity-50)]">Duração do atendimento:</p>
+            <div className="flex border-2 border-[var(--light-green)] rounded-lg">
+              <HoursOrMinuts borderDirection="r"/>
+              <HoursOrMinuts type="s"/>
             </div>
           </div>
 
           <div className="flex justify-between gap-[50px]">
             <div>
-              <p>Comissão:</p>
+              <p className="font-medium text-[var(--gray-opacity-50)]">Comissão:</p>
               <div className="flex border-2 rounded-[8px] border-[var(--light-green)]">
                 <div className="flex w-[100%] h-[56px] py-[10px] px-[19px] border-r-2 border-[var(--light-green)]">
                   <input
@@ -89,7 +71,7 @@ export const NewServiceModal = ({ isOpen, setIsOpen }) => {
             </div>
 
             <div className="w-[50%] flex flex-col">
-              <p>Categorias:</p>
+              <p className="font-medium text-[var(--gray-opacity-50)]">Categorias:</p>
               <select
                 id=""
                 name=""
@@ -114,7 +96,7 @@ export const NewServiceModal = ({ isOpen, setIsOpen }) => {
         </div>
 
         <div className="mt-[30px]">
-          <p id="reason" name="reason">
+          <p id="reason" name="reason" className="font-medium text-[var(--gray-opacity-50)]">
             Descrição do Serviço:
           </p>
           <textarea

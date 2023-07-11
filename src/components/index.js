@@ -10,6 +10,12 @@ import LargeSelect from './Inputs/LargeSelect';
 import DateSelect from './Inputs/DateSelect';
 import HoursOrMinutsSelect from './Inputs/HoursOrMinutsSelect';
 import BtnIconOutlinedCustom from './Buttons/BtnIconOutlinedCustom/BtnIconOutlinedCustom';
+import DateSelectDefault from './Inputs/DateSelectDefault';
+import SexyCustomSelect from './Inputs/SexyCustomSelect';
+import DefaultInput from './Inputs/DefaultInput';
+import PhoneInput from './Inputs/PhoneInput';
+import EmailInput from './Inputs/EmailInput';
+import CPFInput from './Inputs/CPFInput';
 
 export {
     AppBar,
@@ -23,5 +29,11 @@ export {
     LargeSelect,
     DateSelect,
     HoursOrMinutsSelect,
-    BtnIconOutlinedCustom
+    BtnIconOutlinedCustom,
+    DateSelectDefault,
+    SexyCustomSelect,
+    DefaultInput,
+    PhoneInput,
+    EmailInput,
+    CPFInput
 }

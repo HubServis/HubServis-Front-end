@@ -27,20 +27,25 @@ export const BarChart = () => {
       <Bar
         data={data}
         options={{
-          plugins: {
-            title: {
-              display: true,
-              text: "Chart.js Bar Chart - Stacked",
+          type: 'bar',
+          data: data,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: 'Chart.js Bar Chart - Stacked'
+              },
             },
-          },
-          responsive: true,
-          interaction: {
-            intersect: false,
-          },
-          scales: {
-            y: { stacked: true, beginAtZero: true },
-            x: { stacked: true },
-          },
+            responsive: true,
+            scales: {
+              x: {
+                stacked: true,
+              },
+              y: {
+                stacked: true
+              }
+            }
+          }
         }}
       />
     </div>

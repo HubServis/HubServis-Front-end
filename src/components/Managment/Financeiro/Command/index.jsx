@@ -1,10 +1,11 @@
-import calendarBlackIcon from '../../../../assets/Managment/calendarBlank.svg'
+import calendarBlackIcon from "../../../../assets/Managment/calendarBlank.svg";
 
 import { useState } from "react";
 import { BarChart } from "./components/barChart";
 import { PizzaChart } from "./components/pizzaChart";
-import { CommandListModel } from './components/commandListModel';
-import SelectFilter from '../../../SelectFilter';
+import { CommandListModel } from "./components/commandListModel";
+import SelectFilter from "../../../SelectFilter";
+import DateSelectDefault from "../../../Inputs/DateSelectDefault";
 
 export const Command = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,33 +43,24 @@ export const Command = () => {
         <div className="mt-[65px]">
           <div className="flex justify-between items-end">
             <div className="flex gap-[10px]">
-              <div className="flex flex-col">
+              <div>
                 <p>Data Inicío</p>
-
-                <div className="flex py-[10px] px-[19px] border-2 rounded-[8px] border-[var(--light-green)]">
-                  <img src={calendarBlackIcon} alt="blank calendar" />
-                  <input type="date" />
-                </div>
+                <DateSelectDefault />
               </div>
-
               <div>
                 <p>Data Fim</p>
-
-                <div className="flex py-[10px] px-[19px] border-2 rounded-[8px] border-[var(--light-green)]">
-                  <img src={calendarBlackIcon} alt="blank calendar" />
-                  <input type="date" />
-                </div>
+                <DateSelectDefault />
               </div>
             </div>
 
-            <SelectFilter/>
+            <SelectFilter />
           </div>
         </div>
 
-      <div className="overflow-auto max-h-[500px] flex flex-col mt-[40px] gap-[20px]">
-        <CommandListModel />
-        <CommandListModel />
-      </div>
+        <div className="overflow-auto max-h-[500px] flex flex-col mt-[40px] gap-[20px]">
+          <CommandListModel />
+          <CommandListModel />
+        </div>
       </div>
     </div>
   );

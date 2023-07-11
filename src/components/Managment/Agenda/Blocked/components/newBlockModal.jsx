@@ -36,19 +36,19 @@ export const NewBlockModal = ({ isOpen, setIsOpen }) => {
             />
           </div>
           <div>
-            <p className="text-[var(--gray-opacity-50)] font-medium">
+            <p className="text-[var(--gray-opacity-50)] font-medium text-[var(--gray-opacity-50)]">
               Selecione os profissionais
             </p>
             <LargeSelect options={optionsSelect} />
           </div>
 
           <div className="flex items-center justify-between">
-            <p>Bloquear o dia inteiro</p>
+            <p className="font-medium text-[var(--gray-opacity-50)]">Bloquear o dia inteiro</p>
             <CheckBox/>
           </div>
 
           <div className="flex flex-col">
-            <p>Data Inicío:</p>
+            <p className="font-medium text-[var(--gray-opacity-50)]">Data Inicío:</p>
 
             <div className="flex gap-[31px]">
              <DateSelect/>
@@ -59,7 +59,7 @@ export const NewBlockModal = ({ isOpen, setIsOpen }) => {
           </div>
 
           <div className="flex flex-col">
-            <p>Data Fim:</p>
+            <p className="font-medium text-[var(--gray-opacity-50)]">Data Fim:</p>
 
             <div className="flex gap-[31px]">
               <DateSelect/>
@@ -70,7 +70,7 @@ export const NewBlockModal = ({ isOpen, setIsOpen }) => {
           </div>
 
           <div>
-            <p id="reason" name="reason">
+            <p id="reason" name="reason" className="font-medium text-[var(--gray-opacity-50)]">
               Motivo do bloquieo:
             </p>
             <textarea
