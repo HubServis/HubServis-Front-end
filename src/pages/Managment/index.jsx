@@ -14,6 +14,7 @@ import { ProffesionalList } from "../../components/Managment/Professional/List";
 import { OfficeHour } from "../../components/Managment/Professional/OfficeHour";
 import { Command } from "../../components/Managment/Financeiro/Command";
 import Report from "../../components/Managment/Financeiro/Report";
+import { Shortly } from "../../components";
 
 const contextPages = [
   { section: <Calendar /> },
@@ -33,6 +34,9 @@ const contextPages = [
 
   { section: <ProffesionalList /> },
   { section: <OfficeHour /> },
+  
+  { section: <Shortly /> },
+  { section: <Shortly /> },
 ];
 
 export const MainManagment = () => {
