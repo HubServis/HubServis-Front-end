@@ -4,6 +4,7 @@ import crossIcon from "../../../../assets/Managment/plus.svg";
 
 import { ProductsCategoryModel } from "./componentes/produtcsCategoryModel";
 import SelectFilter from "../../../SelectFilter";
+import { NewCategoryModal } from "./componentes/newCategoryModal";
 
 export const ProductCategory = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,8 @@ export const ProductCategory = () => {
           <ProductsCategoryModel />
         </div>
       </div>
+
+      <NewCategoryModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
