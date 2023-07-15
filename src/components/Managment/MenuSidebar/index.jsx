@@ -34,10 +34,10 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
     setSelected(num);
   };
-  
+
   return (
-    <div className="flex h-[100%]">
-      <nav className="max-w-[90px] group/menu hover:max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-between duration-200 h-screen">
+    <div className="flex h-auto">
+      <nav className="max-w-[90px] group/menu hover:max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-start duration-200 h-auto">
         <div className="flex flex-col items-start mt-3 gap-[5px]">
           <div className="flex items-center gap-2 ml-5 mb-10">
             <img src={logo} alt="HubServis Logo" className="w-[50px] rounded" />

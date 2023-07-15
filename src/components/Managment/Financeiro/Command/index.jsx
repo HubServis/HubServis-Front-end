@@ -11,33 +11,41 @@ export const Command = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="py-[22px] px-[17px] border-2 rounded-[8px] border-[var(--light-green)]">
+    <div className="py-[22px] px-[17px]">
       <div className="flex items-start justify-between gap-[20px]">
         <button className="py-[12px] px-[30px] rounded-[8px] border-[var(--light-green)] border-[2px]">
           Nova Venda
         </button>
 
-        <div>
-          <div>
-            <p>Faturamento e Gastos</p>
-            <p>Mensal</p>
+        <div className=" w-[400px] h-[100%] shadow-lg rounded-[6px]">
+          <div className="flex flex-col py-[20px] px-[40px]">
+            <p className="text-[#828282] font-semibold">Faturamento e Gastos</p>
+            <p className="text-[14px]">Mensal</p>
           </div>
 
-          <BarChart />
+          <div className="w-[100%] h-[3px] px-[8px] bg-black"></div>
+
+          <div className="py-[20px] px-[40px]">
+            <BarChart />
+          </div>
         </div>
 
-        <div>
-          <div>
-            <p>Tipos de Pagamentos</p>
-            <p>5.987,34</p>
-            <p>mensal</p>
+        <div className="w-[400px] h-[100%] shadow-lg rounded-[6px]">
+          <div className="flex flex-col py-[20px] px-[40px]">
+            <p className="text-[#828282] font-semibold">Tipos de Pagamentos</p>
+            <p className="text-[var(--dark-gray)] text-[40px]">5.987,34</p>
+            <p className="text-[14px]">Mensal</p>
           </div>
 
-          <PizzaChart />
+          <div className="w-[100%] h-[3px] px-[8px] bg-black"></div>
+
+          <div className="py-[20px] px-[40px]">
+            <PizzaChart />
+          </div>
         </div>
       </div>
 
-      <div className="py-[22px] px-[17px] border-2 rounded-[8px] border-[var(--light-green)]">
+      <div className="py-[22px] px-[17px] mt-[40px] border-4 rounded-[8px] border-[var(--light-green)]">
         <h2 className="font-bold text-[20px]">Comandas</h2>
 
         <div className="mt-[65px]">
