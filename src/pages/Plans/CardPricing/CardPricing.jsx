@@ -74,7 +74,7 @@ export default function CardPricing() {
             <span className="text-sm text-gray-400 pl-2 pb-1">por mês</span>
           </span>
 
-          <BtnFillGreen width={"full"}>Teste grátis</BtnFillGreen>
+          <BtnFillGreen width={"full"}>Começar</BtnFillGreen>
 
           <p className="mt-10 text-lg text-left font-semibold mb-4">Incluso:</p>
 
@@ -144,7 +144,7 @@ export default function CardPricing() {
             <span className="text-sm text-gray-400 pl-2 pb-1">por mês</span>
           </span>
 
-          <BtnFillGreen width={"full"}>Teste grátis</BtnFillGreen>
+          <BtnFillGreen width={"full"}>Começar</BtnFillGreen>
 
           <p className="mt-10 text-lg text-left font-semibold mb-4">Incluso:</p>
 

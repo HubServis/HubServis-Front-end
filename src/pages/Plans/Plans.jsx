@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar } from "../../components";
 import Toggle from "../../components/Togglebutton/Togglebutton";
-import { Leaf } from "@phosphor-icons/react";
+import { Check } from "@phosphor-icons/react";
 import CardPricing from "./CardPricing/CardPricing";
 
 const Plans = () => {
@@ -19,6 +19,26 @@ const Plans = () => {
         <p>Escolha o plano adequado para suas necessidades</p>
         <Toggle />
         <CardPricing />
+        {/* <div className="px-[80px]">
+          <table className="w-full">
+            <thead className="w-full my-4">
+              <tr className="w-full">
+                <th className="pl-5 w-2/4 text-left">Planos</th>
+                <th className="w-1/8">Gratuito</th>
+                <th className="w-1/8">Planos</th>
+                <th className="w-1/8">Planos</th>
+              </tr>
+            </thead>
+            <tbody className="w-full">
+              <tr>
+                <td className="text-left pl-5 w-2/4 ">Lorem Ipsum</td>
+                <td className="w-1/8"><Check className="m-auto"/></td>
+                <td className="w-1/8"><Check className="m-auto"/></td>
+                <td className="w-1/8"><Check className="m-auto"/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div> */}
       </div>
     </>
   );
