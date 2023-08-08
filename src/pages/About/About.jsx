@@ -1,6 +1,6 @@
 import react from "react";
-import { AppBar } from "../../components";
-import AboutImg from "../../assets/About.png";
+import { AppBar, BtnFillGreen } from "../../components";
+import AboutImg from "../../assets/about/About.png";
 import {
   CurrencyCircleDollar,
   ChartBar,
@@ -45,85 +45,94 @@ const About = () => {
 
       <div className="grid grid-cols-4 justify-between pl-10 pt-20">
         <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
-            <div className="flex justify-center content-center">
-                <UserCircleGear size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
-            </div>
-            <h1 className="text-center font-bold text-lg mt-5 mb-3">Minha conta</h1>
-            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s.
-            </p>
+          <div className="flex justify-center content-center">
+            <UserCircleGear
+              size={50}
+              className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"
+            />
+          </div>
+          <h1 className="text-center font-bold text-lg mt-5 mb-3">
+            Minha conta
+          </h1>
+          <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
         </div>
 
         <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
-            <div className="flex justify-center content-center">
-                <CurrencyCircleDollar size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
-            </div>
-            <h1 className="text-center font-bold text-lg mt-5 mb-3">Financeiro</h1>
-            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s.
-            </p>
+          <div className="flex justify-center content-center">
+            <CurrencyCircleDollar
+              size={50}
+              className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"
+            />
+          </div>
+          <h1 className="text-center font-bold text-lg mt-5 mb-3">
+            Financeiro
+          </h1>
+          <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
         </div>
 
         <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
-            <div className="flex justify-center content-center">
-                <ChartBar size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
-            </div>
-            <h1 className="text-center font-bold text-lg mt-5 mb-3">Status da Empresa</h1>
-            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s.
-            </p>
+          <div className="flex justify-center content-center">
+            <ChartBar
+              size={50}
+              className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"
+            />
+          </div>
+          <h1 className="text-center font-bold text-lg mt-5 mb-3">
+            Status da Empresa
+          </h1>
+          <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
         </div>
 
         <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
-            <div className="flex justify-center content-center">
-                <Table size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
-            </div>
-            <h1 className="text-center font-bold text-lg mt-5 mb-3">Status da Empresa</h1>
-            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s.
-            </p>
+          <div className="flex justify-center content-center">
+            <Table
+              size={50}
+              className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"
+            />
+          </div>
+          <h1 className="text-center font-bold text-lg mt-5 mb-3">
+            Status da Empresa
+          </h1>
+          <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
         </div>
       </div>
 
-{/* 
-      <div className="bg-red-200 ">
-        <div className="flex flex-row gap-20 bg-purple-700 w-1/2">
-          <div className="pl-20 pt-40 text-3xl font-bold bg-orange-500 w-1/2">
-            <h1>Sobre nós</h1>
-          </div>
-          <img
-            src={AboutImg}
-            alt="aboutimg"
-            id="about-banner"
-            className="w-48 h-48 bg-green-100 pt-10"
-          />
+      <div className="flex justify-between mx-16 gap-4 items-center m-12">
+        <div className="w-[50%]">
+          <h2 className="text-3xl font-bold mb-[54px]">Sobre nós</h2>
+          <p className="text-base mb-14">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </p>
+          <BtnFillGreen onclick={() => {}}>CONHECER</BtnFillGreen>
         </div>
-
-        <div className="flex inline-block flex-row grid gap-10">
-          <div className="w-1/3">
-            <aside>
-              <p className="pl-20 pt-10 break-words bg-gray-100 border border-5">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged.
-              </p>
-            </aside>
-          </div>
-        </div>
-
-        <div className="flex justify-center content-center float-right bg-green-200"></div>
-      </div> */}
+        <img
+          src={AboutImg}
+          alt="aboutimg"
+          id="about-banner"
+          className="max-w-[50%]"
+        />
+      </div>
     </>
   );
 };
