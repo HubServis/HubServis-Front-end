@@ -20,7 +20,7 @@ const AppBar = ({children}) => {
                 <div className="container-logo-nav-links">
                     <div className="logo-container">
                         <img loading='lazy' src={logo} alt="icon logo" />
-                        <h1 id="title">HubServis</h1>
+                        <h1 id="title" className='text-[26px] font-extrabold'>HubServis</h1>
                     </div>
                     <div className="nav-links">
                         { children }
