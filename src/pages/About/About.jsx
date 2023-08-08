@@ -43,67 +43,57 @@ const About = () => {
         </div>
       </section>
 
-      <div className="grid grid-cols-4 gap-5 justify-between pl-10 pt-20">
-        <div className="rounded rounded-r-none border hover:border-2 border-green-300  hover:border-green-500 w-50 h-160">
-          <IconContext.Provider value={{ color: "green", size: "50px" }}>
-            <div className="flex justify-center content-center ">
-              <UserCircleGear />
+      <div className="grid grid-cols-4 justify-between pl-10 pt-20">
+        <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
+            <div className="flex justify-center content-center">
+                <UserCircleGear size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
             </div>
-          </IconContext.Provider>
-
-          <h1 className="text-center font-bold text-sm">Minha Conta</h1>
-          <p className="break-words px-6 pt-2 text-center text-sm">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
-          </p>
+            <h1 className="text-center font-bold text-lg mt-5 mb-3">Minha conta</h1>
+            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text
+                ever since the 1500s.
+            </p>
         </div>
 
-        <div className="rounded rounded-r-none border hover:border-2 border-green-300  hover:border-green-500 w-50 h-160">
-          <IconContext.Provider value={{ color: "green", size: "50px" }}>
-            <div className="flex justify-center content-center ">
-              <CurrencyCircleDollar />
+        <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
+            <div className="flex justify-center content-center">
+                <CurrencyCircleDollar size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
             </div>
-          </IconContext.Provider>
-
-          <h2 className="text-center font-bold text-sm">Financeiro</h2>
-          <p className="break-words px-6 pt-2 text-center text-sm inline-flex">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
-          </p>
+            <h1 className="text-center font-bold text-lg mt-5 mb-3">Financeiro</h1>
+            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text
+                ever since the 1500s.
+            </p>
         </div>
 
-        <div className="rounded rounded-r-none border hover:border-2 border-green-300  hover:border-green-500 w-50 h-160">
-          <IconContext.Provider value={{ color: "green", size: "50px" }}>
-            <div className="flex justify-center content-center ">
-              <ChartBar />
+        <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
+            <div className="flex justify-center content-center">
+                <ChartBar size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
             </div>
-          </IconContext.Provider>
-          <h3 className="text-center font-bold text-sm">Status da Empresa</h3>
-          <p className="break-words px-6 pt-2 text-center text-sm">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
-          </p>
+            <h1 className="text-center font-bold text-lg mt-5 mb-3">Status da Empresa</h1>
+            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text
+                ever since the 1500s.
+            </p>
         </div>
 
-        <div className="rounded rounded-r-none border hover:border-2 border-green-300  hover:border-green-500 w-50 h-160">
-          <IconContext.Provider value={{ color: "green", size: "50px" }}>
-            <div className="flex justify-center content-center ">
-              <Table />
+        <div className="hover:max-w-[272px] rounded-[10px] border hover:border-2 border-[var(--light-green)] hover:border-[var(--strong-green)] max-w-[270px] min-h-[300px] pt-7 pb-4 px-11 group/icon">
+            <div className="flex justify-center content-center">
+                <Table size={50} className="text-[var(--light-green)] group-hover/icon:text-[var(--strong-green)]"/>
             </div>
-          </IconContext.Provider>
-
-          <h4 className="text-center font-bold text-sm">Gerenciamento</h4>
-          <p className="break-words px-6 pt-2 text-center text-sm">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
-          </p>
+            <h1 className="text-center font-bold text-lg mt-5 mb-3">Status da Empresa</h1>
+            <p className=" text-center text-base text-[var(--dark-gray)] font-medium">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text
+                ever since the 1500s.
+            </p>
         </div>
       </div>
 
+{/* 
       <div className="bg-red-200 ">
         <div className="flex flex-row gap-20 bg-purple-700 w-1/2">
           <div className="pl-20 pt-40 text-3xl font-bold bg-orange-500 w-1/2">
@@ -133,7 +123,7 @@ const About = () => {
         </div>
 
         <div className="flex justify-center content-center float-right bg-green-200"></div>
-      </div>
+      </div> */}
     </>
   );
 };
