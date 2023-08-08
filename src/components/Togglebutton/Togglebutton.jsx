@@ -4,7 +4,7 @@ export default function Toggle() {
     const [enabled, setEnabled] = useState(false);
 
     return (
-        <div className="relative flex flex-col items-center justify-center overflow-hidden">
+        <div className="my-10 relative flex flex-col items-center justify-center overflow-hidden">
             <div className="flex">
                     <span className="mr-2 text-sm font-medium text-gray-900">
                         Mensal
