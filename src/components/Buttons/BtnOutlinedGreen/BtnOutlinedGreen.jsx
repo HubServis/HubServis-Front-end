@@ -10,5 +10,5 @@ const BtnOutlinedGreen = ({children, onclick = () => {}}) => {
 			</>
 		);
 }
- 
+
 export default BtnOutlinedGreen;

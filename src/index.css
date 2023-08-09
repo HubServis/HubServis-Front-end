@@ -16,11 +16,18 @@
   --dark-green: #20712D;
   --light-green: #97FFA8;
   --white: #FFFFFF;
-  --dark-gray: #343A40;
+  --dark-gray: #414141;
   --black: #1E1E1E;
+  --medium-light-black: #2C2C2C;
+  --gray: #ADB5BD;
   --lighting-green: #1E1E1E;
   --gray-almost-white: #F4F4F4;
   --gray-opacity-44: rgba(65, 65, 65, 0.44);
+  --gray-opacity-50: #495057;
+  --gray-opacity-75: #E9ECEF;
+  --gray-opacity-5: #CED4DA;
+  --gray-opacity-25: #6C757D;
+  --medium-red: #FF5353;
 }
 
 .h2-title-section{

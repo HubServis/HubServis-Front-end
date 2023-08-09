@@ -17,15 +17,6 @@ export default {
         "gray-almost-white": "var(--gray-almost-white)",
         "gray-opacity-44": "var(--gray-opacity-44)"
       },
-
-      backgroundColor: {
-        "light-gray": "##F5F3F4",
-        "strong-green": "#00E125",
-      },
-
-      zIndex: {
-        '-10': '-10',
-      },
     },
   },
   plugins: [],

@@ -16,9 +16,9 @@ const Home = () => {
 	return (
 		<>
 			<AppBar>
-				<a href="/about">Sobre</a>
-				<a href="/plans">Planos</a>
-				<a href="/annuncement">Anuncios e eventos</a>
+				<a href="/service">Sobre</a>
+				<a href="http://">Planos</a>
+				<a href="http://">Anuncios e eventos</a>
 				<a href="http://">Suporte</a>
 			</AppBar>
 
