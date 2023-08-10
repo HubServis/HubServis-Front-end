@@ -34,9 +34,9 @@
 
 .nav-links{
     width: 100%;
-    max-width: 402px;
     display: flex;
-    justify-content: space-between;
+    margin-left: 40px;
+    gap: 20px;
 }
 
 .nav-links > a{

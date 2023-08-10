@@ -11,6 +11,7 @@ import Annuncement from '../pages/Annuncement/Annuncement';
 import About from '../pages/About/About';
 
 import { MainManagment } from "../pages/Managment";
+import ViewProfile from "../pages/ViewProfile";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ const Routers = () => {
         <Route path="/annuncement" element={<Annuncement />} />
         <Route path="/about" element={<About />} />
         <Route path="/plans" element={<Plans />} />
+        <Route path="/profile/view" element={<ViewProfile />} />
         {/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
       </Routes>
     </BrowserRouter>

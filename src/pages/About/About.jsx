@@ -7,17 +7,15 @@ import {
   UserCircleGear,
   Table,
 } from "@phosphor-icons/react";
-import { IconContext } from "@phosphor-icons/react";
 import search from "../../assets/search.svg";
 
 const About = () => {
   return (
     <>
       <AppBar>
-        <a href="/service">Sobre</a>
+        <a href="/">Home</a>
         <a href="/plans">Planos</a>
         <a href="/annuncement">Anuncios e eventos</a>
-        <a href="http://">Suporte</a>
       </AppBar>
 
       <section className="grid">

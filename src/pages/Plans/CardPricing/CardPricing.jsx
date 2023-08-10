@@ -1,5 +1,5 @@
 import react from "react";
-import { Leaf, Check, X, TelevisionSimple } from "@phosphor-icons/react";
+import { Leaf, Check, X, TelevisionSimple, Lightning } from "@phosphor-icons/react";
 import { BtnFillGreen } from "../../../components";
 
 export default function CardPricing() {
@@ -133,7 +133,7 @@ export default function CardPricing() {
         {/* PROFISSIONAL */}
         <div className="w-[290px] h-full flex flex-col p-6 rounded-md bg-[#F5F3F4]">
           <div className="flex gap-3">
-            <TelevisionSimple size={32} className="text-[var(--strong-green)]" />
+            <Lightning size={32} className="text-[var(--strong-green)]" />
             <h4 className="text-2xl font-bold">Profissional</h4>
           </div>
 

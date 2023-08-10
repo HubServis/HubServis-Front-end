@@ -7,10 +7,9 @@ const Annuncement = () => {
   return (
     <>
       <AppBar>
-        <a href="/service">Sobre</a>
+        <a href="/">Home</a>
+        <a href="/about">Sobre</a>
         <a href="/plans">Planos</a>
-        <a href="http://">Anuncios e eventos</a>
-        <a href="http://">Suporte</a>
       </AppBar>
 
       <section className="bg-gradient-to-r from-[#00E12580] via-[#51F16B80] to-[#00993380] bg-opacity-50 h-96 w-full relative">
