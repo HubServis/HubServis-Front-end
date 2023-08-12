@@ -12,6 +12,7 @@ import About from '../pages/About/About';
 
 import { MainManagment } from "../pages/Managment";
 import ViewProfile from "../pages/ViewProfile";
+import EditProfile from "../pages/EditProfile";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ const Routers = () => {
         <Route path="/about" element={<About />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/profile/view" element={<ViewProfile />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
         {/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
       </Routes>
     </BrowserRouter>

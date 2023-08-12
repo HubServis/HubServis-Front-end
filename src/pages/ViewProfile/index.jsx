@@ -146,7 +146,7 @@ const ViewProfile = () => {
           </div>
 
           <button className="mt-[42px] bg-[var(--light-green)] w-full max-w-[390px] py-4 rounded-[10px] text-[var(--dark-green)] font-bold cursor-pointer">
-            ATUALIZAR DADOS
+            EDITAR MEUS DADOS
           </button>
         </section>
       </main>
