@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { X } from "@phosphor-icons/react";
-import { BtnToggle } from "../../../../Buttons/BtnToggle";
 import { RadioButton } from "primereact/radiobutton";
 import { InputSwitch } from 'primereact/inputswitch';
 import CheckBox from "../../../../CheckBox";

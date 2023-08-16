@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { X, Plus } from "@phosphor-icons/react";
 import HoursOrMinuts from "./HoursOrMinuts";
 import LargeSelect from "../../../../Inputs/LargeSelect";

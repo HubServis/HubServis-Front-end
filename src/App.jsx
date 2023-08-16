@@ -4,7 +4,7 @@ import "primereact/resources/primereact.min.css";
 
 function App() {
   return (
-    <div className='app'>
+    <div className='app relative'>
       <Routers />
     </div>
   )

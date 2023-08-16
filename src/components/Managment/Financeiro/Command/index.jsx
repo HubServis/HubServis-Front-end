@@ -1,9 +1,9 @@
-import calendarBlackIcon from "../../../../assets/Managment/calendarBlank.svg";
-
 import { useState } from "react";
 import { BarChart } from "./components/barChart";
 import { PizzaChart } from "./components/pizzaChart";
 import { CommandListModel } from "./components/commandListModel";
+import { CommandModalSteps } from "./components/commandModalSteps";
+
 import SelectFilter from "../../../SelectFilter";
 import DateSelectDefault from "../../../Inputs/DateSelectDefault";
 
@@ -13,7 +13,10 @@ export const Command = () => {
   return (
     <div className="py-[22px] px-[17px]">
       <div className="flex items-start justify-between gap-[20px]">
-        <button className="py-[12px] px-[30px] rounded-[8px] border-[var(--light-green)] border-[2px]">
+        <button
+          className="py-[12px] px-[30px] rounded-[8px] border-[var(--light-green)] border-[2px]"
+          onClick={() => setIsOpen(true)}
+        >
           Nova Venda
         </button>
 
@@ -70,6 +73,8 @@ export const Command = () => {
           <CommandListModel />
         </div>
       </div>
+
+      <CommandModalSteps isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
