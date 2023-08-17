@@ -36,7 +36,7 @@ const Routers = () => {
         <Route path="/annuncement" element={<Annuncement />} />
         <Route path="/about" element={<About />} />
         <Route path="/plans" element={<Plans />} />
-        <Route path="/profile/view" element={<ViewProfile />} />
+        <Route path="/profile" element={<ViewProfile />} />
         <Route path="/profile/edit" element={<EditProfile />} />
         {/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
       </Routes>

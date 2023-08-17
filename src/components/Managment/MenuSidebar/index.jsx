@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import logo from "../../../assets/HS-DESIGN.png";
 import CardSelect from "./components/CardSelect";
 import {
@@ -14,10 +14,17 @@ import {
 } from "@phosphor-icons/react";
 import { gray } from "../../../style/global-colors.js";
 import imgProfile from "../../../assets/profile-exemple.png";
+import { Menu } from 'primereact/menu';
+import { Toast } from 'primereact/toast';
+import { useNavigate } from "react-router-dom";
 
 export const MenuSidebar = ({ children, context, setContext }) => {
   const [selected, setSelected] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const navigation = useNavigate();
+
+  const menuLeft = useRef(null);
+  const toast = useRef(null);
 
   const reduceString = (str, numCaracters) => {
     if (str.length <= numCaracters) {
@@ -35,6 +42,28 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
     setSelected(num);
   };
+
+  const items = [
+    {
+      label: "Opções",
+      items: [
+        {
+          label: "Voltar para home",
+          // command: () => {
+          //   toast.current.show({
+          //     severity: "success",
+          //     summary: "Updated",
+          //     detail: "Data Updated",
+          //     life: 3000,
+          //   });
+          // },
+          command: () => {
+            navigation("/");
+          }
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="flex">
@@ -208,9 +237,11 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           <hr className="w-[60px] group-hover/menu:w-full max-w-[230px] m-auto bg-[var(--dark-gray)] border-[var(--dark-gray)] mt-7" />
         </div>
 
-        <div className="mb-10 mt-3">
-          <div className="flex bg-[#2C2C2C] mx-3 px-4 py-2 rounded-[10px] gap-1">
-            <span className="max-w-[44px] max-h-11 overflow-hidden border border-[var(--strong-green)] rounded-full border-[2px]">
+        <div className="mb-10 mt-3 cursor-pointer">
+          <Toast ref={toast}></Toast>
+          <Menu model={items} popup ref={menuLeft} id="popup_menu_left" />
+          <div className="flex bg-[#2C2C2C] mx-3 px-4 py-2 rounded-[10px] gap-1" onClick={(event) => menuLeft.current.toggle(event)}>
+            <span className="max-w-[44px] max-h-11 overflow-hidden border-[var(--strong-green)] rounded-full border-[2px]">
               <img
                 src={imgProfile}
                 alt="profile photo"
