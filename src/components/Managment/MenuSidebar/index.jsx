@@ -9,7 +9,7 @@ import {
   Toolbox,
   Package,
   UsersThree,
-  ToggleRight,
+  // ToggleRight,
   Gear,
 } from "@phosphor-icons/react";
 import { gray } from "../../../style/global-colors.js";
@@ -17,6 +17,7 @@ import imgProfile from "../../../assets/profile-exemple.png";
 
 export const MenuSidebar = ({ children, context, setContext }) => {
   const [selected, setSelected] = useState(0);
+  const [expanded, setExpanded] = useState(false);
 
   const reduceString = (str, numCaracters) => {
     if (str.length <= numCaracters) {
@@ -34,10 +35,10 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
     setSelected(num);
   };
-  
+
   return (
-    <div className="flex h-[100%]">
-      <nav className="max-w-[90px] group/menu hover:max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-between duration-200 h-screen">
+    <div className="flex">
+      <nav className="max-w-[90px] group/menu hover:max-w-[320px] bg-[var(--black)] pt-6 flex flex-col justify-start duration-200 h-auto">
         <div className="flex flex-col items-start mt-3 gap-[5px]">
           <div className="flex items-center gap-2 ml-5 mb-10">
             <img src={logo} alt="HubServis Logo" className="w-[50px] rounded" />
@@ -48,7 +49,10 @@ export const MenuSidebar = ({ children, context, setContext }) => {
 
           <CardSelect
             open={selected == 1 && true}
-            clickFunction={() => toogleBtnNavigation(1)}
+            clickFunction={() => {
+              toogleBtnNavigation(1);
+              setExpanded(!expanded);
+            }}
             title="Home"
             icon={<House fill={gray} size={30} className="" />}
             isEnabled={true}
@@ -205,10 +209,6 @@ export const MenuSidebar = ({ children, context, setContext }) => {
         </div>
 
         <div className="mb-10 mt-3">
-          <div className="bg-[#2C2C2C] mx-3 px-4 mb-3 py-2 rounded-[10px] w-[60px] h-[60px] flex items-center cursor-pointer">
-            <ToggleRight fill={gray} size={30} />
-          </div>
-
           <div className="flex bg-[#2C2C2C] mx-3 px-4 py-2 rounded-[10px] gap-1">
             <span className="max-w-[44px] max-h-11 overflow-hidden border border-[var(--strong-green)] rounded-full border-[2px]">
               <img
@@ -228,7 +228,6 @@ export const MenuSidebar = ({ children, context, setContext }) => {
           </div>
         </div>
       </nav>
-      {children}
     </div>
   );
 };

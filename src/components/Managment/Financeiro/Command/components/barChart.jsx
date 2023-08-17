@@ -23,7 +23,7 @@ const data = {
 
 export const BarChart = () => {
   return (
-    <div>
+    <div className="h-[100%]">
       <Bar
         data={data}
         options={{

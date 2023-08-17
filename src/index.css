@@ -11,6 +11,14 @@
   font-family: 'Poppins';
 }
 
+html {
+	height: fit-content;
+}
+
+body {
+	height: fit-content;
+}
+
 :root{
   --strong-green: #00E125;
   --dark-green: #20712D;
