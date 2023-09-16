@@ -13,6 +13,7 @@ import About from '../pages/About/About';
 import { MainManagment } from "../pages/Managment";
 import ViewProfile from "../pages/ViewProfile";
 import EditProfile from "../pages/EditProfile";
+import Login from "../pages/Login/Index";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ const Routers = () => {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route index path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/service/:id" element={<ViewService />} />
