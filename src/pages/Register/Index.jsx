@@ -5,7 +5,7 @@ import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import Ilustration from '../../assets/Login/login-ilustration.svg';
 
-const Login = () => {
+const Register = () => {
   const [passwordValue, setPasswordValue] = useState("");
 
   return (
@@ -33,12 +33,44 @@ const Login = () => {
 
           <div className="flex flex-col gap-2 mt-8">
             <label
+              htmlFor="seu-nome"
+              className="text-[#7E8082] text-sm font-medium"
+            >
+              Qual seu Nome?
+            </label>
+            <InputText id="seu-nome" placeholder="ramilthon bmw" />
+          </div>
+
+          <div className="flex flex-col gap-2 mt-8">
+            <label
               htmlFor="seu-email"
               className="text-[#7E8082] text-sm font-medium"
             >
               Seu email
             </label>
             <InputText id="seu-email" placeholder="ramilthon@gmail.com" />
+          </div>
+
+          <div className="flex justify-between gap-3">
+            <div className="flex flex-col gap-2 mt-8 w-full max-w-[50%]">
+              <label
+                htmlFor="seu-nome-usuario"
+                className="text-[#7E8082] text-sm font-medium"
+              >
+                Qual seu nome de usuário?
+              </label>
+              <InputText id="seu-nome-usuario" placeholder="ramilthon_bmw" />
+            </div>
+
+            <div className="flex flex-col gap-2 mt-8 w-full max-w-[50%]">
+              <label
+                htmlFor="seu-cpf"
+                className="text-[#7E8082] text-sm font-medium"
+              >
+                Qual seu CPF?
+              </label>
+              <InputText id="seu-cpf" placeholder="xxx.xxx.xxx-xx" />
+            </div>
           </div>
 
           <div className="flex flex-col gap-2 mt-8">
@@ -84,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
