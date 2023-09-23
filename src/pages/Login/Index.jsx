@@ -4,8 +4,10 @@ import { BtnFillGreen, CheckBox, EmailInput } from "../../components";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import Ilustration from '../../assets/Login/login-ilustration.svg';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigation = useNavigate();
   const [passwordValue, setPasswordValue] = useState("");
 
   return (
@@ -70,7 +72,7 @@ const Login = () => {
 
           <p className="text-[#7E8082] text-sm font-medium mb-10 mt-8">
             Não tem uma conta?{" "}
-            <span className="text-[var(--dark-green)] text-sm font-medium cursor-pointer">
+            <span className="text-[var(--dark-green)] text-sm font-medium cursor-pointer" onClick={() => navigation("/register")}>
               Registre-se
             </span>
           </p>

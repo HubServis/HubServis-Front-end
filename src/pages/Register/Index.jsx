@@ -4,14 +4,17 @@ import { BtnFillGreen, CheckBox, EmailInput } from "../../components";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import Ilustration from '../../assets/Login/login-ilustration.svg';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigation = useNavigate();
   const [passwordValue, setPasswordValue] = useState("");
+  const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
 
   return (
     <>
       <main className="flex">
-        <section className="w-full md:min-w-[50%] px-10">
+        <section className="w-full md:min-w-[50%] px-10 pb-8">
           <div className="flex items-center gap-2 mt-14">
             <img
               src={logoImg}
@@ -24,11 +27,11 @@ const Register = () => {
           </div>
 
           <h2 className="text-[26px] text-[var(--dark-green)] font-extrabold mt-14">
-            Entrar
+            Registre-se
           </h2>
 
           <p className="text-sm font-medium text-[var(--gray-opacity-25)] mt-4">
-            Bem vindo de volta! Por favor, insira seus dados.
+            Para começar, é importante que nos informe seus dados pessoais.
           </p>
 
           <div className="flex flex-col gap-2 mt-8">
@@ -51,8 +54,8 @@ const Register = () => {
             <InputText id="seu-email" placeholder="ramilthon@gmail.com" />
           </div>
 
-          <div className="flex justify-between gap-3">
-            <div className="flex flex-col gap-2 mt-8 w-full max-w-[50%]">
+          <div className="flex flex-col sm:flex-row justify-between gap-3">
+            <div className="flex flex-col gap-2 mt-8 w-full sm:max-w-[50%]">
               <label
                 htmlFor="seu-nome-usuario"
                 className="text-[#7E8082] text-sm font-medium"
@@ -62,7 +65,7 @@ const Register = () => {
               <InputText id="seu-nome-usuario" placeholder="ramilthon_bmw" />
             </div>
 
-            <div className="flex flex-col gap-2 mt-8 w-full max-w-[50%]">
+            <div className="flex flex-col gap-2 mt-8 w-full sm:max-w-[50%]">
               <label
                 htmlFor="seu-cpf"
                 className="text-[#7E8082] text-sm font-medium"
@@ -73,39 +76,38 @@ const Register = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 mt-8">
-            <label
-              htmlFor="sua-senha"
-              className="text-[#7E8082] text-sm font-medium"
-            >
-              Sua senha
-            </label>
-            <Password inputStyle={{width: "100%", alignItems: "center"}} value={passwordValue} onChange={(e) => setPasswordValue(e.target.value)} feedback={false} toggleMask/>
-          </div>
-
-          <div className="flex justify-between mt-2 items-center mb-10">
-            <div className="flex gap-1 mt-2 items-center">
-              <CheckBox />
-              <p className="text-[#7E8082] text-sm font-medium">
-                Lembrar por 30 dias
-              </p>
+          <div className="flex flex-col sm:flex-row justify-between gap-3">
+            <div className="flex flex-col gap-2 mt-8 w-full sm:max-w-[50%]">
+              <label
+                htmlFor="sua-senha"
+                className="text-[#7E8082] text-sm font-medium"
+              >
+                Qual a sua senha
+              </label>
+              <Password placeholder="xxxxxxxxxxxx" inputStyle={{width: "100%", alignItems: "center"}} value={passwordValue} onChange={(e) => setPasswordValue(e.target.value)} feedback={false} toggleMask/>
             </div>
-
-            <p className="text-[var(--dark-green)] text-sm font-medium cursor-pointer">
-              Esqueci a senha
-            </p>
+            
+            <div className="flex flex-col gap-2 mt-8 w-full sm:max-w-[50%]">
+              <label
+                htmlFor="sua-senha"
+                className="text-[#7E8082] text-sm font-medium"
+              >
+                Confirme a sua senha.
+              </label>
+              <Password placeholder="xxxxxxxxxxxx" inputStyle={{width: "100%", alignItems: "center"}} value={confirmPasswordValue} onChange={(e) => setConfirmPasswordValue(e.target.value)} feedback={false} toggleMask/>
+            </div>
           </div>
+
+          <p className="text-[#7E8082] text-sm font-medium mb-3 mt-8">
+            Já tem uma conta?{" "}
+            <span className="text-[var(--dark-green)] text-sm font-medium cursor-pointer" onClick={() => navigation("/login")}>
+              Faça login
+            </span>
+          </p>
 
           <BtnFillGreen width={"full"} onclick={() => {}}>
             Entrar
           </BtnFillGreen>
-
-          <p className="text-[#7E8082] text-sm font-medium mb-10 mt-8">
-            Não tem uma conta?{" "}
-            <span className="text-[var(--dark-green)] text-sm font-medium cursor-pointer">
-              Registre-se
-            </span>
-          </p>
         </section>
 
         <section className="hidden lg:flex w-full max-w-[50%] bg-[var(--dark-green-2)] min-h-screen flex justify-center">
