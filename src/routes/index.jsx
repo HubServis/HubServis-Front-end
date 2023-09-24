@@ -15,6 +15,7 @@ import ViewProfile from "../pages/ViewProfile";
 import EditProfile from "../pages/EditProfile";
 import Login from "../pages/Login/Index";
 import Register from "../pages/Register/Index";
+import ViewAllServices from "../pages/ViewAllServices";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -42,6 +43,7 @@ const Routers = () => {
         <Route path="/plans" element={<Plans />} />
         <Route path="/profile" element={<ViewProfile />} />
         <Route path="/profile/edit" element={<EditProfile />} />
+        <Route path="/services" element={<ViewAllServices />} />
         {/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
       </Routes>
     </BrowserRouter>

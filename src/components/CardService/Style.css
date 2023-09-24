@@ -1,5 +1,4 @@
 .container-card {
-	max-width: 15.4rem;
 	margin: 20px 10px;
 	transition: all 0.4s ease;
 }
@@ -11,7 +10,7 @@
 }
 
 .image-container {
-	max-width: 15.4rem;
+	/* max-width: 15.4rem; */
 	height: 14rem;
 	position: relative;
 }

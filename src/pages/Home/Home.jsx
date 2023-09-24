@@ -11,8 +11,11 @@ import bgBanner from "../../assets/bg-banner-home.svg";
 import ilustration from "../../assets/ilustracao-banner.svg";
 import search from "../../assets/search.svg";
 import ilutrationGraph from '../../assets/ilustration-graph.png';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+	const navigation = useNavigate();
+
 	return (
 		<>
 			<AppBar>
@@ -22,7 +25,7 @@ const Home = () => {
 			</AppBar>
 
 			<section id="section-banner">
-				<div className="banner">
+				<div className="banner hidden lg:flex">
 					<img src={bgBanner} alt="" id="bg-banner" />
 					<div id="container-search">
 						<h1>Transforme sua vida com apenas um clique!</h1>
@@ -59,7 +62,7 @@ const Home = () => {
 					</BtnOutlinedGreen>
 				</span>
 
-				<div className="cards">
+				<div className="cards flex-wrap">
 					<CardService />
 					<CardService />
 					<CardService />
@@ -73,7 +76,7 @@ const Home = () => {
 				<span className="title-section-box">
 					<h2 className="h2-title-section">Todos</h2>
 					<BtnOutlinedGreen
-						onclick={() => console.log("view all services button")}
+						onclick={() => navigation("/services")}
 					>
 						Ver Todos
 					</BtnOutlinedGreen>
@@ -88,8 +91,11 @@ const Home = () => {
 					<CardService id={"1"}/>
 					<CardService id={"1"}/>
 				</div>
+				
+				<p className="text-center text-[var(--gray)] mt-10 cursor-pointer hover:text-black" onClick={() => navigation("/services")}>Ver mais...</p>
+
 				<hr id="divisor-category-highlights" />
-				<section className="section-advertising">
+				<section className="section-advertising lg:flex">
 					<div>
 						<h2 className="font-[700] text-4xl">
 							Economize tempo com a HubServis
@@ -113,7 +119,7 @@ const Home = () => {
 						</BtnFillGreen>
 					</div>
 
-					<img src={ilutrationGraph} alt="" />
+					<img src={ilutrationGraph} alt="" className="w-full max-w-[50%] hidden lg:flex"/>
 				</section>
 			</section>
 		</>
