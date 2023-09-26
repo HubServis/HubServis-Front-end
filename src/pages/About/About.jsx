@@ -1,5 +1,5 @@
 import react from "react";
-import { AppBar, BtnFillGreen } from "../../components";
+import { AppBar, BtnFillGreen, Footer } from "../../components";
 import AboutImg from "../../assets/about/About.png";
 import {
   CurrencyCircleDollar,
@@ -131,6 +131,8 @@ const About = () => {
           className="max-w-[50%]"
         />
       </div>
+
+      <Footer/>
     </>
   );
 };

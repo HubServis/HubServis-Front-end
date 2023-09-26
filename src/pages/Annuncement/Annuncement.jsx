@@ -1,5 +1,5 @@
 import react from "react";
-import { AppBar, BtnOutlinedGreen, CardService } from "../../components";
+import { AppBar, BtnOutlinedGreen, CardService, Footer } from "../../components";
 import PercImg from "../../assets/Percentage.png";
 import Bgbanner from "../../assets/bg-banner-transparent.png";
 
@@ -72,6 +72,8 @@ const Annuncement = () => {
           </div>
         </aside>
       </section>
+
+      <Footer/>
     </>
   );
 };

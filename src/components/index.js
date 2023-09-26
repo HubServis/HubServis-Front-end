@@ -17,6 +17,7 @@ import PhoneInput from './Inputs/PhoneInput';
 import EmailInput from './Inputs/EmailInput';
 import CPFInput from './Inputs/CPFInput';
 import Shortly from './Shortly';
+import Footer from './Footer'
 
 export {
     AppBar,
@@ -37,5 +38,6 @@ export {
     PhoneInput,
     EmailInput,
     CPFInput,
-    Shortly
+    Shortly,
+    Footer
 }

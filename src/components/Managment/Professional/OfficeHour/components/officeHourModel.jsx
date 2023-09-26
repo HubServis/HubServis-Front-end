@@ -3,6 +3,7 @@ import trash from "../../../../../assets/Managment/trash.svg";
 import checkMark from "../../../../../assets/Managment/selection.svg";
 import clock from "../../../../../assets/Managment/clock.svg";
 import cookingPot from '../../../../../assets/Managment/cookingPot.svg';
+import CheckBox from "../../../../CheckBox";
 
 export const OfficeHourModel = () => {
   return (
@@ -25,7 +26,7 @@ export const OfficeHourModel = () => {
 
       <div className="flex gap-[10px]">
         <img src={clock} alt="clock icon" />
-        <p>07 ás 19 hrs</p>
+        <p>07 às 19 hrs</p>
       </div>
 
       <div className="flex gap-[10px]">
@@ -33,10 +34,10 @@ export const OfficeHourModel = () => {
         <p>12:30 ás 13:00</p>
       </div>
 
-      <div className="flex gap-[10px]">
+      <div className="flex gap-[10px] items-center">
         <img src={pencil} alt="pencil" />
         <img src={trash} alt="trash" />
-        <img src={checkMark} alt="check mark" />
+        <CheckBox/>
       </div>
     </div>
   );

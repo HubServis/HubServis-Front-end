@@ -2,11 +2,13 @@ import React from "react";
 import DateSelectDefault from "../../../Inputs/DateSelectDefault";
 import BtnFillGreen from "../../../Buttons/BtnFillGreen/BtnFillGreen";
 import Shortly from "../../../Shortly";
+import { HeaderManagment } from "../../Header";
 
 const Report = () => {
   return (
     <>
-      <h2 className="font-bold text-[20px]">Relatórios</h2>
+      <HeaderManagment/>
+      <h2 className="mt-[60px] font-bold text-[20px]">Relatórios</h2>
       <div className="mb-4 py-[15px] border-2 rounded-[8px] border-[var(--light-green)]">
         <div className="flex justify-around pb-[15px] border-b-2 border-[var(--light-green)]">
           <p className="cursor-pointer font-bold text-lg">PRINCIPAL</p>

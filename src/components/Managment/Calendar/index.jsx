@@ -1,5 +1,11 @@
 import CalendarScheduling from "./components";
+import HeaderAgenda from "./components/Header";
 
 export const Calendar = () => {
-  return <CalendarScheduling />;
+  return (
+    <>
+      <HeaderAgenda />
+      <CalendarScheduling />;
+    </>
+  );
 };

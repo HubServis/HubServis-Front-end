@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ListUserModel } from "./components/listUserModel";
 import SelectFilter from "../../../SelectFilter";
 import DateSelectDefault from "../../../Inputs/DateSelectDefault";
+import { HeaderManagment } from "../../Header";
 
 export const ListAgenda = () => {
   const ApiResponse = [
@@ -51,29 +52,32 @@ export const ListAgenda = () => {
   };
 
   return (
-    <div className="py-[22px] px-[17px] border-2 rounded-[8px] border-[var(--light-green)]">
-      <h2 className="font-bold text-[20px]">Agendamentos</h2>
+    <>
+      <HeaderManagment/>
+      <div className="py-[22px] px-[17px] mt-[60px] border-2 rounded-[8px] border-[var(--light-green)]">
+        <h2 className="font-bold text-[20px]">Agendamentos</h2>
 
-      <div className="mt-[65px]">
-        <div className="flex justify-between items-end">
-          <div className="flex gap-[10px]">
-            <div>
-              <p>Data Inicío</p>
-              <DateSelectDefault/>
+        <div className="mt-[65px]">
+          <div className="flex justify-between items-end">
+            <div className="flex gap-[10px]">
+              <div>
+                <p>Data Inicío</p>
+                <DateSelectDefault />
+              </div>
+              <div>
+                <p>Data Fim</p>
+                <DateSelectDefault />
+              </div>
             </div>
-            <div>
-              <p>Data Fim</p>
-              <DateSelectDefault/>
-            </div>
+
+            <SelectFilter />
           </div>
+        </div>
 
-          <SelectFilter/>
+        <div className="overflow-auto max-h-[500px] flex flex-col mt-[40px] gap-[20px]">
+          <ListRows />
         </div>
       </div>
-
-      <div className="overflow-auto max-h-[500px] flex flex-col mt-[40px] gap-[20px]">
-        <ListRows />
-      </div>
-    </div>
+    </>
   );
 };

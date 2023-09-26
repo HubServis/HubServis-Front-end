@@ -3,7 +3,7 @@ import "./Style.css";
 
 const CategorySelector = () => {
     return (
-		<section id="section-category" className="overflow-hidden mt-8 mx-auto">
+		<section id="section-category" className="overflow-hidden mt-8 mx-auto px-4 lg:px-10">
 			<h2 className="h2-title-section">Categorias</h2>
 			<div className="container-categories">
 				<div className="category">

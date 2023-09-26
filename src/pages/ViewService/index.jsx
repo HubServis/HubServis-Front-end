@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Avaliations, BtnFillGreen } from "../../components";
+import { AppBar, Avaliations, BtnFillGreen, Footer } from "../../components";
 import { useParams } from "react-router-dom";
 import Slider from "./components/Slider/Slider";
 import ImageSelector from "./components/ImageSelector/ImageSelector";
@@ -69,6 +69,8 @@ const ViewService = () => {
 					<ImageSelector />
 				</section>
 			</main>
+
+			<Footer/>
 		</>
 	);
 };

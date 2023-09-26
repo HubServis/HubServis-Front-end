@@ -4,7 +4,8 @@ import {
 	AppBar,
 	CardService,
 	BtnOutlinedGreen,
-	BtnFillGreen
+	BtnFillGreen,
+	Footer
 } from "../../components";
 import CategorySelector from './CategorySelector/CategorySelector';
 import bgBanner from "../../assets/bg-banner-home.svg";
@@ -52,7 +53,7 @@ const Home = () => {
 
 			<hr id="divisor-category-highlights" />
 
-			<section className="section-service">
+			<section className="section-service px-4 lg:px-10">
 				<span className="title-section-box">
 					<h2 className="h2-title-section">Destaques</h2>
 					<BtnOutlinedGreen
@@ -72,7 +73,7 @@ const Home = () => {
 
 			<hr id="divisor-category-highlights" />
 
-			<section className="section-all-services">
+			<section className="section-all-services px-4 lg:px-10">
 				<span className="title-section-box">
 					<h2 className="h2-title-section">Todos</h2>
 					<BtnOutlinedGreen
@@ -121,7 +122,9 @@ const Home = () => {
 
 					<img src={ilutrationGraph} alt="" className="w-full max-w-[50%] hidden lg:flex"/>
 				</section>
+
 			</section>
+			<Footer/>
 		</>
 	);
 };

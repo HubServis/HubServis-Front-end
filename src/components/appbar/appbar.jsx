@@ -67,7 +67,7 @@ const AppBar = ({ children }) => {
 
   return (
     <>
-      <nav id="navbar">
+      <nav id="navbar" className="py-4 px-[15px] md:px-5">
         <div className="container-logo-nav-links">
           <div className="logo-container">
             <img loading="lazy" src={logo} alt="icon logo" />
