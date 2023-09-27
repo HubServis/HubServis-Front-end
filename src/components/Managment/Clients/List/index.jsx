@@ -10,6 +10,33 @@ import { HeaderManagment } from "../../Header";
 export const ClientList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const MOCKAPIData = [
+		{
+			userName: "Ramilthon",
+			userImageUrl:
+				"https://cdn-7.motorsport.com/images/mgl/0mb95oa2/s800/lewis-hamilton-mercedes-1.jpg",
+			dateAndTime: "20/07/2023",
+			price: "55,00",
+			phone: "(11) 99962-4545",
+		},
+		{
+			userName: "Ramilthon",
+			userImageUrl:
+				"https://cdn-7.motorsport.com/images/mgl/0mb95oa2/s800/lewis-hamilton-mercedes-1.jpg",
+			dateAndTime: "20/07/2023",
+			price: "55,00",
+			phone: "(11) 99962-4545",
+		},
+		{
+			userName: "Ramilthon",
+			userImageUrl:
+				"https://cdn-7.motorsport.com/images/mgl/0mb95oa2/s800/lewis-hamilton-mercedes-1.jpg",
+			dateAndTime: "20/07/2023",
+			price: "55,00",
+			phone: "(11) 99962-4545",
+		},
+	];
+
   return (
     <>
       <HeaderManagment/>
@@ -30,8 +57,11 @@ export const ClientList = () => {
           </div>
 
           <div className="overflow-auto max-h-[500px] flex flex-col mt-[35px] gap-[20px]">
-            <ListUserModel />
-            <ListUserModel />
+            {
+              MOCKAPIData.map( item => (
+                <ListUserModel />
+              ))
+            }
           </div>
         </div>
 
