@@ -21,15 +21,15 @@ export const ListUserModel = ({name, service, date, status}) => {
     <div className="py-[14px] px-[24px] flex justify-between items-center border-2 rounded-[8px] border-[var(--light-green)]">
       <div className="flex items-center">
         <div className="mr-[10px] bg-[var(--dark-green)] w-[5px] h-[45px] rounded-[10px]" />
-        <div className="flex items-center gap-[6px]">
+        <div className="flex items-center gap-[6px] w-[200px]">
           <img src={person} alt="avatar" />
           <p>{name}</p>
         </div>
       </div>
 
-      <p>{service}</p>
+      <p className="w-[200px]">{service}</p>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 w-[300px]">
         <img src={calendarCheck} alt="Calendar Check" />
         <p>{date}</p>
       </div>
