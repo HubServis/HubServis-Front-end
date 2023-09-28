@@ -16,6 +16,8 @@ import EditProfile from "../pages/EditProfile";
 import Login from "../pages/Login/Index";
 import Register from "../pages/Register/Index";
 import ViewAllServices from "../pages/ViewAllServices";
+import CreateAgendamento from "../pages/AgendamentoClient/CreateAgendamento";
+import ViewAgendamento from "../pages/AgendamentoClient/ViewAgendamentos";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -29,25 +31,31 @@ const ScrollToTop = () => {
 
 const Routers = () => {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route index path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/service/:id" element={<ViewService />} />
-        <Route path="/managment" element={<MainManagment />} /> {/* future private route */}
-        <Route path="/annuncement" element={<Annuncement />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/plans" element={<Plans />} />
+		<BrowserRouter>
+			<ScrollToTop />
+			<Routes>
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+				<Route index path="/" element={<Home />} />
+				<Route path="*" element={<NotFound />} />
+				<Route path="/service/:id" element={<ViewService />} />
+				{/* future private route */}
+				<Route path="/managment" element={<MainManagment />} />
+
+				<Route path="/annuncement" element={<Annuncement />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/plans" element={<Plans />} />
+				
         <Route path="/profile" element={<ViewProfile />} />
-        <Route path="/profile/edit" element={<EditProfile />} />
+				<Route path="/profile/edit" element={<EditProfile />} />
+				
         <Route path="/services" element={<ViewAllServices />} />
-        {/* <Route path="/post/:id" element={ <Post/>} /> //Passando rotas  */}
-      </Routes>
-    </BrowserRouter>
-  );
+				<Route path="/service/agenda/:id" element={<CreateAgendamento />} />
+				
+        <Route path="/agendamentos" element={<ViewAgendamento />} />
+			</Routes>
+		</BrowserRouter>
+	);
 };
 
 export default Routers;
