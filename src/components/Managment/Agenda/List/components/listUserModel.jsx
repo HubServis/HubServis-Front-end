@@ -1,9 +1,8 @@
 import calendarCheck from "../../../../../assets/Managment/CalendarCheckGreen.svg";
 import pencil from "../../../../../assets/Managment/pencil.svg";
 import trash from "../../../../../assets/Managment/trash.svg";
-import checkMark from "../../../../../assets/Managment/selection.svg";
-import person from "../../../../../assets/Managment/image 88.png";
 import { CheckBox } from '../../../../../components';
+import person from "../../../../../assets/Managment/image 88.png";
 
 export const ListUserModel = ({name, service, date, status}) => {
 

@@ -71,7 +71,7 @@ const AppBar = ({ children }) => {
         <div className="container-logo-nav-links">
           <div className="logo-container">
             <img loading="lazy" src={logo} alt="icon logo" />
-            <h1 id="title" className="font-extrabold text-[26px] hidden lg:block" onClick={() => (window.location.href = appUrl)}>
+            <h1 id="title" className="font-extrabold text-[26px] hidden lg:block" onClick={() => navigation("/")}>
               HubServis
             </h1>
           </div>

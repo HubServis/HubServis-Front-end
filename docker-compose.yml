@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  hub-servis-app:
+    build: ./
+    stdin_open: true
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=TRUE
+    volumes:
+      - "./:/usr/src/app:delegated"
+      - /usr/src/app/node_modules/
