@@ -42,6 +42,18 @@ const AppBar = ({ children }) => {
             navigation("/profile");
           }
         },
+        {
+          label: "Meus agendamentos",
+          command: () => {
+            navigation("/agendamentos");
+          },
+        },
+        {
+          label: "Agendar serviço",
+          command: () => {
+            navigation("/service/agenda/0");
+          },
+        },
         permissionBusiness && 
           {
             label: "Minha empresa",
