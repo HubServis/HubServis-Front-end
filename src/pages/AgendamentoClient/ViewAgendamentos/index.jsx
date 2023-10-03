@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar } from "../../../components";
+import { AppBar, Footer } from "../../../components";
 import calendarCheck from "../../../assets/Managment/CalendarCheckGreen.svg";
 import pencil from "../../../assets/Managment/pencil.svg";
 import trash from "../../../assets/Managment/trash.svg";
@@ -32,8 +32,11 @@ const ViewAgendamento = () => {
           </section>
         </header>
 
-        <section className="w-full flex flex-col justify-between mt-10 md:mt-[100px] mb-24 p-11 border-[var(--light-green)] border-[2px] rounded-lg">
-            <div className="flex justify-between">
+        <section className="w-full flex flex-col justify-between mt-10 md:mt-[100px] mb-24 py-4 px-2 md:p-11 border-[var(--light-green)] border-[2px] rounded-lg">
+            <div className="md:hidden">
+              <p className="text-lg font-semibold text-[var(--gray-opacity-50)] text-center w-[200px] m-auto">Mais informações sobre os serviços</p>
+            </div>
+            <div className="hidden md:flex justify-between">
                 <p className="text-lg font-semibold text-[var(--gray-opacity-50)] w-[200px] ml-12">Serviço</p>
                 <p className="text-lg font-semibold text-[var(--gray-opacity-50)] w-[200px]">Dia e Horário</p>
                 <p className="text-lg font-semibold text-[var(--gray-opacity-50)] w-[200px]">Preço</p>
@@ -49,6 +52,7 @@ const ViewAgendamento = () => {
             </div>
         </section>
       </main>
+      <Footer/>
     </>
   );
 };
@@ -57,7 +61,7 @@ export default ViewAgendamento;
 
 const RowAgendamentos = () => {
   return (
-    <div className="py-[14px] px-[24px] flex justify-between items-center border-2 rounded-[8px] border-[var(--light-green)]">
+    <div className="py-[14px] px-[24px] flex flex-col md:flex-row md:justify-between md:items-center border-2 rounded-[8px] border-[var(--light-green)]">
       <div className="flex items-center">
         <div className="mr-[10px] bg-[var(--dark-green)] w-[5px] h-[45px] rounded-[10px]" />
         <div className="flex items-center gap-[6px] w-[200px]">
@@ -70,22 +74,24 @@ const RowAgendamentos = () => {
         <p>20/07/2023 - 07:00 AM</p>
       </div>
 
-      <div className="flex items-center gap-2 w-[150px]">
-        <Money size={32} className="text-[var(--dark-green)]" />
-        <p>R$ 29,90</p>
-      </div>
+      <div className="w-full flex justify-between md:max-w-[34%]">
+        <div className="flex items-center gap-2 w-[150px]">
+          <Money size={32} className="text-[var(--dark-green)]" />
+          <p>R$ 29,90</p>
+        </div>
 
-      <div className="flex gap-[10px] items-center">
-        <ShoppingCart
-          size={32}
-          weight="bold"
-          className="text-[var(--dark-green)] cursor-pointer"
-        />
-        <X
-          size={32}
-          weight="bold"
-          className="text-[var(--medium-red)] cursor-pointer"
-        />
+        <div className="flex gap-[10px] items-center">
+          <ShoppingCart
+            size={32}
+            weight="bold"
+            className="text-[var(--dark-green)] cursor-pointer"
+          />
+          <X
+            size={32}
+            weight="bold"
+            className="text-[var(--medium-red)] cursor-pointer"
+          />
+        </div>
       </div>
     </div>
   );

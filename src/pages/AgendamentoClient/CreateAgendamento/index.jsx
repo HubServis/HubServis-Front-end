@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AppBar, BtnFillGreen } from "../../../components";
+import { AppBar, BtnFillGreen, Footer } from "../../../components";
 import { Clock, Users } from "@phosphor-icons/react";
 import { Calendar } from "primereact/calendar";
 import { addLocale } from "primereact/api";
@@ -192,6 +192,7 @@ const CreateAgendamento = () => {
           </div>
         </section>
       </main>
+      <Footer/>
     </>
   );
 };
