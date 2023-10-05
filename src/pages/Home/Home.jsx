@@ -24,7 +24,6 @@ const Home = () => {
 				<a href="/plans">Planos</a>
 				<a href="/annuncement">Anuncios e eventos</a>
 			</AppBar>
-
 			<section id="section-banner">
 				<div className="banner hidden lg:flex">
 					<img src={bgBanner} alt="" id="bg-banner" />
