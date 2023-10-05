@@ -8,8 +8,11 @@ import {
   ClockCounterClockwise,
   User,
 } from "@phosphor-icons/react";
+import { userDataApi } from "../../api/userApi";
 
 const ViewProfile = () => {
+  const { img_profile } = userDataApi;
+
   return (
     <>
       <AppBar>
@@ -21,9 +24,9 @@ const ViewProfile = () => {
         <aside className="w-full max-w-[340px]">
           <figure className="max-w-[350px] rounded-[10px]">
             <img
-              src={imgProfileExemple}
+              src={img_profile}
               alt="profile image"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-full"
             />
           </figure>
 

@@ -2,13 +2,12 @@ import React, { useRef } from "react";
 import "./style.css";
 import logo from "../../assets/HS-ICON.png";
 import profileExemple from "../../assets/profile-exemple.png";
-import iconOpen from "../../assets/Down.svg";
 import iconNotification from "../../assets/Bell.svg";
-import { appUrl } from "../../utils/loadConfigs";
 import { Menu } from 'primereact/menu';
 import { Toast } from 'primereact/toast';
 import { useNavigate } from "react-router-dom";
 import { List } from "@phosphor-icons/react";
+import { userDataApi } from '../../api/userApi';
 
 const AppBar = ({ children }) => {
   const reduceString = (str, numCaracters) => {
@@ -24,6 +23,7 @@ const AppBar = ({ children }) => {
   const permissionAdmin = true;
   const menuLeft = useRef(null);
   const toast = useRef(null);
+  const { img_profile } = userDataApi;
   const items = [
     {
       label: "Opções Gerais",
@@ -101,7 +101,7 @@ const AppBar = ({ children }) => {
           <div className="profile-preview">
             <img
               loading="lazy"
-              src={profileExemple}
+              src={img_profile}
               alt="photo profile"
               className="photo-profile"
             />
