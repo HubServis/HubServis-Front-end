@@ -8,6 +8,6 @@ function App() {
       <Routers />
     </div>
   )
-}
+};
 
-export default App
+export default App;
