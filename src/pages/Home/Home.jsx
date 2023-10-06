@@ -83,13 +83,13 @@ const Home = () => {
 				</span>
 				<div className="cards-all-services">
 					<CardService id={"1"}/>
-					<CardService id={"1"}/>
-					<CardService id={"1"}/>
-					<CardService id={"1"}/>
-					<CardService id={"1"}/>
-					<CardService id={"1"}/>
-					<CardService id={"1"}/>
-					<CardService id={"1"}/>
+					<CardService id={"2"}/>
+					<CardService id={"3"}/>
+					<CardService id={"4"}/>
+					<CardService id={"5"}/>
+					<CardService id={"6"}/>
+					<CardService id={"7"}/>
+					<CardService id={"8"}/>
 				</div>
 				
 				<p className="text-center text-[var(--gray)] mt-10 cursor-pointer hover:text-black" onClick={() => navigation("/services")}>Ver mais...</p>
