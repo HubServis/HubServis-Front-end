@@ -1,10 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { APIBASEURL } from "../utils/loadConfigs";
-
-const api = axios.create({
-    baseURL: APIBASEURL
-})
+import { api } from "../services/api";
 
 export function useFetch(url, options = {}) {
   const [data, setData] = useState();

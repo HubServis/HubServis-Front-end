@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AppBar, Avaliations } from "../../components";
-import imgProfileExemple from "../../assets/profile-exemple.png";
 import {
   MapPin,
   Chat,
@@ -8,10 +7,16 @@ import {
   ClockCounterClockwise,
   User,
 } from "@phosphor-icons/react";
-import { userDataApi } from "../../api/userApi";
+import { useFetch } from "../../hooks/useFetch";
+
 
 const ViewProfile = () => {
-  const { img_profile } = userDataApi;
+  const {data, error, isFetching} = useFetch('/user/ebca70e6-ea7e-4916-a671-cea7464fecd9');
+
+  const img_profile = userAvatar(data);
+
+  console.log(data);
+  console.log("error", error);
 
   return (
     <>
@@ -66,7 +71,7 @@ const ViewProfile = () => {
         <section className="w-full">
           <div className="flex gap-[38px]">
             <h1 className="text-2xl font-bold text-[var(--dark-gray)]">
-              Lewis Ramilthon
+              {data?.name ? data.name : 'Lewis Ramilthon'}
             </h1>
             <div className="flex items-center">
               <MapPin size={32} className="text-[var(--dark-green)]" />
@@ -130,7 +135,7 @@ const ViewProfile = () => {
           <div className="flex gap-4 my-3">
             <p className="font-semibold text-[var(--dark-gray)]">E-mail:</p>
             <p className="text-[var(--gray)] font-medium">
-              ramilthonbmw@gmail.com
+              { data?.email ? data.email : 'ramilthonbmw@gmail.com'}
             </p>
           </div>
 
@@ -158,3 +163,16 @@ const ViewProfile = () => {
 };
 
 export default ViewProfile;
+
+const userAvatar = (data) => {
+  if(data?.img_profile) {
+    
+    return data.img_profile;
+  }else if(data){
+    const initialsName = [data.name.split(' ')[0][0], data.name.split(' ').at(-1)[0]];
+
+    return `https://ui-avatars.com/api/?name=${initialsName[0]}+${initialsName[1]}&format=svg&background=97FFA8`;
+  }
+  
+  return `https://ui-avatars.com/api/?name=Ramilthon&format=svg&background=97FFA8`;
+}
