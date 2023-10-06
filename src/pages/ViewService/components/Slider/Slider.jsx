@@ -1,27 +1,48 @@
-import React from "react";
-import imgExemple from "../../../../assets/image-exemple.svg";
-import { Circle } from "@phosphor-icons/react";
-import { strong_green, light_green } from "../../../../style/global-colors";
+import React, { useState } from "react";
+import { Galleria } from "primereact/galleria";
 
-const Slider = () => {
-	return (
-		<>
-			<div className="flex flex-col items-center">
-				<img src={imgExemple} alt="image service" className="w-full object-cover"/>
-				<div className="flex gap-1 mt-4">
-					<i className="cursor-pointer">
-						<Circle size={15} color={strong_green} weight="fill" />
-					</i>
-					<i className="cursor-pointer">
-						<Circle size={15} color={light_green} weight="fill" />
-					</i>
-					<i className="cursor-pointer">
-						<Circle size={15} color={light_green} weight="fill" />
-					</i>
-				</div>
-			</div>
-		</>
-	);
+const Slider = ({ DataImages }) => {
+  const [images, setImages] = useState(DataImages);
+
+  const itemTemplate = (item) => {
+    return (
+      <img
+        src={item.img_src}
+        alt={item.alt}
+        style={{
+          width: "100%",
+          maxHeight: "600px",
+          display: "block",
+          objectFit: "cover",
+		  borderRadius: '8px'
+        }}
+      />
+    );
+  };
+
+  const thumbnailTemplate = (item) => {
+    return (
+      <img
+        src={item.thumbnailImgSrc}
+        alt={item.alt}
+        style={{ display: "block" }}
+      />
+    );
+  };
+
+  return (
+    <Galleria
+      value={images}
+      circular
+      style={{ maxHeight: "600px" }}
+      //   numVisible={5}
+      showThumbnails={false}
+      showItemNavigators
+      item={itemTemplate}
+      thumbnail={thumbnailTemplate}
+      showIndicators
+    />
+  );
 };
 
 export default Slider;
