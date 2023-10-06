@@ -36,16 +36,16 @@ const MockCategoriesApi = [
 ];
 
 const CategorySelector = () => {
-  const [products, setProducts] = useState(MockCategoriesApi);
+  const [categories, setCategories] = useState(MockCategoriesApi);
 
-  const productTemplate = (product) => {
+  const productTemplate = (category) => {
     return (
       <div className="category cursor-pointer">
         <img
           src="https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg"
           alt=""
         />
-        <p>{product.name}</p>
+        <p>{category.name}</p>
       </div>
     );
   };
@@ -80,49 +80,11 @@ const CategorySelector = () => {
     >
 	 <h2 className="h2-title-section">Categorias</h2>
       <Carousel
-        value={products}
+        value={categories}
         numVisible={5}
         itemTemplate={productTemplate}
         responsiveOptions={responsiveOptions}
       />
-      {/* <h2 className="h2-title-section">Categorias</h2>
-			<div className="container-categories">
-				<div className="category">
-					<img
-						src="https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg"
-						alt=""
-					/>
-					<p>Massagem</p>
-				</div>
-				<div className="category">
-					<img
-						src="https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg"
-						alt=""
-					/>
-					<p>Massagem</p>
-				</div>
-				<div className="category">
-					<img
-						src="https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg"
-						alt=""
-					/>
-					<p>Massagem</p>
-				</div>
-				<div className="category">
-					<img
-						src="https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg"
-						alt=""
-					/>
-					<p>Massagem</p>
-				</div>
-				<div className="category">
-					<img
-						src="https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg"
-						alt=""
-					/>
-					<p>Massagem</p>
-				</div>
-			</div> */}
     </section>
   );
 };
