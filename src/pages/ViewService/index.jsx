@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Avaliations, BtnFillGreen, Footer } from "../../components";
 import { useParams } from "react-router-dom";
 import Slider from "./components/Slider/Slider";
 import ImageSelector from "./components/ImageSelector/ImageSelector";
+import { Rating } from 'primereact/rating';
 
 const ViewService = () => {
 	const { id } = useParams();
+	const [rating, setRating] = useState(null);
 
 	return (
 		<>
@@ -46,7 +48,9 @@ const ViewService = () => {
 					<h1 className="font-[700] text-3xl mb-10">
 						Diva Unhas Decoradas Manicure
 					</h1>
-					<Avaliations size={32}/>
+
+					<Rating value={rating} cancel={false} onChange={(e) => setRating(e.value)} />
+					
 					<p className="text-xl font-bold text-[color:var(--strong-green)] my-10">
 						56 avaliações sobre esse serviço
 					</p>

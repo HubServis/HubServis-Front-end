@@ -3,10 +3,12 @@ import "./Style.css";
 import { Heart, Plus } from "@phosphor-icons/react";
 import { Avaliations, Footer } from "../";
 import { useNavigate } from "react-router-dom";
+import { Rating } from "primereact/rating";
 
 const CardService = ({id}) => {
 	const navigator = useNavigate();
 	const [like, setLike] = useState(1);
+	const rating = Math.floor(Math.random() * (5 - 1) + 1);
 
 	return (
 		<>
@@ -29,7 +31,7 @@ const CardService = ({id}) => {
 				<div className="price-and-more">
 					<span>
 						<p className="price-service">R$50,00</p>
-						<Avaliations />
+						<Rating value={rating} cancel={false} readOnly />
 					</span>
 					<div>
 						<div className="tooltip">

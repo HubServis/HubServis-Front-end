@@ -8,7 +8,7 @@ import {
   User,
 } from "@phosphor-icons/react";
 import { useFetch } from "../../hooks/useFetch";
-
+import { Rating } from 'primereact/rating'; 
 
 const ViewProfile = () => {
   const {data, error, isFetching} = useFetch('/user/ebca70e6-ea7e-4916-a671-cea7464fecd9');
@@ -90,8 +90,8 @@ const ViewProfile = () => {
           </h4>
 
           <div className="flex gap-[10px]">
-            <p className="text-[28px] font-medium mt-[5px]">8,0</p>
-            <Avaliations size={30} />
+            <p className="text-[28px] font-medium mt-[5px]">4,0</p>
+					  <Rating value={4} cancel={false} readOnly onChange={(e) => setRating(e.value)} />
           </div>
 
           <section className="flex w-full justify-between mt-10">
