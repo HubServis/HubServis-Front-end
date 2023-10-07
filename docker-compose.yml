@@ -9,7 +9,8 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=TRUE
     volumes:
-      - "./:/usr/src/app:delegated"
+      - "./:/usr/src/app"
+      # - "./:/usr/src/app:delegated"
       - /usr/src/app/node_modules/
 
   hub-servis-backend:
@@ -18,5 +19,5 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - "../HubServis-API/:/app/backend"
+      - "../HubServis-API/:/app"
       - "/app/node_modules"

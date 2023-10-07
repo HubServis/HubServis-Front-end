@@ -1,4 +1,3 @@
-import React from "react";
 import DateSelectDefault from "../../../Inputs/DateSelectDefault";
 import BtnFillGreen from "../../../Buttons/BtnFillGreen/BtnFillGreen";
 import Shortly from "../../../Shortly";
