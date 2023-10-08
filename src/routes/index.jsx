@@ -35,13 +35,17 @@ const Routers = () => {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
+        <Route path="*" element={<NotFound />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<PrivateRoute />}>
+        
+        <Route  path="/" element={<PrivateRoute />}>
           <Route index path="/" element={<Home />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+
         <Route path="/service/:id" element={<ViewService />} />
+        
         {/* future private route */}
         <Route path="/managment" element={<MainManagment />} />
 
