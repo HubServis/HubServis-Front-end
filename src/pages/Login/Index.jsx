@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logoImg from "../../assets/HS-ICON.png";
 import { BtnFillGreen, CheckBox, EmailInput } from "../../components";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
 import Ilustration from '../../assets/Login/login-ilustration.svg';
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const navigation = useNavigate();
+  const { signIn, signed } = useContext(AuthContext);
   const [passwordValue, setPasswordValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
+
+  const onSubmit = async () => {
+    const dataUser = {
+      email: emailValue,
+      password: passwordValue
+    };
+
+    await signIn(dataUser);
+  }
+
+  if(signed) return <Navigate to="/" />;
 
   return (
     <>
@@ -40,7 +54,7 @@ const Login = () => {
             >
               Seu email
             </label>
-            <InputText id="seu-email" placeholder="ramilthon@gmail.com" />
+            <InputText id="seu-email" placeholder="ramilthon@gmail.com" value={emailValue} onChange={(e) => setEmailValue(e.target.value)}/>
           </div>
 
           <div className="flex flex-col gap-2 mt-8">
@@ -66,7 +80,7 @@ const Login = () => {
             </p>
           </div>
 
-          <BtnFillGreen width={"full"} onclick={() => {}}>
+          <BtnFillGreen width={"full"} onclick={() => onSubmit()}>
             Entrar
           </BtnFillGreen>
 

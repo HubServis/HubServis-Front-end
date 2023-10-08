@@ -18,6 +18,7 @@ import Register from "../pages/Register/Index";
 import ViewAllServices from "../pages/ViewAllServices";
 import CreateAgendamento from "../pages/AgendamentoClient/CreateAgendamento";
 import ViewAgendamento from "../pages/AgendamentoClient/ViewAgendamentos";
+import { PrivateRoute } from "./privateRoutes";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,7 +37,9 @@ const Routers = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route index path="/" element={<Home />} />
+        <Route path="/" element={<PrivateRoute />}>
+          <Route index path="/" element={<Home />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/service/:id" element={<ViewService />} />
         {/* future private route */}
