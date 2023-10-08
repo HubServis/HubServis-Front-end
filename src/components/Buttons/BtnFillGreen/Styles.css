@@ -1,6 +1,6 @@
 .btn-fill-green{
     font-weight: 600;
-    font-size: 14;
+    font-size: 14px;
     background: var(--strong-green);
     color: white;
     padding: 1rem 1.8rem;

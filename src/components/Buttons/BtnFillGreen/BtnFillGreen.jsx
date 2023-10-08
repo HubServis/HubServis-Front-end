@@ -5,7 +5,7 @@ import "./Styles.css";
 /* width = "full" / full -> espaço disponivel, se não passar ficará "original"
 */
 
-const BtnFillGreen = ({ children, onclick = () => {}, width }) => {
+const BtnFillGreen = ({ children, onclick = () => {},width }) => {
 	if (width == "full") {
 		return (
 			<>

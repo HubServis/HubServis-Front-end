@@ -1,28 +1,57 @@
 import React, { useContext, useState } from "react";
 import logoImg from "../../assets/HS-ICON.png";
-import { BtnFillGreen, CheckBox, EmailInput } from "../../components";
+import { BtnFillGreen, CheckBox } from "../../components";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
-import Ilustration from '../../assets/Login/login-ilustration.svg';
+import Ilustration from "../../assets/Login/login-ilustration.svg";
 import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup.object({
+  email: yup
+    .string()
+    .required("Email é um campo obrigatório.")
+    .email("Este email não é valido!"),
+  password: yup
+    .string()
+    .required("Password é um campo obrigatório")
+    .min(6, "Informe uma senha de no minimo 6 caracters."),
+});
 
 const Login = () => {
   const navigation = useNavigate();
   const { signIn, signed } = useContext(AuthContext);
-  const [passwordValue, setPasswordValue] = useState("");
-  const [emailValue, setEmailValue] = useState("");
 
-  const onSubmit = async () => {
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const getFormErrorMessage = (name) => {
+    return errors[name] ? (
+      <small className="p-error">{errors[name].message}</small>
+    ) : (
+      <small className="p-error">&nbsp;</small>
+    );
+  };
+
+  const onSubmit = async (data) => {
     const dataUser = {
-      email: emailValue,
-      password: passwordValue
+      email: data.email,
+      password: data.password,
     };
 
     await signIn(dataUser);
-  }
+  };
 
-  if(signed) return <Navigate to="/" />;
+  if (signed) return <Navigate to="/" />;
 
   return (
     <>
@@ -47,25 +76,50 @@ const Login = () => {
             Bem vindo de volta! Por favor, insira seus dados.
           </p>
 
-          <div className="flex flex-col gap-2 mt-8">
-            <label
-              htmlFor="seu-email"
-              className="text-[#7E8082] text-sm font-medium"
-            >
-              Seu email
-            </label>
-            <InputText id="seu-email" placeholder="ramilthon@gmail.com" value={emailValue} onChange={(e) => setEmailValue(e.target.value)}/>
-          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex flex-col gap-2 mt-8">
+              <label
+                htmlFor="seu-email"
+                className="text-[#7E8082] text-sm font-medium"
+              >
+                Seu email
+              </label>
+              <InputText
+                id="seu-email"
+                placeholder="ramilthon@gmail.com"
+                // value={emailValue}
+                // onChange={(e) => setEmailValue(e.target.value)}
+                {...register("email")}
+              />
+              {getFormErrorMessage("email")}
+            </div>
 
-          <div className="flex flex-col gap-2 mt-8">
-            <label
-              htmlFor="sua-senha"
-              className="text-[#7E8082] text-sm font-medium"
-            >
-              Sua senha
-            </label>
-            <Password inputStyle={{width: "100%", alignItems: "center"}} value={passwordValue} onChange={(e) => setPasswordValue(e.target.value)} feedback={false} toggleMask/>
-          </div>
+            <div className="flex flex-col gap-2 mt-3">
+              <label
+                htmlFor="sua-senha"
+                className="text-[#7E8082] text-sm font-medium"
+              >
+                Sua senha
+              </label>
+              <Controller
+                name="password"
+                control={control}
+                defaultValue=""
+                render={({ field, fieldState }) => (
+                  <>
+                    <Password
+                      inputStyle={{ width: "100%", alignItems: "center" }}
+                      feedback={false}
+                      toggleMask
+                      id={field.name}
+                      {...field}
+                      inputRef={field.ref}
+                    />
+                    {getFormErrorMessage(field.name)}
+                  </>
+                )}
+              />
+            </div>
 
           <div className="flex justify-between mt-2 items-center mb-10">
             <div className="flex gap-1 mt-2 items-center">
@@ -80,20 +134,28 @@ const Login = () => {
             </p>
           </div>
 
-          <BtnFillGreen width={"full"} onclick={() => onSubmit()}>
+          <BtnFillGreen width={"full"} >
             Entrar
           </BtnFillGreen>
+          </form>
 
           <p className="text-[#7E8082] text-sm font-medium mb-10 mt-8">
             Não tem uma conta?{" "}
-            <span className="text-[var(--dark-green)] text-sm font-medium cursor-pointer" onClick={() => navigation("/register")}>
+            <span
+              className="text-[var(--dark-green)] text-sm font-medium cursor-pointer"
+              onClick={() => navigation("/register")}
+            >
               Registre-se
             </span>
           </p>
         </section>
 
         <section className="hidden lg:flex w-full max-w-[50%] bg-[var(--dark-green-2)] min-h-screen flex justify-center">
-          <img src={Ilustration} alt="Ilustration" className="max-w-lg max-h-lg m-auto"/>
+          <img
+            src={Ilustration}
+            alt="Ilustration"
+            className="max-w-lg max-h-lg m-auto"
+          />
         </section>
       </main>
     </>
