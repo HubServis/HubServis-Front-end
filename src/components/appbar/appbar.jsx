@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./style.css";
 import logo from "../../assets/HS-ICON.png";
-import profileExemple from "../../assets/profile-exemple.png";
 import iconNotification from "../../assets/Bell.svg";
 import { Menu } from 'primereact/menu';
 import { Toast } from 'primereact/toast';
 import { useNavigate } from "react-router-dom";
 import { List } from "@phosphor-icons/react";
 import { userDataApi } from '../../api/userApi';
+import { AuthContext } from '../../context/AuthContext';
 
 const AppBar = ({ children }) => {
   const reduceString = (str, numCaracters) => {
@@ -18,13 +18,26 @@ const AppBar = ({ children }) => {
     }
   };
 
-  const navigation = useNavigate();
   const permissionBusiness = true;
   const permissionAdmin = true;
+  const navigation = useNavigate();
+  const { singOut } = useContext(AuthContext);
   const menuLeft = useRef(null);
   const toast = useRef(null);
   const { img_profile } = userDataApi;
   const items = [
+    permissionAdmin && 
+    {
+      label: "Admin",
+      items: [
+        {
+          label: "Dashboard",
+          command: () => {
+            navigation("/admin/dashboard");
+          },
+        },
+      ]
+    },
     {
       label: "Opções Gerais",
       items: [
@@ -55,26 +68,18 @@ const AppBar = ({ children }) => {
           },
         },
         permissionBusiness && 
-          {
-            label: "Minha empresa",
-            command: () => {
-              navigation("/managment");
-            },
-          },
-      ],
-    },
-    permissionAdmin && 
-    {
-      label: "Admin",
-      items: [
         {
-          label: "Dashboard",
+          label: "Minha empresa",
           command: () => {
-            navigation("/admin/dashboard");
+            navigation("/managment");
           },
         },
-      ]
-    }
+        {
+          label: "Sair da Conta",
+          command: () => singOut(),
+        },
+      ],
+    },
   ];
 
   return (
