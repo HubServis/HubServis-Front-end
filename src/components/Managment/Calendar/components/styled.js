@@ -31,7 +31,8 @@ export const StyledEvent = styled.span`
 	align-items: center;
 	color: black;
 	font-size: 13px;
-	cursor: move;
+	// cursor: move;
+	cursor: pointer;
 	text-transform: capitalize;
 	background: var(--gray-almost-white);
 	margin-left: 40px;

@@ -90,7 +90,7 @@ export const MenuSidebar = ({ children, context, setContext }) => {
               style={{ color: "white" }}
               className="cursor-pointer hidden group-hover/menu:flex ml-[5rem] flex-col gap-[10px] max-w-[fit-content] "
             >
-              <p>Hello World</p>
+              <p className="max-w-[fit-content]" onClick={() => setContext(12)}>Inicio</p>
             </div>
           </CardSelect>
 

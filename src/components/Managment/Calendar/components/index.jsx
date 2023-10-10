@@ -16,7 +16,7 @@ import {
 	PortalWrapper,
 	Header,
 } from "./styled";
-import { DAYS, MOCKAPPS, MONTHS } from "./conts";
+import { DAYS, MOCKAPPS, MONTHS, MOCKDATAAPI } from "./conts";
 import {
 	datesAreOnSameDay,
 	getDarkColor,
@@ -110,7 +110,7 @@ const CalendarScheduling = () => {
 					/>
 					<div className="location">
 						<MapPin size={20} color={gray_opacity_50} />
-						<p>São Paulo, Brasil</p>
+						<p>{MOCKDATAAPI.location}, {MOCKDATAAPI.country}</p>
 					</div>
 				</DateControls>
 			</Header>
@@ -129,28 +129,29 @@ const CalendarScheduling = () => {
 					<div
 						key={index}
 						id={`${currentDate.getFullYear()}/${currentDate.getMonth()}/${day}`}
-						onDragEnter={(e) =>
-							onDragEnter(
-								new Date(
-									currentDate.getFullYear(),
-									currentDate.getMonth(),
-									day
-								),
-								e
-							)
-						}
-						onDragOver={(e) => e.preventDefault()}
-						onDragEnd={drop}
-						onClick={(e) =>
-							addEvent(
-								new Date(
-									currentDate.getFullYear(),
-									currentDate.getMonth(),
-									day
-								),
-								e
-							)
-						}
+						// onDragEnter={(e) =>
+						// 	onDragEnter(
+						// 		new Date(
+						// 			currentDate.getFullYear(),
+						// 			currentDate.getMonth(),
+						// 			day
+						// 		),
+						// 		e
+						// 	)
+						// }
+						// onDragOver={(e) => e.preventDefault()}
+						// onDragEnd={drop}
+						
+						// onClick={(e) =>{ // add new event
+						// 	addEvent(
+						// 		new Date(
+						// 			currentDate.getFullYear(),
+						// 			currentDate.getMonth(),
+						// 			day
+						// 		),
+						// 		e
+						// 	)}
+						// }
 					>
 						<span
 							className={`nonDRAG ${
@@ -180,9 +181,9 @@ const CalendarScheduling = () => {
 										)
 									) && (
 										<StyledEvent
-											onDragStart={(e) => drag(index, e)}
+											// onDragStart={(e) => drag(index, e)}
 											onClick={() => handleOnClickEvent(ev)}
-											draggable
+											// draggable
 											id={`${ev.color} ${ev.title}`}
 											key={ev.title}
 										>
