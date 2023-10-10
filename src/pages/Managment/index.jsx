@@ -37,6 +37,7 @@ const contextPages = [
   
   { section: <Shortly /> },
   { section: <Shortly /> },
+  { section: <Shortly /> },
 ];
 
 export const MainManagment = () => {
