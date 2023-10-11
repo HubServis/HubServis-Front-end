@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AppBar, Avaliations } from "../../components";
+import { AppBar} from "../../components";
 import {
   MapPin,
   Chat,

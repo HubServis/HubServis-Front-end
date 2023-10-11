@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, Avaliations, BtnFillGreen, Footer } from "../../components";
+import { AppBar, BtnFillGreen, Footer } from "../../components";
 import { useParams } from "react-router-dom";
 import ImageSelector from "./components/ImageSelector/ImageSelector";
 import { Rating } from "primereact/rating";

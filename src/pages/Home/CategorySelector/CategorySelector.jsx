@@ -79,8 +79,6 @@ const CategorySelector = () => {
     },
   ];
 
-  console.log(data);
-
   return (
     <section
       id="section-category"
