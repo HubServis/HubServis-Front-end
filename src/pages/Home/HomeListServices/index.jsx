@@ -5,8 +5,6 @@ import { useFetch } from "../../../hooks/useFetch";
 
 const HomeListServices = () => {
     const { data, error, isFetching } = useFetch("/services");
-  
-    console.log(data);
 
     return (
     <>
