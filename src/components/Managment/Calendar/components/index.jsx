@@ -28,8 +28,6 @@ import {
 import { dark_gray, gray_opacity_50 } from "../../../../style/global-colors";
 
 const CalendarScheduling = () => {
-	const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-	const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 	const [currentDate, setCurrentDate] = useState(new Date());
 	const [events, setEvents] = useState(MOCKAPPS);
 	const dragDateRef = useRef();
@@ -94,7 +92,7 @@ const CalendarScheduling = () => {
 				<div className="title-header">
 					<h1>Tabela de Horários</h1>
 					<h2>
-						{MONTHS[currentMonth]} de {currentYear}
+						{MONTHS[currentDate.getMonth()]} de {currentDate.getFullYear()}
 					</h2>
 				</div>
 				<DateControls>
