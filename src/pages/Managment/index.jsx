@@ -41,7 +41,7 @@ const contextPages = [
 ];
 
 export const MainManagment = () => {
-  const [context, setContext] = useState(null);
+  const [context, setContext] = useState(0);
 
   console.log(context);
 
