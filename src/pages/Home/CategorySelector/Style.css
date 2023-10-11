@@ -28,8 +28,8 @@
 }
 
 .category > img:hover{
-    max-width: 10rem;
-    height: 10rem;
+    max-width: 9rem;
+    height: 9rem;
     border: 4px solid var(--light-green);
 }
 
