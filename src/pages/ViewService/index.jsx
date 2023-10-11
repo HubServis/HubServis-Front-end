@@ -11,6 +11,7 @@ import { Rating } from "primereact/rating";
 import Slider from "./components/Slider/Slider";
 import { useFetch } from "../../hooks/useFetch";
 import { changePriceForUi } from "../../utils/changePrice";
+import LoadingViewService from "./components/LoadingViewService";
 
 const mockImagesAPI = [
   {
@@ -57,6 +58,19 @@ const ViewService = () => {
 
   console.log(data);
 
+  if (isFetching)
+    return (
+      <>
+        <AppBar>
+          <a href="/service">Sobre</a>
+          <a href="/plans">Planos</a>
+          <a href="/annuncement">Anuncios e eventos</a>
+          <a href="/about">Suporte</a>
+        </AppBar>
+        <LoadingViewService />
+      </>
+    );
+
   return (
     <>
       <AppBar>
@@ -65,7 +79,7 @@ const ViewService = () => {
         <a href="/annuncement">Anuncios e eventos</a>
         <a href="/about">Suporte</a>
       </AppBar>
-      <main className="flex justify-center mt-[60px] px-28 mb-40">
+      <main className="flex justify-center mt-[60px] px-28 mb-40 max-w-[1440px] m-auto">
         <section className="w-full max-w-[50%] pr-[34px]">
           <Slider DataImages={dataApi.images} />
           <article>
@@ -94,7 +108,7 @@ const ViewService = () => {
             <p className="font-bold text-[36px] mt-7">R$ {dataApi.price}</p>
             <p className="text-xl mb-8">{dataApi.formOfCharging}</p>
           </div>
-          
+
           <p className="text-sm mb-3">
             Opção de {displayTypesPayment(dataApi.typesPayment)}
           </p>
@@ -107,7 +121,7 @@ const ViewService = () => {
           </BtnFillGreen>
 
           <hr className="mt-[26px] mb-8" />
-          <p className="text-xl font-normal mb-10">
+          <p className="text-lg font-normal mb-6">
             Outros serviços que talvez você se interesse
           </p>
           <ImageSelector />
