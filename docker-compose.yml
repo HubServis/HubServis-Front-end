@@ -10,8 +10,7 @@ services:
       - CHOKIDAR_USEPOLLING=TRUE
     volumes:
       - "./:/usr/src/app"
-      # - "./:/usr/src/app:delegated"
-      - /usr/src/app/node_modules/
+      - "/usr/src/app/node_modules"
 
   hub-servis-backend:
     build: ../HubServis-API/

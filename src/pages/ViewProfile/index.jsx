@@ -8,10 +8,15 @@ import {
   User,
 } from "@phosphor-icons/react";
 import { useFetch } from "../../hooks/useFetch";
-import { Rating } from 'primereact/rating'; 
+import { Rating } from "primereact/rating";
+import { useNavigate } from "react-router-dom";
 
 const ViewProfile = () => {
-  const {data, error, isFetching} = useFetch('/user/ebca70e6-ea7e-4916-a671-cea7464fecd9');
+  const { data, error, isFetching } = useFetch(
+    "/user/ebca70e6-ea7e-4916-a671-cea7464fecd9",
+  );
+
+  const navigator = useNavigate();
 
   const img_profile = userAvatar(data);
 
@@ -41,29 +46,31 @@ const ViewProfile = () => {
 
           <article className="mt-9">
             <header className="flex justify-between">
-                <h4 className="font-bold text-[var(--gray-opacity-50)]">
+              <h4 className="font-bold text-[var(--gray-opacity-50)]">
                 Piloto Mercedez-AMG
-                </h4>
-                <p className="w-[120px] text-center justify-center bg-[var(--light-green)] rounded-[5px] font-bold text-base text-[#009933]">
+              </h4>
+              <p className="w-[120px] text-center justify-center bg-[var(--light-green)] rounded-[5px] font-bold text-base text-[#009933]">
                 Atual
-                </p>
+              </p>
             </header>
             <p className="text-[var(--gray)] mt-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
             </p>
           </article>
 
           <article className="mt-9">
             <header className="flex justify-between">
-                <h4 className="font-bold text-[var(--gray-opacity-50)]">
+              <h4 className="font-bold text-[var(--gray-opacity-50)]">
                 Piloto Mercedez-AMG
-                </h4>
-                <p className="w-[120px] text-center justify-center bg-[var(--light-green)] rounded-[5px] font-bold text-base text-[#009933]">
+              </h4>
+              <p className="w-[120px] text-center justify-center bg-[var(--light-green)] rounded-[5px] font-bold text-base text-[#009933]">
                 Atual
-                </p>
+              </p>
             </header>
             <p className="text-[var(--gray)] mt-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
             </p>
           </article>
         </aside>
@@ -71,7 +78,7 @@ const ViewProfile = () => {
         <section className="w-full">
           <div className="flex gap-[38px]">
             <h1 className="text-2xl font-bold text-[var(--dark-gray)]">
-              {data?.name ? data.name : 'Lewis Ramilthon'}
+              {data?.name ? data.name : "Lewis Ramilthon"}
             </h1>
             <div className="flex items-center">
               <MapPin size={32} className="text-[var(--dark-green)]" />
@@ -91,7 +98,12 @@ const ViewProfile = () => {
 
           <div className="flex gap-[10px]">
             <p className="text-[28px] font-medium mt-[5px]">4,0</p>
-					  <Rating value={4} cancel={false} readOnly onChange={(e) => setRating(e.value)} />
+            <Rating
+              value={4}
+              cancel={false}
+              readOnly
+              onChange={(e) => setRating(e.value)}
+            />
           </div>
 
           <section className="flex w-full justify-between mt-10">
@@ -135,7 +147,7 @@ const ViewProfile = () => {
           <div className="flex gap-4 my-3">
             <p className="font-semibold text-[var(--dark-gray)]">E-mail:</p>
             <p className="text-[var(--gray)] font-medium">
-              { data?.email ? data.email : 'ramilthonbmw@gmail.com'}
+              {data?.email ? data.email : "ramilthonbmw@gmail.com"}
             </p>
           </div>
 
@@ -153,7 +165,10 @@ const ViewProfile = () => {
             <p className="text-[var(--gray)] font-medium">746.652.352-87</p>
           </div>
 
-          <button className="mt-[42px] bg-[var(--light-green)] w-full max-w-[390px] py-4 rounded-[10px] text-[var(--dark-green)] font-bold cursor-pointer">
+          <button
+            className="mt-[42px] bg-[var(--light-green)] w-full max-w-[390px] py-4 rounded-[10px] text-[var(--dark-green)] font-bold cursor-pointer"
+            onClick={() => navigator("/profile/edit")}
+          >
             EDITAR MEUS DADOS
           </button>
         </section>
@@ -165,14 +180,16 @@ const ViewProfile = () => {
 export default ViewProfile;
 
 const userAvatar = (data) => {
-  if(data?.img_profile) {
-    
+  if (data?.img_profile) {
     return data.img_profile;
-  }else if(data){
-    const initialsName = [data.name.split(' ')[0][0], data.name.split(' ').at(-1)[0]];
+  } else if (data) {
+    const initialsName = [
+      data.name.split(" ")[0][0],
+      data.name.split(" ").at(-1)[0],
+    ];
 
     return `https://ui-avatars.com/api/?name=${initialsName[0]}+${initialsName[1]}&format=svg&background=97FFA8`;
   }
-  
+
   return `https://ui-avatars.com/api/?name=Ramilthon&format=svg&background=97FFA8`;
-}
+};
