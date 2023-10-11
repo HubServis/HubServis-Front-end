@@ -12,6 +12,7 @@ import Slider from "./components/Slider/Slider";
 import { useFetch } from "../../hooks/useFetch";
 import { changePriceForUi } from "../../utils/changePrice";
 import LoadingViewService from "./components/LoadingViewService";
+import AvaliateService from "./components/AvaliateServiceModal";
 
 const mockImagesAPI = [
   {
@@ -87,6 +88,8 @@ const ViewService = () => {
             <p className="w-full flex flex-col">
               <span>{dataApi.description}</span>
             </p>
+
+            <AvaliateService TotalRatings={data?.totalRatings}/>
           </article>
         </section>
 
@@ -127,7 +130,6 @@ const ViewService = () => {
           <ImageSelector />
         </section>
       </main>
-
       <Footer />
     </>
   );
