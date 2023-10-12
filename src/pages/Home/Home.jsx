@@ -13,6 +13,7 @@ import ilustration from "../../assets/ilustracao-banner.svg";
 import search from "../../assets/search.svg";
 import ilutrationGraph from '../../assets/ilustration-graph.png';
 import { useNavigate } from "react-router-dom";
+import HomeListServices from "./HomeListServices";
 
 const Home = () => {
 	const navigation = useNavigate();
@@ -81,16 +82,8 @@ const Home = () => {
 						Ver Todos
 					</BtnOutlinedGreen>
 				</span>
-				<div className="cards-all-services">
-					<CardService id={"1"}/>
-					<CardService id={"2"}/>
-					<CardService id={"3"}/>
-					<CardService id={"4"}/>
-					<CardService id={"5"}/>
-					<CardService id={"6"}/>
-					<CardService id={"7"}/>
-					<CardService id={"8"}/>
-				</div>
+
+				<HomeListServices/>
 				
 				<p className="text-center text-[var(--gray)] mt-10 cursor-pointer hover:text-black" onClick={() => navigation("/services")}>Ver mais...</p>
 

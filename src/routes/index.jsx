@@ -44,7 +44,7 @@ const Routers = () => {
           <Route index path="/" element={<Home />} />
         </Route>
 
-        <Route path="/service/:id" element={<ViewService />} />
+        <Route path="/service/:nameservice/:id" element={<ViewService />} />
         
         {/* future private route */}
         <Route path="/managment" element={<MainManagment />} />

@@ -1,6 +1,5 @@
 import AppBar from "./appbar/appbar";
 import CardService from './CardService/CardService';
-import Avaliations from './Avaliations/Avaliations';
 import BtnOutlinedGreen from './Buttons/BtnOutlinedGreen/BtnOutlinedGreen';
 import BtnFillGreen from './Buttons/BtnFillGreen/BtnFillGreen';
 import { MenuSidebar } from './Managment/MenuSidebar';
@@ -17,12 +16,12 @@ import PhoneInput from './Inputs/PhoneInput';
 import EmailInput from './Inputs/EmailInput';
 import CPFInput from './Inputs/CPFInput';
 import Shortly from './Shortly';
-import Footer from './Footer'
+import Footer from './Footer';
+import OnlyViewReviews from './Rating/OnlyViewReviews';
 
 export {
     AppBar,
     CardService,
-    Avaliations,
     BtnOutlinedGreen,
     BtnFillGreen,
     MenuSidebar,
@@ -39,5 +38,6 @@ export {
     EmailInput,
     CPFInput,
     Shortly,
-    Footer
+    Footer,
+    OnlyViewReviews
 }
