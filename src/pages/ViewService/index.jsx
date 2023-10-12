@@ -85,11 +85,10 @@ const ViewService = () => {
           <Slider DataImages={dataApi.images} />
           <article>
             <h2 className="h2-title-section mt-[90px]">Descrição</h2>
-            <p className="w-full flex flex-col">
+            <p className="w-full flex flex-col mb-5">
               <span>{dataApi.description}</span>
             </p>
-
-            <AvaliateService TotalRatings={data?.totalRatings}/>
+            <AvaliateService TotalRatings={data?.totalRatings} serviceId={id}/>
           </article>
         </section>
 

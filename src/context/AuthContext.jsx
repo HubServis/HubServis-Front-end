@@ -37,7 +37,8 @@ export const AuthProvider = ({ children }) => {
       const response = await api.post("/login", { email, password });
 
       if (response.data.error) {
-        alert(response.data.error);
+        // alert(response.data.error);
+        ErrorMessage(response.data.error, showError);
       } else {
         console.log(response.data);
         setUser(response.data.token);
