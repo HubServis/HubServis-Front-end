@@ -1,54 +1,94 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { cpf as cpfValidator } from "cpf-cnpj-validator";
+import { useRef } from "react";
 
-// import yup from "yup";
+import * as yup from "yup";
+import { api } from "../services/api";
 
-// const schema = yup.object().shape({
-//   name: yup.string().required("Seu nome é necessário!"),
-//   email: yup
-//     .string()
-//     .email("Email invalido!")
-//     .required("O campo email é necessário!"),
-//   username: yup.string().required("O campo username é necessário!"),
-//   cpfcnpj: yup.string().required("O campo CPF é necessário"),
-//   password: yup.string().required("A senha é necessária!"),
-//   confirmPassword: yup.string().required("É necessário confirmar a senha!"),
-// });
+const schema = yup.object().shape({
+  name: yup.string().required("Seu nome é necessário!"),
+  email: yup
+    .string()
+    .email("Email invalido!")
+    .required("O campo email é necessário!"),
+  username: yup.string().required("O campo username é necessário!"),
+  cpfcnpj: yup
+    .string()
+    .min(11, "Informe um numero de cpf válido!")
+    .required("O campo CPF é necessário")
+    .test("cpfcnpj", "Cpf Inválido!", (cpf) => {
+      if (cpf && cpf.length < 14) return true;
 
-export const useRegister = () => {
-  const [registerData, setRegisterData] = useState({
-    name: "",
-    email: "",
-    username: "",
-    cpfcnpj: "",
-    password: "",
-    confirmPassword: "",
+      return cpfValidator.isValid(cpf);
+    }),
+  password: yup
+    .string()
+    .min(6, "A senha deve ter 6 caracteres ou mais")
+    .required("A senha é necessária!"),
+  confirmPassword: yup
+    .string()
+    .required("É necessário confirmar a senha!")
+    .oneOf([yup.ref("password"), null], "A senhas devem ser iguais!"),
+});
+
+const useRegister = () => {
+  const toast = useRef(null);
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
-  // const validateInput = (input) => {
-  //   const result = schema.isValid(input);
-  //
-  //   if (!result) {
-  //     return result;
-  //   } else true;
-  // };
-
-  const sendData = async () => {
-    // const isValid = validateInput();
-
- //    if (!isValid) {
-	// 	console.log(isValid);
-	//
-	// 	return isValid;
-	// }
-
-    await fetch(import.meta.env.VITE_REACT_APP_SERVER_URL + "create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      body: JSON.stringify(registerData),
-    });
+  const getFormErrorMessage = (name) => {
+    return errors[name] ? (
+      <small className="p-error">{errors[name].message}</small>
+    ) : (
+      <small className="p-error">&nbsp;</small>
+    );
   };
 
-  return [registerData, setRegisterData, sendData];
+  const sendData = async (data) => {
+    try {
+      const response = await api.post("/user", JSON.stringify(data));
+
+      const result = await response.json();
+
+      if (!response.ok) throw new Error(result);
+
+      toast.current.show({
+        severity: "info",
+        summary: "info",
+        detail: "Usuário criado, redirecionando para tela de login",
+        life: 3000,
+      });
+
+      return setTimeout(() => navigate("/login"), 3000);
+    } catch (err) {
+      toast.current.show({
+        severity: "error",
+        summary: "error",
+        detail: err.message,
+        life: 3000,
+      });
+    }
+  };
+
+  return [
+    register,
+    handleSubmit,
+    control,
+    toast,
+    sendData,
+    getFormErrorMessage,
+  ];
 };
+
+export default useRegister;

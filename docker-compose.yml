@@ -1,22 +1,46 @@
 version: "3.8"
 
 services:
+  #Load Balancer / Reverse Proxy
+  nginx:
+    container_name: nginx
+    depends_on:
+      - hub-servis-app
+      - hub-servis-backend
+    networks:
+      - hubservis
+    image: nginx:1.16.0-alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+
   hub-servis-app:
     build: ./
+    container_name: App
     stdin_open: true
+    networks:
+      - hubservis
     ports:
-      - "5173:5173"
+      - "5173"
     environment:
       - CHOKIDAR_USEPOLLING=TRUE
     volumes:
-      - "./:/usr/src/app"
-      - "/usr/src/app/node_modules"
+      - "./:/app:rw"
 
   hub-servis-backend:
     build: ../HubServis-API/
+    container_name: Api
     stdin_open: true
+    networks:
+      - hubservis
     ports:
-      - "3000:3000"
+      - "3000"
     volumes:
-      - "../HubServis-API/:/app"
+      - "../HubServis-API/:/app:rw"
       - "/app/node_modules"
+
+# Docker network
+networks:
+  hubservis:
+    driver: bridge

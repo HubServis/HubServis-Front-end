@@ -1,18 +1,32 @@
-import logoImg from "../../assets/HS-ICON.png";
-import { BtnFillGreen, CheckBox, EmailInput } from "../../components";
+import { BtnFillGreen } from "../../components";
 import { Password } from "primereact/password";
+import { InputMask } from "primereact/inputmask";
 import { InputText } from "primereact/inputtext";
 import Ilustration from "../../assets/Login/login-ilustration.svg";
+import { Controller } from "react-hook-form";
+
 import { useNavigate } from "react-router-dom";
-import { useRegister } from "../../hooks/useRegister";
+import useRegister from "../../hooks/useRegister";
+
+import logoImg from "../../assets/HS-ICON.png";
+import { Toast } from "primereact/toast";
 
 const Register = () => {
   const navigation = useNavigate();
 
-  const [registerData, setRegisterData, sendData] = useRegister();
+  const [
+    register,
+    handleSubmit,
+    control,
+    toast,
+    sendData,
+    getFormErrorMessage,
+  ] = useRegister();
 
   return (
     <>
+      <Toast ref={toast}></Toast>
+
       <main className="flex">
         <section className="w-full md:min-w-[50%] px-10 pb-8">
           <div className="flex items-center gap-2 mt-14">
@@ -44,10 +58,9 @@ const Register = () => {
             <InputText
               id="seu-nome"
               placeholder="ramilthon bmw"
-              onChange={(e) =>
-                setRegisterData({ ...registerData, name: e.target.value })
-              }
+              {...register("name")}
             />
+            {getFormErrorMessage("name")}
           </div>
 
           <div className="flex flex-col gap-2 mt-8">
@@ -60,10 +73,9 @@ const Register = () => {
             <InputText
               id="seu-email"
               placeholder="ramilthon@gmail.com"
-              onChange={(e) =>
-                setRegisterData({ ...registerData, name: e.target.value })
-              }
+              {...register("email")}
             />
+            {getFormErrorMessage("email")}
           </div>
 
           <div className="flex flex-col sm:flex-row justify-between gap-3">
@@ -77,10 +89,9 @@ const Register = () => {
               <InputText
                 id="seu-nome-usuario"
                 placeholder="ramilthon_bmw"
-                onChange={(e) =>
-                  setRegisterData({ ...registerData, name: e.target.value })
-                }
+                {...register("username")}
               />
+              {getFormErrorMessage("username")}
             </div>
 
             <div className="flex flex-col gap-2 mt-8 w-full sm:max-w-[50%]">
@@ -90,13 +101,13 @@ const Register = () => {
               >
                 Qual seu CPF?
               </label>
-              <InputText
+              <InputMask
                 id="seu-cpf"
+                mask="999.999.999-99"
                 placeholder="xxx.xxx.xxx-xx"
-                onChange={(e) =>
-                  setRegisterData({ ...registerData, name: e.target.value })
-                }
+                {...register("cpfcnpj")}
               />
+              {getFormErrorMessage("cpfcnpj")}
             </div>
           </div>
 
@@ -108,15 +119,25 @@ const Register = () => {
               >
                 Qual a sua senha
               </label>
-              <Password
-                placeholder="xxxxxxxxxxxx"
-                inputStyle={{ width: "100%", alignItems: "center" }}
-                value={registerData.password}
-                onChange={(e) =>
-                  setRegisterData({ ...registerData, name: e.target.value })
-                }
-                feedback={false}
-                toggleMask
+              <Controller
+                name="password"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <>
+                    <Password
+                      inputStyle={{ width: "100%", alignItems: "center" }}
+                      feedback={false}
+                      toggleMask
+                      placeholder="xxxxxxxxxxxx"
+                      name="password"
+                      id={field.name}
+                      {...field}
+                      inputRef={field.ref}
+                    />
+                    {getFormErrorMessage(field.name)}
+                  </>
+                )}
               />
             </div>
 
@@ -127,15 +148,25 @@ const Register = () => {
               >
                 Confirme a sua senha.
               </label>
-              <Password
-                placeholder="xxxxxxxxxxxx"
-                inputStyle={{ width: "100%", alignItems: "center" }}
-                value={registerData.confirmPassword}
-                onChange={(e) =>
-                  setRegisterData({ ...registerData, name: e.target.value })
-                }
-                feedback={false}
-                toggleMask
+              <Controller
+                name="confirmPassword"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <>
+                    <Password
+                      inputStyle={{ width: "100%", alignItems: "center" }}
+                      feedback={false}
+                      toggleMask
+                      placeholder="xxxxxxxxxxxx"
+                      name="confirmPassword"
+                      id={field.name}
+                      {...field}
+                      inputRef={field.ref}
+                    />
+                    {getFormErrorMessage("confirmPassword")}
+                  </>
+                )}
               />
             </div>
           </div>
@@ -150,7 +181,7 @@ const Register = () => {
             </span>
           </p>
 
-          <BtnFillGreen width={"full"} onclick={sendData}>
+          <BtnFillGreen width={"full"} onclick={handleSubmit(sendData)}>
             Registrar
           </BtnFillGreen>
         </section>
