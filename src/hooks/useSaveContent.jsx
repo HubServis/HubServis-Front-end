@@ -28,7 +28,7 @@ const schema = yup.object().shape({
     }),
 });
 
-let userId = 1;
+let userId = "ebca70e6-ea7e-4916-a671-cea7464fecd9";
 
 export const useSaveContent = () => {
   const toast = useRef(null);
@@ -52,14 +52,15 @@ export const useSaveContent = () => {
 
   const sendData = async (data, image) => {
     try {
-      const response = await api.patch(`user/update/${userId}`, {
+      const response = await api.patch(`/user/update/${userId}`, {
         ...data,
         image: { name: image.name, content: image.contentData, format: image.format },
       });
 
-      const result = await response.json();
+      // const result = await response.json;
+      console.log(response);
 
-      if (!response.ok) throw new Error(result);
+      // if (!response.ok) throw new Error(result);
 
       toast.current.show({
         severity: "info",
@@ -68,7 +69,7 @@ export const useSaveContent = () => {
         life: 3000,
       });
 
-      return setTimeout(() => navigate("/login"), 3000);
+      // return setTimeout(() => navigate("/login"), 3000);
     } catch (err) {
       toast.current.show({
         severity: "error",
