@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { api } from "../services/api";
 import { Toast } from "primereact/toast";
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 
         api.defaults.headers.Authotization = response.data.token; // coloca com header authorization padrão o token do usuário
 
-        localStorage.setItem('@Auth:token', response.data.token);
+        localStorage.setItem("@Auth:token", response.data.token);
       }
     } catch (error) {
       console.log(error);

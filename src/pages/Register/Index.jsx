@@ -1,18 +1,32 @@
-import React, { useState } from "react";
-import logoImg from "../../assets/HS-ICON.png";
-import { BtnFillGreen, CheckBox, EmailInput } from "../../components";
+import { BtnFillGreen } from "../../components";
 import { Password } from "primereact/password";
+import { InputMask } from "primereact/inputmask";
 import { InputText } from "primereact/inputtext";
-import Ilustration from '../../assets/Login/login-ilustration.svg';
+import Ilustration from "../../assets/Login/login-ilustration.svg";
+import { Controller } from "react-hook-form";
+
 import { useNavigate } from "react-router-dom";
+import useRegister from "../../hooks/useRegister";
+
+import logoImg from "../../assets/HS-ICON.png";
+import { Toast } from "primereact/toast";
 
 const Register = () => {
   const navigation = useNavigate();
-  const [passwordValue, setPasswordValue] = useState("");
-  const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
+
+  const [
+    register,
+    handleSubmit,
+    control,
+    toast,
+    sendData,
+    getFormErrorMessage,
+  ] = useRegister();
 
   return (
     <>
+      <Toast ref={toast}></Toast>
+
       <main className="flex">
         <section className="w-full md:min-w-[50%] px-10 pb-8">
           <div className="flex items-center gap-2 mt-14">
@@ -41,7 +55,12 @@ const Register = () => {
             >
               Qual seu Nome?
             </label>
-            <InputText id="seu-nome" placeholder="ramilthon bmw" />
+            <InputText
+              id="seu-nome"
+              placeholder="ramilthon bmw"
+              {...register("name")}
+            />
+            {getFormErrorMessage("name")}
           </div>
 
           <div className="flex flex-col gap-2 mt-8">
@@ -51,7 +70,12 @@ const Register = () => {
             >
               Seu email
             </label>
-            <InputText id="seu-email" placeholder="ramilthon@gmail.com" />
+            <InputText
+              id="seu-email"
+              placeholder="ramilthon@gmail.com"
+              {...register("email")}
+            />
+            {getFormErrorMessage("email")}
           </div>
 
           <div className="flex flex-col sm:flex-row justify-between gap-3">
@@ -62,7 +86,12 @@ const Register = () => {
               >
                 Qual seu nome de usuário?
               </label>
-              <InputText id="seu-nome-usuario" placeholder="ramilthon_bmw" />
+              <InputText
+                id="seu-nome-usuario"
+                placeholder="ramilthon_bmw"
+                {...register("username")}
+              />
+              {getFormErrorMessage("username")}
             </div>
 
             <div className="flex flex-col gap-2 mt-8 w-full sm:max-w-[50%]">
@@ -72,7 +101,13 @@ const Register = () => {
               >
                 Qual seu CPF?
               </label>
-              <InputText id="seu-cpf" placeholder="xxx.xxx.xxx-xx" />
+              <InputMask
+                id="seu-cpf"
+                mask="999.999.999-99"
+                placeholder="xxx.xxx.xxx-xx"
+                {...register("cpfcnpj")}
+              />
+              {getFormErrorMessage("cpfcnpj")}
             </div>
           </div>
 
@@ -84,9 +119,28 @@ const Register = () => {
               >
                 Qual a sua senha
               </label>
-              <Password placeholder="xxxxxxxxxxxx" inputStyle={{width: "100%", alignItems: "center"}} value={passwordValue} onChange={(e) => setPasswordValue(e.target.value)} feedback={false} toggleMask/>
+              <Controller
+                name="password"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <>
+                    <Password
+                      inputStyle={{ width: "100%", alignItems: "center" }}
+                      feedback={false}
+                      toggleMask
+                      placeholder="xxxxxxxxxxxx"
+                      name="password"
+                      id={field.name}
+                      {...field}
+                      inputRef={field.ref}
+                    />
+                    {getFormErrorMessage(field.name)}
+                  </>
+                )}
+              />
             </div>
-            
+
             <div className="flex flex-col gap-2 mt-8 w-full sm:max-w-[50%]">
               <label
                 htmlFor="sua-senha"
@@ -94,24 +148,50 @@ const Register = () => {
               >
                 Confirme a sua senha.
               </label>
-              <Password placeholder="xxxxxxxxxxxx" inputStyle={{width: "100%", alignItems: "center"}} value={confirmPasswordValue} onChange={(e) => setConfirmPasswordValue(e.target.value)} feedback={false} toggleMask/>
+              <Controller
+                name="confirmPassword"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <>
+                    <Password
+                      inputStyle={{ width: "100%", alignItems: "center" }}
+                      feedback={false}
+                      toggleMask
+                      placeholder="xxxxxxxxxxxx"
+                      name="confirmPassword"
+                      id={field.name}
+                      {...field}
+                      inputRef={field.ref}
+                    />
+                    {getFormErrorMessage("confirmPassword")}
+                  </>
+                )}
+              />
             </div>
           </div>
 
           <p className="text-[#7E8082] text-sm font-medium mb-3 mt-8">
             Já tem uma conta?{" "}
-            <span className="text-[var(--dark-green)] text-sm font-medium cursor-pointer" onClick={() => navigation("/login")}>
+            <span
+              className="text-[var(--dark-green)] text-sm font-medium cursor-pointer"
+              onClick={() => navigation("/login")}
+            >
               Faça login
             </span>
           </p>
 
-          <BtnFillGreen width={"full"} onclick={() => {}}>
-            Entrar
+          <BtnFillGreen width={"full"} onclick={handleSubmit(sendData)}>
+            Registrar
           </BtnFillGreen>
         </section>
 
         <section className="hidden lg:flex w-full max-w-[50%] bg-[var(--dark-green-2)] min-h-screen flex justify-center">
-          <img src={Ilustration} alt="Ilustration" className="max-w-lg max-h-lg m-auto"/>
+          <img
+            src={Ilustration}
+            alt="Ilustration"
+            className="max-w-lg max-h-lg m-auto"
+          />
         </section>
       </main>
     </>
