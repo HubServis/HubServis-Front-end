@@ -4,25 +4,46 @@ import {
 	BtnOutlinedGreen,
 	CardService,
 	Footer,
+	Shortly,
 } from "../../components";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import NotFound from "../NotFound/NotFound";
-import { useQuery } from "./bkp-index copy";
+
+function useQuery() {
+	return new URLSearchParams(useLocation().search);
+}
+
+export { useQuery };
 
 const ViewAllServices = () => {
 	const navigation = useNavigate();
 	const query = useQuery();
 	const searchField = query.get("searchField");
 	const { data, error, isFetching } = useFetch("/services");
-	const titlePage = searchField
-		? `Filtro aplicado: ${searchField}`
-		: "Todos os serviços";
-	let filterServices = [];
+	const [filteredServices, setFilteredServices] = useState([]);
 
-	filterServices = data?.filter((service) => {
-		return service?.name?.toLowerCase().includes(searchField?.toLowerCase());
-	});
+	useEffect(() => {
+		if(!searchField) setFilteredServices([]);
+
+		if (searchField && data) {
+			const filterServices = data?.filter((service) => {
+				return service?.name.toLowerCase().includes(searchField.toLowerCase());
+			});
+
+			setFilteredServices(filterServices);
+		}
+
+		console.log('opa', filteredServices)
+	}, [isFetching]);
+
+	const changeTitlePage = () => {
+		return searchField
+			? `Filtro aplicado: ${searchField}`
+			: "Todos os Serviços";
+	};
+
+	const titlePage = changeTitlePage();
 
 	return (
 		<>
@@ -31,11 +52,12 @@ const ViewAllServices = () => {
 				<a href="/plans">Planos</a>
 				<a href="/annuncement">Anuncios e eventos</a>
 			</AppBar>
-			<main className="max-w-[1440px] mx-auto mb-4">
+			<main className="max-w-[1440px] m-auto">
 				<h3 className="font-bold text-xl mt-5">{titlePage}</h3>
 
 				{isFetching && <h4>Carregando...</h4>}
-				{searchField && filterServices?.length == 0 && (
+
+				{searchField && filteredServices.length == 0 && (
 					<div className="flex flex-col items-center">
 						<NotFound msg={"Serviço não encontrado!"} />
 						<BtnOutlinedGreen onclick={() => navigation("/services")}>
@@ -43,10 +65,12 @@ const ViewAllServices = () => {
 						</BtnOutlinedGreen>
 					</div>
 				)}
-				{!searchField && ListServicesUI(data)}
-				{(searchField &&
-					filterServices?.length > 0) &&
-					FilteredServicesUI(filterServices, navigation)}
+
+				{searchField &&
+					filteredServices.length > 0 &&
+					FilteredServicesUI(filteredServices, navigation)}
+
+				{!searchField && data && ListServicesUI(data)}
 			</main>
 			<Footer />
 		</>
