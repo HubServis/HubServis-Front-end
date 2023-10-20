@@ -7,7 +7,6 @@ import {
 } from "../../components";
 import { useParams } from "react-router-dom";
 import ImageSelector from "./components/ImageSelector/ImageSelector";
-import { Rating } from "primereact/rating";
 import Slider from "./components/Slider/Slider";
 import { useFetch } from "../../hooks/useFetch";
 import { changePriceForUi } from "../../utils/changePrice";

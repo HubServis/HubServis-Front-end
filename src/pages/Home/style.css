@@ -7,7 +7,6 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    height: 29.3rem;
     margin: 45px 20px;
 }
 
@@ -18,22 +17,6 @@
     left: 0;
     top: 0;
     object-fit: cover;
-}
-
-.banner > #container-search{
-    max-width: 500px;
-    margin: 67px 0px 0px 60px;
-    /* background: red; */
-}
-
-#container-search > h1{
-    font-size: 36px;
-    font-weight: bold;
-}
-
-#container-search > h4{
-    font-size: 24px;
-    color: #009933;
 }
 
 .banner > #ilustration{
