@@ -8,11 +8,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import NotFound from "../NotFound/NotFound";
-import { useQuery } from "./bkp-index copy";
+import { useURLQuery } from "../../hooks/useURLQuery";
 
 const ViewAllServices = () => {
 	const navigation = useNavigate();
-	const query = useQuery();
+	const query = useURLQuery();
 	const searchField = query.get("searchField");
 	const { data, error, isFetching } = useFetch("/services");
 	const titlePage = searchField
