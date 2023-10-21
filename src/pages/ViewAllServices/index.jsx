@@ -27,6 +27,7 @@ const ViewAllServices = () => {
 	return (
 		<>
 			<AppBar>
+				<a href="/">Home</a>
 				<a href="/about">Sobre</a>
 				<a href="/plans">Planos</a>
 				<a href="/annuncement">Anuncios e eventos</a>
@@ -44,8 +45,8 @@ const ViewAllServices = () => {
 					</div>
 				)}
 				{!searchField && ListServicesUI(data)}
-				{(searchField &&
-					filterServices?.length > 0) &&
+				{searchField &&
+					filterServices?.length > 0 &&
 					FilteredServicesUI(filterServices, navigation)}
 			</main>
 			<Footer />
