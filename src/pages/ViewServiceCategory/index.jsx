@@ -10,7 +10,7 @@ const ViewServiceCategory = () => {
 	const query = useURLQuery();
 	const categoryNameId = query.get("categoryName");
 
-	if (!categoryNameId || !categoryName) return <NotFound />;
+	if (!categoryNameId || !categoryName) return <NotFound backToBtn/>;
 
 	const { data, error, isFetching } = useFetch(
 		`/services/category?categoryNameId=${categoryNameId}`
@@ -30,24 +30,11 @@ const ViewServiceCategory = () => {
 				</h3>
 
 				{isFetching && <h4 className="text-center my-10">Carregando...</h4>}
-				{
-					<section
-						className={`flex flex-wrap w-full ${
-							data?.length > 4 && "justify-between"
-						}`}
-					>
-						{data?.map((service, index) => (
-							<CardService
-								key={index}
-								id={service?.id}
-								serviceName={service?.name}
-								price={service?.price}
-								rating={service?.averageRating}
-								businessName={service?.business?.name}
-							/>
-						))}
-					</section>
-				}
+				{error?.response?.status == 404 ? (
+					<NotFound msg={"Não há serviços nessa categoria!"} backToBtn/>
+				) : (
+					ListDataInUI(data)
+				)}
 			</main>
 			<Footer />
 		</>
@@ -55,3 +42,26 @@ const ViewServiceCategory = () => {
 };
 
 export default ViewServiceCategory;
+
+const ListDataInUI = (data) => {
+	return (
+		<>
+			<section
+				className={`flex flex-wrap w-full ${
+					data?.length > 4 && "justify-between"
+				}`}
+			>
+				{data?.map((service, index) => (
+					<CardService
+						key={index}
+						id={service?.id}
+						serviceName={service?.name}
+						price={service?.price}
+						rating={service?.averageRating}
+						businessName={service?.business?.name}
+					/>
+				))}
+			</section>
+		</>
+	);
+};

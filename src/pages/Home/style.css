@@ -84,7 +84,9 @@
     border: none;
 }
 
-.section-service,
+.section-service {
+    margin: 5rem auto 2.5rem auto;
+}
 .section-all-services{
     max-width: 1440px;
     margin: 5rem auto 2.5rem auto;

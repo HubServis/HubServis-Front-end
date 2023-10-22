@@ -9,9 +9,9 @@ const ServiceHighlight = () => {
 
 	return (
 		<>
-			<section className="section-service px-4 lg:px-10">
-				<span className="title-section-box">
-					<h2 className="h2-title-section">Destaques</h2>
+			<section className="section-service relative w-full bg-[#faf9f9] py-5">
+				<span className="title-section-box max-w-[1440px] px-4 lg:px-10 m-auto">
+					<h2 className="h2-title-section">Serviços em Destaques</h2>
 					<BtnOutlinedGreen
 						onclick={() => console.log("view all services button")}
 					>
@@ -19,17 +19,17 @@ const ServiceHighlight = () => {
 					</BtnOutlinedGreen>
 				</span>
 
-				<div className="flex flex-wrap">
-                    {
-                        data?.map((service, index) => <CardService 
-                            key={index}
-                            id={service?.id}
-                            serviceName={service?.name}
-                            price={service?.price}
-                            rating={service?.averageRating}
-                            businessName={service?.business?.name}
-                        />)
-                    }
+				<div className="flex flex-wrap max-w-[1440px] px-4 lg:px-10 m-auto">
+					{data?.map((service, index) => (
+						<CardService
+							key={index}
+							id={service?.id}
+							serviceName={service?.name}
+							price={service?.price}
+							rating={service?.averageRating}
+							businessName={service?.business?.name}
+						/>
+					))}
 				</div>
 			</section>
 		</>

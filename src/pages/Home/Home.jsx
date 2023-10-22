@@ -98,7 +98,7 @@ const Home = () => {
 
 			<section className="section-all-services px-4 lg:px-10">
 				<span className="title-section-box">
-					<h2 className="h2-title-section">Todos</h2>
+					<h2 className="h2-title-section">Todos os Serviços</h2>
 					<BtnOutlinedGreen onclick={() => navigation("/services")}>
 						Ver Todos
 					</BtnOutlinedGreen>
@@ -112,34 +112,6 @@ const Home = () => {
 				>
 					Ver mais...
 				</p>
-
-				<hr id="divisor-category-highlights" />
-				<section className="section-advertising lg:flex">
-					<div>
-						<h2 className="font-[700] text-4xl">
-							Economize tempo com a HubServis
-						</h2>
-						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry's standard dummy text
-							ever since the 1500s, when an unknown printer took a galley of
-							type and scrambled it to make a type specimen book. It has
-							survived not only five centuries, but also the leap into
-							electronic typesetting, remaining essentially unchanged.
-						</p>
-						<BtnFillGreen
-							onclick={() => console.log("view all services button")}
-						>
-							Explorar
-						</BtnFillGreen>
-					</div>
-
-					<img
-						src={ilutrationGraph}
-						alt=""
-						className="w-full max-w-[50%] hidden lg:flex"
-					/>
-				</section>
 			</section>
 			<Footer />
 		</>
