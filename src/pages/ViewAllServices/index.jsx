@@ -35,7 +35,7 @@ const ViewAllServices = () => {
 			<main className="max-w-[1440px] mx-auto mb-4">
 				<h3 className="font-bold text-xl mt-5">{titlePage}</h3>
 
-				{isFetching && <h4>Carregando...</h4>}
+				{isFetching && <h4 className="text-center my-10">Carregando...</h4>}
 				{searchField && filterServices?.length == 0 && (
 					<div className="flex flex-col items-center">
 						<NotFound msg={"Serviço não encontrado!"} />
