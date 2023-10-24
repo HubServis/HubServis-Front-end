@@ -44,26 +44,16 @@
 }
 
 .profile{
-    width: 298px;
+    width: 100%;
+    max-width: 300px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 5px;
+    justify-content: flex-end;
 }
 
 #preview-data-profile{
     margin-left: 4px;
-}
-
-.profile > .icon-notification{
-    height: 26px;
-    width: 26px;
-    margin-right: 10px;
-}
-
-.profile > .icon-open{
-    height: 26px;
-    width: 26px;
-    margin-left: 10px;
 }
 
 .profile-preview{

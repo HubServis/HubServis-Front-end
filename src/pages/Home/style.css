@@ -28,8 +28,8 @@
 
 .container-input{
     width: 100%;
-    background: white;
-    border: 2px solid #3BAE4E;
+    /* background: white;
+    border: 2px solid #3BAE4E; */
     border-radius: 11px;
     display: flex;
     justify-content: space-between;
@@ -38,23 +38,23 @@
 }
 
 .container-input > span{
-    display: flex;
-    align-items: center;
     width: 100%;
-    margin: 0px 0px 0px 16px;
 }
 
 .container-input > span > input{
     width: 100%;
-    border: none;
-    font-size: 14px;
-    color: #30883F;
-    margin: 0px 4px;
+    border: 2px solid #3BAE4E;
 }
 
-.container-input > span > input::placeholder{
+.container-input > span > input:focus{
+    color: #30883F;
+    font-weight: 500;
+}
+
+.container-input > span > input:is(:focus)::placeholder{
     color: #30883F;
 }
+/* 
 
 .container-input > span > input:active{
     border: none;
@@ -73,7 +73,7 @@
    font-size: 14px;
    padding: 16px 40px;
    border-radius: 9px;
-}
+} */
 
 #divisor-category-highlights{
     max-width: 1440px;
@@ -84,7 +84,9 @@
     border: none;
 }
 
-.section-service,
+.section-service {
+    margin: 5rem auto 2.5rem auto;
+}
 .section-all-services{
     max-width: 1440px;
     margin: 5rem auto 2.5rem auto;
