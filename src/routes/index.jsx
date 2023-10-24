@@ -20,6 +20,7 @@ import CreateAgendamento from "../pages/AgendamentoClient/CreateAgendamento";
 import ViewAgendamento from "../pages/AgendamentoClient/ViewAgendamentos";
 import { PrivateRoute } from "./privateRoutes";
 import ViewServiceCategory from "../pages/ViewServiceCategory";
+import Saved from "../pages/Saved/Saved";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -63,6 +64,8 @@ const Routers = () => {
         <Route path="/service/category/:categoryName" element={<ViewServiceCategory />} />
 
         <Route path="/agendamentos" element={<ViewAgendamento />} />
+
+        <Route path="/saved" element={<Saved/>} />
       </Routes>
     </BrowserRouter>
   );

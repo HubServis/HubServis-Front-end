@@ -47,8 +47,9 @@ const Home = () => {
 			<AppBar>
 				<a href="/services">Serviços</a>
 				<a href="/about">Sobre</a>
-				<a href="/plans">Planos</a>
+				{/* <a href="/plans">Planos</a> */}
 				<a href="/annuncement">Anuncios e eventos</a>
+				<a href="/saved">Favoritos</a>
 			</AppBar>
 
 			<section id="section-banner">

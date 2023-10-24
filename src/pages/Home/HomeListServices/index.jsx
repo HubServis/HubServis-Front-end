@@ -4,7 +4,9 @@ import { CardService } from "../../../components";
 import { useFetch } from "../../../hooks/useFetch";
 
 const HomeListServices = () => {
-	const { data, error, isFetching } = useFetch("/services");
+	const { data, error, isFetching } = useFetch(
+		"/services?limit=15"
+	);
 
 	return (
 		<>
