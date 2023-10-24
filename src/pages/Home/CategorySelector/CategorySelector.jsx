@@ -7,42 +7,8 @@ import LoadingCategoryCard from "./components/LoadingCategoryCard";
 const MOCKIMGCATEGORY =
   "https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg";
 
-const MockCategoriesApi = [
-  {
-    name: "Massagem",
-    img_src:
-      "https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg",
-  },
-  {
-    name: "Massagem 2",
-    img_src:
-      "https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg",
-  },
-  {
-    name: "Massagem 3",
-    img_src:
-      "https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg",
-  },
-  {
-    name: "Massagem 4",
-    img_src:
-      "https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg",
-  },
-  {
-    name: "Massagem 5",
-    img_src:
-      "https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg",
-  },
-  {
-    name: "Massagem 6",
-    img_src:
-      "https://img.freepik.com/fotos-gratis/manicure-mestre-faz-manicure-nas-maos-da-mulher-conceito-de-tratamento-de-spa_186202-7769.jpg",
-  },
-];
-
 const CategorySelector = () => {
   const { data, isFetching, error } = useFetch("/categories");
-  const [categories, setCategories] = useState(MockCategoriesApi);
 
   const productTemplate = (category) => {
     return (
@@ -78,8 +44,6 @@ const CategorySelector = () => {
       numScroll: 1,
     },
   ];
-
-  console.log(data);
 
   return (
     <section
