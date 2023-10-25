@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import logoImg from "../../assets/HS-ICON.png";
 import { BtnFillGreen, CheckBox } from "../../components";
 import { Password } from "primereact/password";
