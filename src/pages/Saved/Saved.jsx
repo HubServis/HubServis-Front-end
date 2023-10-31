@@ -1,28 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { AppBar, BtnFillGreen, CardService, Shortly } from "../../components";
-import { useAxios, usePost } from "../../hooks/useAxios";
+import { AppBar, BtnFillGreen } from "../../components";
+import { usePost } from "../../hooks/useAxios";
 import CardSavedService from "./components/SavedCardService";
+import { api } from "../../services/api";
 
 const Saved = () => {
 	const [servicesSaved, setServicesSaved] = useState([]);
 	const [checkedList, setCheckedList] = useState([]);
-	let servicesSavedStorage = JSON.parse(
-		localStorage.getItem("savedServices")
+	// let servicesSavedStorage = JSON.parse(
+	// 	localStorage.getItem("savedServices")
+	// );
+	const [servicesSavedStorage, setServicesSavedStorage] = useState(
+		JSON.parse(localStorage.getItem("savedServices"))
 	);
 
-	const { data, error, isFetching, statusCode, refresh } = usePost({
-		url: "/services/many",
-		payload: {
-			servicesId: servicesSavedStorage ? servicesSavedStorage : [],
-		},
-		start: true,
-	});
+	const fetchData = async () => {
+		try{
+			const response = await api.post("http://localhost:3000/services/many", {
+				servicesId: servicesSavedStorage,
+			});
+			
+			setServicesSaved(response.data);
+			console.log('data api simple fetch', response);
+		} catch(err){
+			console.log('Morreuuuuuuu! ', err)
+		}
+	}
+
+	// const { data, isFetching, refresh } = usePost({
+	// 	url: "/services/many",
+	// 	payload: {
+	// 		servicesId: servicesSavedStorage ? servicesSavedStorage : [],
+	// 	},
+	// 	start: true,
+	// });
 
 	useEffect(() => {
-		setServicesSaved(data);
-	}, [data]);
+		fetchData();
+		// setServicesSaved(data);
+	}, []);
 
-	const onRemoveServicesToSaved = (id) => {
+
+	
+	const onRemoveServicesToSaved = () => {
 		const servicesStorage = JSON.parse(localStorage.getItem("savedServices"));
 
 		if (servicesStorage?.length > 0) {
@@ -36,11 +56,11 @@ const Saved = () => {
 			setServicesSaved(
 				servicesSaved.filter((service) => !checkedList.includes(service?.id))
 			);
-			console.log('sla', servicesSaved)
+			// console.log('sla', servicesSaved)
 		}
 		
-		servicesSavedStorage = JSON.parse(localStorage.getItem("savedServices"));
-		refresh();
+		setServicesSavedStorage(JSON.parse(localStorage.getItem("savedServices")));
+		// refresh(servicesSavedStorage);
 	};
 
 	const onChecked = (id) => {
@@ -53,11 +73,12 @@ const Saved = () => {
 		setCheckedList(newCheckedList);
 	};
 
-	console.log('checklist', checkedList)
-	console.log("services", servicesSavedStorage);
-	console.log("service list", servicesSaved);
-	console.log("data api", data);
-	console.log('----------------')
+	// console.log('checklist', checkedList)
+	// console.log("services", servicesSavedStorage);
+	// console.log("service list", servicesSaved);
+	// console.log("data api", data);
+	console.log(checkedList);
+	console.log('----------------');
 
 	return (
 		<>
@@ -66,7 +87,7 @@ const Saved = () => {
 				<a href="/services">Serviços</a>
 				<a href="/annuncement">Anuncios e eventos</a>
 			</AppBar>
-			{isFetching && <p>Carregando...</p>}
+			{/* {isFetching && <p>Carregando...</p>} */}
 			<main className="max-w-[1440px] m-auto">
 				<BtnFillGreen onclick={() => onRemoveServicesToSaved()}>
 					Remover favoritos
@@ -76,7 +97,7 @@ const Saved = () => {
 						servicesSaved?.length > 4 && "justify-between"
 					}`}
 				>
-					{!isFetching &&
+					{(servicesSaved) &&
 						servicesSaved?.map((service, index) => (
 							<CardSavedService
 								key={index}
