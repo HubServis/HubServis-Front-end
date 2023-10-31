@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AppBar, BtnFillGreen } from "../../components";
-import { usePost } from "../../hooks/useAxios";
 import CardSavedService from "./components/SavedCardService";
 import { api } from "../../services/api";
 import { Toast } from "primereact/toast";
@@ -23,9 +22,7 @@ const Saved = () => {
 
 			setServicesSaved2(response.data);
 			setIsFetching(false);
-			console.log("data api simple fetch", response);
 		} catch (err) {
-			console.log("Morreuuuuuuu! ", err);
 			setError(err);
 		}
 	};
@@ -33,11 +30,6 @@ const Saved = () => {
 	useEffect(() => {
 		servicesSavedStorageAPI.length > 0 && fetchData();
 	}, []);
-
-	console.log("checklist", checkedList);
-	console.log("error", error);
-	console.log("services storage", servicesSavedStorageAPI);
-	console.log("-------------------------------------");
 
 	const showError = ({ msg }) => {
 		toast.current?.show({
@@ -132,7 +124,6 @@ const errorHandling = (
 	error = null,
 	servicesSavedLS = [],
 	showError,
-	isFetching = false
 ) => {
 	if (!servicesSavedLS.length > 0) {
 		return (
