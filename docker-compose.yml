@@ -27,6 +27,7 @@ services:
       - CHOKIDAR_USEPOLLING=TRUE
     volumes:
       - "./:/app:rw"
+      - "/app/node_modules"
 
   hub-servis-backend:
     build: ../HubServis-API/

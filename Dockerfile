@@ -6,11 +6,11 @@ RUN apk add --no-cache curl \
 
 WORKDIR /app
 
-COPY ./package.json .
+COPY ./package.json ./
 
 RUN pnpm install
 
-COPY . .
+COPY --chown=node:node . .
 
 EXPOSE 4000
 

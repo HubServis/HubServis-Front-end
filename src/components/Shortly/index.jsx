@@ -1,4 +1,3 @@
-import React from "react";
 import imgShortly from "../../assets/Shortly/imgShortly.svg";
 import BtnFillGreen from "../Buttons/BtnFillGreen/BtnFillGreen";
 import { useNavigate } from "react-router-dom";
