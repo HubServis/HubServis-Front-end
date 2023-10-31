@@ -5,43 +5,32 @@ import CardSavedService from "./components/SavedCardService";
 import { api } from "../../services/api";
 
 const Saved = () => {
-	const [servicesSaved, setServicesSaved] = useState([]);
+	const [servicesSaved2, setServicesSaved2] = useState([]);
 	const [checkedList, setCheckedList] = useState([]);
-	// let servicesSavedStorage = JSON.parse(
-	// 	localStorage.getItem("savedServices")
-	// );
-	const [servicesSavedStorage, setServicesSavedStorage] = useState(
+	const [servicesSavedStorageAPI, setServicesSavedStorageAPI] = useState(
 		JSON.parse(localStorage.getItem("savedServices"))
 	);
 
 	const fetchData = async () => {
 		try{
 			const response = await api.post("http://localhost:3000/services/many", {
-				servicesId: servicesSavedStorage,
+				servicesId: servicesSavedStorageAPI,
 			});
 			
-			setServicesSaved(response.data);
+			setServicesSaved2(response.data);
 			console.log('data api simple fetch', response);
 		} catch(err){
 			console.log('Morreuuuuuuu! ', err)
 		}
 	}
 
-	// const { data, isFetching, refresh } = usePost({
-	// 	url: "/services/many",
-	// 	payload: {
-	// 		servicesId: servicesSavedStorage ? servicesSavedStorage : [],
-	// 	},
-	// 	start: true,
-	// });
-
 	useEffect(() => {
 		fetchData();
-		// setServicesSaved(data);
 	}, []);
 
 
-	
+	console.log(checkedList);
+
 	const onRemoveServicesToSaved = () => {
 		const servicesStorage = JSON.parse(localStorage.getItem("savedServices"));
 
@@ -53,32 +42,15 @@ const Saved = () => {
 				)
 			);
 
-			setServicesSaved(
-				servicesSaved.filter((service) => !checkedList.includes(service?.id))
+			setServicesSaved2(
+				servicesSaved2.filter((service) => !checkedList.includes(service?.id))
 			);
-			// console.log('sla', servicesSaved)
+			setCheckedList([]);
 		}
 		
-		setServicesSavedStorage(JSON.parse(localStorage.getItem("savedServices")));
-		// refresh(servicesSavedStorage);
+		setServicesSavedStorageAPI(JSON.parse(localStorage.getItem("savedServices")));
+		setCheckedList([]);
 	};
-
-	const onChecked = (id) => {
-		let newCheckedList = [...checkedList];
-
-		const idSavedIndex = newCheckedList.indexOf(id);
-		if (idSavedIndex !== -1) newCheckedList.splice(idSavedIndex, 1);
-		else newCheckedList.push(id);
-
-		setCheckedList(newCheckedList);
-	};
-
-	// console.log('checklist', checkedList)
-	// console.log("services", servicesSavedStorage);
-	// console.log("service list", servicesSaved);
-	// console.log("data api", data);
-	console.log(checkedList);
-	console.log('----------------');
 
 	return (
 		<>
@@ -94,11 +66,11 @@ const Saved = () => {
 				</BtnFillGreen>
 				<section
 					className={`flex flex-wrap w-full ${
-						servicesSaved?.length > 4 && "justify-between"
+						servicesSaved2?.length > 4 && "justify-between"
 					}`}
 				>
-					{(servicesSaved) &&
-						servicesSaved?.map((service, index) => (
+					{servicesSaved2 &&
+						servicesSaved2?.map((service, index) => (
 							<CardSavedService
 								key={index}
 								id={service?.id}
@@ -106,7 +78,9 @@ const Saved = () => {
 								price={service?.price}
 								rating={service?.averageRating}
 								businessName={service?.business?.name}
-								onChecked={() => onChecked(service.id)}
+								// onChecked={(id) => onChecked(id)}
+								setCheckedList={setCheckedList}
+								checkedList={checkedList}
 							/>
 						))}
 				</section>

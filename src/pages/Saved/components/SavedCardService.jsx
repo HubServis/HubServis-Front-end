@@ -20,41 +20,25 @@ const CardSavedService = ({
 	price = MOCKDATA.price,
 	businessName = MOCKDATA.businessName,
 	rating = MOCKDATA.rating,
-	onChecked,
+	checkedList,
+	setCheckedList,
 }) => {
 	const navigator = useNavigate();
-	const [checkboxValue, setCheckboxValue] = useState();
+	const isChecked = checkedList.includes(id);
 
-	// const [like, setLike] = useState(1);
 
-	// useEffect(() => {
-	// 	let verifyWithIdSaved = JSON.parse(localStorage.getItem("savedServices"));
-	// 	if (verifyWithIdSaved) {
-	// 		verifyWithIdSaved.includes(id) && setLike(1);
-	// 	}
-	// }, [like]);
+	const onChecked = (id) => {
+		let newCheckedList = [...checkedList];
 
-	// const handleSave = (idService) => {
-	// 	setLike((state) => !state);
-	// 	let servicesSavedStorage = JSON.parse(
-	// 		localStorage.getItem("savedServices")
-	// 	);
+		const idSavedIndex = newCheckedList.indexOf(id);
+		if (idSavedIndex !== -1) {
+			newCheckedList.splice(idSavedIndex, 1);
+		} else {
+			newCheckedList.push(id);
+		}
 
-	// 	if (!servicesSavedStorage) {
-	// 		localStorage.setItem("savedServices", JSON.stringify([idService]));
-	// 		return;
-	// 	}
-
-	// 	let newServicesSaved = [...servicesSavedStorage];
-
-	// 	const indexServiceId = newServicesSaved.indexOf(idService);
-
-	// 	if (indexServiceId !== -1) newServicesSaved.splice(indexServiceId, 1);
-	// 	else newServicesSaved.push(idService);
-
-	// 	localStorage.setItem("savedServices", JSON.stringify(newServicesSaved));
-	//     onRefresh();
-	// };
+		setCheckedList(newCheckedList);
+	};
 
 	return (
 		<>
@@ -62,10 +46,9 @@ const CardSavedService = ({
 				<Checkbox
 					className="checkbox"
 					onChange={(e) => {
-						onChecked();
-						setCheckboxValue(e.checked);
+						onChecked(id);
 					}}
-					checked={checkboxValue}
+					checked={isChecked}
 				/>
 				<div className="image-container w-full">
 					<img
