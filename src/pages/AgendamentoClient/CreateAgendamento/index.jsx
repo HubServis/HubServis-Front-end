@@ -7,13 +7,16 @@ import { useParams } from "react-router-dom";
 import {
 	displayDurationService,
 	displayExpedientBusiness,
-  displayHoursAvailable,
+	displayHoursAvailable,
+  formatDateTime,
 } from "./createAgendamentosUtils";
 import { api } from "../../../services/api";
 
 const CreateAgendamento = () => {
 	const { id } = useParams();
-	const [date, setDate] = useState(null);
+	const [date, setDate] = useState(new Date());
+	const [hourSelect, setHourSelect] = useState(null);
+
 	const [dataService, setDataService] = useState();
 	const [isFetching, setIsFetching] = useState(true);
 	const [error, setError] = useState(null);
@@ -84,48 +87,27 @@ const CreateAgendamento = () => {
 		clear: "Limpiar",
 	});
 
-	useEffect(() => {
-		if (date) console.log("Date Selected: ", date);
-	}, [date]);
-
-	const HourApiMOCK = [
-		{
-			hour: "07:30",
-			period: "AM",
-		},
-		{
-			hour: "08:00",
-			period: "AM",
-		},
-		{
-			hour: "08:30",
-			period: "AM",
-		},
-		{
-			hour: "15:00",
-			period: "PM",
-		},
-		{
-			hour: "08:00",
-			period: "AM",
-		},
-		{
-			hour: "08:30",
-			period: "AM",
-		},
-		{
-			hour: "15:00",
-			period: "PM",
-		},
-	];
-
-	const HourAvailable = ({ hour, period }) => {
+	const HourAvailable = ({ hour }) => {
 		return (
-			<p className="text-lg font-semibold text-[var(--black)] px-24 py-5 border-[var(--light-green)] border-[2px] rounded-lg inline-flex cursor-pointer lg:w-full">
-				{hour} {period}
+			<p
+				onClick={() => setHourSelect(hour)}
+				className="text-lg font-semibold text-[var(--black)] px-24 py-5 border-[var(--light-green)] border-[2px] rounded-lg inline-flex cursor-pointer lg:w-full"
+			>
+				{hour}
 			</p>
 		);
 	};
+
+  const onSubmit = () => {
+    if(!date || !hourSelect) {
+      alert('Selecione um horário!');
+      return;
+    }
+
+    console.log("Date and hour Selected: ", date, "\nhour: ", hourSelect);
+    console.log(formatDateTime(date, hourSelect));
+    console.log('-----------------------------');
+  };
 
 	return (
 		<>
@@ -196,7 +178,7 @@ const CreateAgendamento = () => {
 						/>
 
 						<div className="w-full hidden max-w-xl lg:block m-auto">
-							<BtnFillGreen onclick={() => {}} width={"full"}>
+							<BtnFillGreen onclick={() => onSubmit()} width={"full"}>
 								Agendar
 							</BtnFillGreen>
 						</div>
@@ -208,19 +190,17 @@ const CreateAgendamento = () => {
 						</h2>
 
 						<div className="flex flex-col md:flex-wrap lg:flex-nowrap items-center gap-4 max-h-[390px] overflow-y-auto">
-							{HourApiMOCK.map((item, index) => (
-								<HourAvailable
-									key={index}
-									hour={item.hour}
-									period={item.period}
-								/>
+							{displayHoursAvailable(
+								dataBusinessExpedient?.expediencysInfos,
+								date
+							)?.map((item, index) => (
+								<HourAvailable key={index} hour={item} />
 							))}
-							{displayHoursAvailable(dataBusinessExpedient?.expediencysInfos)}
 						</div>
 					</aside>
 
 					<div className="w-full lg:hidden max-w-xl block mx-auto mt-[60px]">
-						<BtnFillGreen onclick={() => {}} width={"full"}>
+						<BtnFillGreen onclick={() => onSubmit()} width={"full"}>
 							Agendar
 						</BtnFillGreen>
 					</div>
