@@ -7,7 +7,6 @@ export function useFetch(url, options = {}) {
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     api.get(url, options)
         .then(response => {

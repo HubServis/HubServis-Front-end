@@ -12,6 +12,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { changePriceForUi } from "../../utils/changePrice";
 import LoadingViewService from "./components/LoadingViewService";
 import AvaliateService from "./components/AvaliateServiceModal";
+import { useNavigate } from "react-router-dom";
 
 const mockImagesAPI = [
   {
@@ -32,6 +33,7 @@ const mockImagesAPI = [
 
 const ViewService = () => {
   const { id } = useParams();
+	const navigation = useNavigate();
   const { data, error, isFetching } = useFetch(`/service/${id}`);
   const dataApi = {
     images: mockImagesAPI,
@@ -56,8 +58,6 @@ const ViewService = () => {
     });
   };
 
-  console.log(data);
-
   if (isFetching)
     return (
       <>
@@ -72,65 +72,65 @@ const ViewService = () => {
     );
 
   return (
-    <>
-      <AppBar>
-        <a href="/service">Sobre</a>
-        <a href="/plans">Planos</a>
-        <a href="/annuncement">Anuncios e eventos</a>
-        <a href="/about">Suporte</a>
-      </AppBar>
-      <main className="flex justify-center mt-[60px] px-28 mb-40 max-w-[1440px] m-auto">
-        <section className="w-full max-w-[50%] pr-[34px]">
-          <Slider DataImages={dataApi.images} />
-          <article>
-            <h2 className="h2-title-section mt-[90px]">Descrição</h2>
-            <p className="w-full flex flex-col mb-5">
-              <span>{dataApi.description}</span>
-            </p>
-            <AvaliateService TotalRatings={data?.totalRatings} serviceId={id}/>
-          </article>
-        </section>
+		<>
+			<AppBar>
+				<a href="/service">Sobre</a>
+				<a href="/plans">Planos</a>
+				<a href="/annuncement">Anuncios e eventos</a>
+				<a href="/about">Suporte</a>
+			</AppBar>
+			<main className="flex justify-center mt-[60px] px-28 mb-40 max-w-[1440px] m-auto">
+				<section className="w-full max-w-[50%] pr-[34px]">
+					<Slider DataImages={dataApi.images} />
+					<article>
+						<h2 className="h2-title-section mt-[90px]">Descrição</h2>
+						<p className="w-full flex flex-col mb-5">
+							<span>{dataApi.description}</span>
+						</p>
+						<AvaliateService TotalRatings={data?.totalRatings} serviceId={id} />
+					</article>
+				</section>
 
-        <section className="w-full max-w-[50%] pl-[34px]">
-          <h1 className="font-[700] text-3xl mb-5">
-            {dataApi.nameService.toUpperCase()}
-          </h1>
+				<section className="w-full max-w-[50%] pl-[34px]">
+					<h1 className="font-[700] text-3xl mb-5">
+						{dataApi.nameService.toUpperCase()}
+					</h1>
 
-          <div className="flex items-center gap-2">
-            <p className="mt-1">{dataApi.averageRatingDisplay}</p>
-            <OnlyViewReviews rating={dataApi.averageRating} />
-            <p className="text-sm text-[color:var(--strong-green)] my-5 ml-2">
-              {dataApi.totalRatings}
-            </p>
-          </div>
-          <hr />
+					<div className="flex items-center gap-2">
+						<p className="mt-1">{dataApi.averageRatingDisplay}</p>
+						<OnlyViewReviews rating={dataApi.averageRating} />
+						<p className="text-sm text-[color:var(--strong-green)] my-5 ml-2">
+							{dataApi.totalRatings}
+						</p>
+					</div>
+					<hr />
 
-          <div className="flex items-baseline gap-2">
-            <p className="font-bold text-[36px] mt-7">R$ {dataApi.price}</p>
-            <p className="text-xl mb-8">{dataApi.formOfCharging}</p>
-          </div>
+					<div className="flex items-baseline gap-2">
+						<p className="font-bold text-[36px] mt-7">R$ {dataApi.price}</p>
+						<p className="text-xl mb-8">{dataApi.formOfCharging}</p>
+					</div>
 
-          <p className="text-sm mb-3">
-            Opção de {displayTypesPayment(dataApi.typesPayment)}
-          </p>
+					<p className="text-sm mb-3">
+						Opção de {displayTypesPayment(dataApi.typesPayment)}
+					</p>
 
-          <BtnFillGreen
-            width="full"
-            onclick={() => console.log("paid service")}
-          >
-            Agendar serviço/atendimento
-          </BtnFillGreen>
+					<BtnFillGreen
+						width="full"
+						onclick={() => navigation(`/service/agenda/${id}`)}
+					>
+						Agendar serviço/atendimento
+					</BtnFillGreen>
 
-          <hr className="mt-[26px] mb-8" />
-          <p className="text-lg font-normal mb-6">
-            Outros serviços que talvez você se interesse
-          </p>
-          <ImageSelector />
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
+					<hr className="mt-[26px] mb-8" />
+					<p className="text-lg font-normal mb-6">
+						Outros serviços que talvez você se interesse
+					</p>
+					<ImageSelector />
+				</section>
+			</main>
+			<Footer />
+		</>
+	);
 };
 
 export default ViewService;

@@ -1,6 +1,6 @@
 import Routers from './routes';
 import './primereact/theme.css';
-import "primereact/resources/primereact.min.css";   
+import "primereact/resources/primereact.min.css";
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
