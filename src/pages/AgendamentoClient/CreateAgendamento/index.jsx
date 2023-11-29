@@ -8,7 +8,7 @@ import {
 	displayDurationService,
 	displayExpedientBusiness,
 	displayHoursAvailable,
-  formatDateTime,
+	formatDateTime,
 } from "./createAgendamentosUtils";
 import { api } from "../../../services/api";
 
@@ -98,16 +98,59 @@ const CreateAgendamento = () => {
 		);
 	};
 
-  const onSubmit = () => {
-    if(!date || !hourSelect) {
-      alert('Selecione um horário!');
-      return;
-    }
+	const onSubmit = async () => {
+		if (!date || !hourSelect) {
+			alert("Selecione um horário!");
+			return;
+		}
 
-    console.log("Date and hour Selected: ", date, "\nhour: ", hourSelect);
-    console.log(formatDateTime(date, hourSelect));
-    console.log('-----------------------------');
-  };
+		console.log(formatDateTime(date, hourSelect));
+
+		try {
+			const responseSubmit = await api.post(
+				"/appointment/create",
+				{
+					date_time: formatDateTime(date, hourSelect),
+					client: "ebca70e6-ea7e-4916-a671-cea7464fecd9",
+					service: id,
+					professional: "2746dddd-dc16-4d09-94ed-3de20c2e5d8e",
+				},
+				{
+					headers: {
+						Authorization:
+							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViY2E3MGU2LWVhN2UtNDkxNi1hNjcxLWNlYTc0NjRmZWNkOSIsImlhdCI6MTcwMTI4MTQyOSwiZXhwIjoxNzAxMjk1ODI5fQ.-9DsLDrg5u1kFy1oxwqSoN1nQyHchHj5BbcQHJtUjz4",
+					},
+				}
+			);
+
+			console.log('sla =>', responseSubmit);
+			if (responseSubmit?.status == 201) {
+				alert(
+					"O agendamento foi realizado! Para mais informações consulte a aba 'MEUS AGENDAMENTOS'"
+				);
+				return;
+			}
+		} catch (error) {
+			console.log("Error Submit", error);
+			console.log(error?.response?.data);
+
+			if (
+				error?.response?.data?.message == "Token not informed!" ||
+				error?.response?.status == 401
+			) {
+				alert("Ocorreu um erro de autenticação, faça login e tente novamente!");
+				return;
+			}
+
+			if (error?.response?.data == "That date is in the past!") {
+				alert("A data ou horário selecionado está no passado!");
+				return;
+			}
+		}
+
+		// console.log(formatDateTime(date, hourSelect));
+		// console.log("-----------------------------");
+	};
 
 	return (
 		<>
@@ -116,7 +159,6 @@ const CreateAgendamento = () => {
 				<a href="/plans">Planos</a>
 				<a href="/annuncement">Anuncios e eventos</a>
 			</AppBar>
-
 			<main className="w-full lg:max-w-[1110px] m-auto px-[15px]">
 				<h2 className="text-xl  text-[var(--gray-opacity-50)] font-semibold mt-[60px] mb-10">
 					Agende seu serviço

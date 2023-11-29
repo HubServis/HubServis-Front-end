@@ -85,17 +85,17 @@ export const displayHoursAvailable = (expedients, date) => {
 		return null;
 	}
 
-	console.log(expedients, date);
+	// console.log('salve', expedients, date);
 	const weekDaySelect = getWeekDay(date);
 	const expedientWeekDaySelect = expedients?.filter(
 		(expedient) => expedient.weekDay == weekDaySelect
 	)[0];
 
 	return generateTimeSlots(
-		expedientWeekDaySelect.lunchEnd,
-		expedientWeekDaySelect.lunchStart,
-		expedientWeekDaySelect.timeEnd,
-		expedientWeekDaySelect.timeStart
+		expedientWeekDaySelect?.lunchEnd,
+		expedientWeekDaySelect?.lunchStart,
+		expedientWeekDaySelect?.timeEnd,
+		expedientWeekDaySelect?.timeStart
 	);
 };
 
