@@ -11,9 +11,11 @@ import {
 	formatDateTime,
 } from "./createAgendamentosUtils";
 import { api } from "../../../services/api";
+import { useNavigate } from 'react-router-dom';
 
 const CreateAgendamento = () => {
 	const { id } = useParams();
+	const navigation = useNavigate();
 	const [date, setDate] = useState(new Date());
 	const [hourSelect, setHourSelect] = useState(null);
 
@@ -123,11 +125,8 @@ const CreateAgendamento = () => {
 				}
 			);
 
-			console.log('sla =>', responseSubmit);
 			if (responseSubmit?.status == 201) {
-				alert(
-					"O agendamento foi realizado! Para mais informações consulte a aba 'MEUS AGENDAMENTOS'"
-				);
+				navigation("/agendamentos");
 				return;
 			}
 		} catch (error) {
