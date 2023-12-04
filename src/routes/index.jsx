@@ -18,7 +18,7 @@ import Register from "../pages/Register/Index";
 import ViewAllServices from "../pages/ViewAllServices";
 import CreateAgendamento from "../pages/AgendamentoClient/CreateAgendamento";
 import ViewAgendamento from "../pages/AgendamentoClient/ViewAgendamentos";
-import { PrivateRoute } from "./privateRoutes";
+// import { PrivateRoute } from "./privateRoutes";
 import ViewServiceCategory from "../pages/ViewServiceCategory";
 import Saved from "../pages/Saved/Saved";
 

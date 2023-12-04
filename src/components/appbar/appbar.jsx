@@ -1,135 +1,155 @@
-import React, { useContext, useRef } from "react";
+import { useRef } from "react";
 import "./style.css";
 import logo from "../../assets/HS-ICON.png";
 import { Menu } from "primereact/menu";
 import { Toast } from "primereact/toast";
 import { useNavigate } from "react-router-dom";
-import { Bell, CaretDown, List } from "@phosphor-icons/react";
-import { userDataApi } from "../../api/userApi";
-import { AuthContext } from "../../context/AuthContext";
+import { Bell, CaretDown, List, User } from "@phosphor-icons/react";
+import { reduceString } from "../../utils/reduceString";
+import { useLogout } from "../../hooks/useLogout";
+import { Navigate } from "react-router-dom";
+import { Button } from "primereact";
 
-const AppBar = ({ children }) => {
-	const reduceString = (str, numCaracters) => {
-		if (str.length <= numCaracters) {
-			return str;
-		} else {
-			return str.slice(0, numCaracters) + "...";
-		}
-	};
+const AppBar = ({ children, user, permission }) => {
+  const navigation = useNavigate();
+  const menuLeft = useRef(null);
+  const toast = useRef(null);
+  const navigate = useNavigate();
+  const [logout] = useLogout();
 
-	const permissionBusiness = true;
-	const permissionAdmin = true;
-	const navigation = useNavigate();
-	const { singOut } = useContext(AuthContext);
-	const menuLeft = useRef(null);
-	const toast = useRef(null);
-	const { img_profile } = userDataApi;
-	const items = [
-		// permissionAdmin && {
-		// 	label: "Admin",
-		// 	items: [
-		// 		{
-		// 			label: "Dashboard",
-		// 			command: () => {
-		// 				navigation("/admin/dashboard");
-		// 			},
-		// 		},
-		// 	],
-		// },
-		{
-			label: "Opções Gerais",
-			items: [
-				{
-					label: "Profile",
-					command: () => {
-						navigation("/profile");
-					},
-				},
-				{
-					label: "Meus agendamentos",
-					command: () => {
-						navigation("/agendamentos");
-					},
-				},
-				// {
-				// 	label: "Agendar serviço",
-				// 	command: () => {
-				// 		navigation("/service/agenda/0");
-				// 	},
-				// },
-				permissionBusiness && {
-					label: "Minha empresa",
-					command: () => {
-						alert('A área empresarial ainda está em desenvolvimento')
-					},
-				},
-				{
-					label: "Sair da Conta",
-					command: () => singOut(),
-				},
-			],
-		},
-	];
+  const items = [
+    permission && {
+      label: "Admin",
+      items: [
+        {
+          label: "Dashboard",
+          command: () => {
+            navigation("/admin/dashboard");
+          },
+        },
+      ],
+    },
+    {
+      label: "Opções Gerais",
+      items: [
+        {
+          label: "Profile",
+          command: () => {
+            navigation("/profile");
+          },
+        },
+        {
+          label: "Meus agendamentos",
+          command: () => {
+            navigation("/agendamentos");
+          },
+        },
+        {
+          label: "Agendar serviço",
+          command: () => {
+            navigation("/service/agenda/0");
+          },
+        },
+        permission && {
+          label: "Minha empresa",
+          command: () => {
+            navigation("/managment");
+          },
+        },
+        {
+          label: "Sair da Conta",
+          command: async () => {
+            const result = await logout();
 
-	return (
-		<>
-			<nav id="navbar" className="py-4 px-[15px] md:px-5">
-				<div className="container-logo-nav-links">
-					<div className="logo-container">
-						<img loading="lazy" src={logo} alt="icon logo" />
-						<h1
-							id="title"
-							className="font-extrabold text-[26px] hidden lg:block cursor-pointer"
-							onClick={() => navigation("/")}
-						>
-							HubServis
-						</h1>
-					</div>
-					<div className="nav-links hidden md:flex ml-0 lg:ml-10">
-						{children}
-					</div>
-				</div>
+            if (result) navigate("/login");
+          },
+        },
+      ],
+    },
+  ];
 
-				<div
-					onClick={(event) => menuLeft.current.toggle(event)}
-					className="md:hidden"
-				>
-					<List
-						size={32}
-						weight="light"
-						className="cursor-pointer text-[var(--gray)]"
-					/>
-					<Toast ref={toast}></Toast>
-					<Menu model={items} popup ref={menuLeft} id="popup_menu_left" />
-				</div>
+  return (
+    <>
+      <nav id="navbar" className="py-4 px-[15px] md:px-5">
+        <div className="container-logo-nav-links">
+          <div className="logo-container" onClick={() => navigation("/")}>
+            <img
+              className="cursor-pointer"
+              loading="lazy"
+              src={logo}
+              alt="icon logo"
+            />
+            <h1
+              id="title"
+              className="font-extrabold text-[26px] hidden lg:block cursor-pointer"
+            >
+              HubServis
+            </h1>
+          </div>
+          <div className="nav-links hidden md:flex ml-0 lg:ml-10">
+            {children}
+          </div>
+        </div>
 
-				<div
-					className="profile hidden md:flex"
-					onClick={(event) => menuLeft.current.toggle(event)}
-				>
-					<Bell size={26} color="#20712D"/>
-					<div className="profile-preview">
-						<img
-							loading="lazy"
-							src={img_profile}
-							alt="photo profile"
-							className="photo-profile"
-						/>
-						<span id="preview-data-profile" className="hidden sm:block">
-							<p id="name-profile">Ramilthon</p>
-							<p id="email-profile">
-								{reduceString("ramilthonbmw@gmail.com", 16)}
-							</p>
-						</span>
-					</div>
-					<CaretDown size={24} color="rgba(126, 128, 130, 0.5)" />
+        <div
+          onClick={(event) => menuLeft.current.toggle(event)}
+          className="md:hidden"
+        >
+          <List
+            size={32}
+            weight="light"
+            className="cursor-pointer text-[var(--gray)]"
+          />
+          <Toast ref={toast}></Toast>
+          <Menu model={items} popup ref={menuLeft} id="popup_menu_left" />
+        </div>
 
-					<Toast ref={toast}></Toast>
-					<Menu model={items} popup ref={menuLeft} id="popup_menu_left" />
-				</div>
-			</nav>
-		</>
-	);
+        {(user && (
+          <div
+            className="profile hidden md:flex"
+            onClick={(event) => menuLeft.current.toggle(event)}
+          >
+            <Bell size={26} color="#20712D" />
+            <div className="profile-preview">
+              <img
+                loading="lazy"
+                src={
+                  user?.image ||
+                  (user?.username &&
+                    `https://ui-avatars.com/api/?name=${user?.username[0]}${user?.username[1]}&format=svg&background=97FFA8`) ||
+                  ""
+                }
+                alt={User}
+                className="photo-profile"
+              />
+              <span id="preview-data-profile" className="hidden sm:block">
+                <p id="name-profile">{user?.name}</p>
+                <p id="email-profile">
+                  {(user?.username && reduceString(user?.email)) || ""}
+                </p>
+              </span>
+            </div>
+            <CaretDown size={24} color="rgba(126, 128, 130, 0.5)" />
+
+            <Toast ref={toast}></Toast>
+            <Menu model={items} popup ref={menuLeft} id="popup_menu_left" />
+          </div>
+        )) || (
+          <div className="profile hidden md:flex">
+            <div className="profile-preview">
+              <Button onClick={() => navigate("/login")}>Login</Button>
+            </div>
+
+            <div>
+              <Button onClick={() => navigate("/register")}>
+                Registrar-se
+              </Button>
+            </div>
+          </div>
+        )}
+      </nav>
+    </>
+  );
 };
 
 export default AppBar;

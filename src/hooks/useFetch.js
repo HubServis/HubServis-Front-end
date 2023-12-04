@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { api } from "../services/api";
 
 export function useFetch(url, options = {}) {

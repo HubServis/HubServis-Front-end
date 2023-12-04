@@ -4,17 +4,19 @@ import { useURLQuery } from "../../hooks/useURLQuery";
 import { useFetch } from "../../hooks/useFetch";
 import NotFound from "../NotFound/NotFound";
 import { useParams } from "react-router-dom";
+import { useGetUser } from "../../hooks/useGetUser";
 
 const ViewServiceCategory = () => {
-	const { categoryName } = useParams();
-	const query = useURLQuery();
-	const categoryNameId = query.get("categoryName");
+  const [user, permission] = useGetUser("viewServiceCategory")
+  const { categoryName } = useParams();
+  const query = useURLQuery();
+  const categoryNameId = query.get("categoryName");
 
-	if (!categoryNameId || !categoryName) return <NotFound backToBtn/>;
+  if (!categoryNameId || !categoryName) return <NotFound backToBtn />;
 
-	const { data, error, isFetching } = useFetch(
-		`/services/category?categoryNameId=${categoryNameId}`
-	);
+  const { data, error, isFetching } = useFetch(
+    `/services/category?categoryNameId=${categoryNameId}`,
+  );
 
 	return (
 		<>
@@ -44,24 +46,24 @@ const ViewServiceCategory = () => {
 export default ViewServiceCategory;
 
 const ListDataInUI = (data) => {
-	return (
-		<>
-			<section
-				className={`flex flex-wrap w-full ${
-					data?.length > 4 && "justify-between"
-				}`}
-			>
-				{data?.map((service, index) => (
-					<CardService
-						key={index}
-						id={service?.id}
-						serviceName={service?.name}
-						price={service?.price}
-						rating={service?.averageRating}
-						businessName={service?.business?.name}
-					/>
-				))}
-			</section>
-		</>
-	);
+  return (
+    <>
+      <section
+        className={`flex flex-wrap w-full ${
+          data?.length > 4 && "justify-between"
+        }`}
+      >
+        {data?.map((service, index) => (
+          <CardService
+            key={index}
+            id={service?.id}
+            serviceName={service?.name}
+            price={service?.price}
+            rating={service?.averageRating}
+            businessName={service?.business?.name}
+          />
+        ))}
+      </section>
+    </>
+  );
 };

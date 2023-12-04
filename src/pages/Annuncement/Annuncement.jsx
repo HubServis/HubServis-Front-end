@@ -2,17 +2,20 @@ import react from "react";
 import { AppBar, BtnOutlinedGreen, CardService, Footer } from "../../components";
 import PercImg from "../../assets/Percentage.png";
 import Bgbanner from "../../assets/bg-banner-transparent.png";
+import { useGetUser } from "../../hooks/useGetUser";
 
 const Annuncement = () => {
+  const [user, permissions, error, load] = useGetUser("annuncement");
+
   return (
     <>
-      <AppBar>
+      <AppBar user={user} permission={permissions}>
         <a href="/">Home</a>
         <a href="/about">Sobre</a>
         <a href="/plans">Planos</a>
       </AppBar>
 
-      <section className="bg-gradient-to-r from-[#00E12580] via-[#51F16B80] to-[#00993380] bg-opacity-50 h-96 w-full relative">
+      <section className="flex max-w-[1440px] m-auto bg-gradient-to-r from-[#00E12580] via-[#51F16B80] to-[#00993380] bg-opacity-50 h-96 w-full relative">
         <div className="mix-blend-overlay">
           <img
             src={Bgbanner}
@@ -34,7 +37,7 @@ const Annuncement = () => {
         </div>
       </section>
 
-      <section className="px-8 pt-20">
+      <section className="max-w-[1440px] m-auto px-8 pt-20">
         <span className="flex inline justify-between items-center">
           <h1 className="font-bold text-xl">Ofertas em Destaque</h1>
           <BtnOutlinedGreen onclick={() => console.log("view all services")}>
@@ -50,7 +53,7 @@ const Annuncement = () => {
         </div>
       </section>
 
-      <section className="p-10 flex justify-between align-center">
+      <section className="max-w-[1440px] m-auto p-10 flex justify-between align-center">
         <aside>
           <img src={PercImg} alt="" id="" className="float-left w-1/2" />
 

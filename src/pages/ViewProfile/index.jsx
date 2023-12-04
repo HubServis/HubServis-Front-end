@@ -1,45 +1,47 @@
-import React, { useEffect, useState } from "react";
-import { AppBar} from "../../components";
+import { AppBar } from "../../components";
 import {
   MapPin,
-  Chat,
-  Check,
-  ClockCounterClockwise,
+  // Chat,
+  // Check,
+  // ClockCounterClockwise,
   User,
 } from "@phosphor-icons/react";
-import { useFetch } from "../../hooks/useFetch";
-import { Rating } from "primereact/rating";
-import { useNavigate } from "react-router-dom";
+// import { Rating } from "primereact/rating";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useGetUser } from "../../hooks/useGetUser";
+import { reduceString } from "../../utils/reduceString";
 
 const ViewProfile = () => {
-  const { data, error, isFetching } = useFetch(
-    "/user/ebca70e6-ea7e-4916-a671-cea7464fecd9",
-  );
+  const [user, permission, error, load] = useGetUser("viewProfile");
 
   const navigator = useNavigate();
 
-  const img_profile = userAvatar(data);
-
-  console.log(data);
-  console.log("error", error);
-
-  return (
+  return !user && error && !load ? (
+    <Navigate to="/login" />
+  ) : (
     <>
-      <AppBar>
+      <AppBar user={user} permission={permission}>
         <a href="/about">Sobre</a>
         <a href="/plans">Planos</a>
         <a href="/annuncement">Anuncios e eventos</a>
       </AppBar>
-      <main className="flex w-full gap-24 px-[80px] py-[32px]">
+
+      <main className="flex max-w-[1440px] m-auto w-full gap-24 px-[80px] py-[32px]">
         <aside className="w-full max-w-[340px]">
           <figure className="max-w-[350px] rounded-[10px]">
             <img
-              src={img_profile}
-              alt="profile image"
+              src={
+                user?.image ||
+                (user?.username &&
+                  `https://ui-avatars.com/api/?name=${user?.username[0]}${user?.username[1]}&format=svg&background=97FFA8`) ||
+                ""
+              }
+              alt={user?.username && `${user.username[0]}${user.username[1]}`}
               className="w-full h-full object-cover rounded-full"
             />
           </figure>
 
+          {/*
           <h4 className="mt-11 text-sm font-bold text-[var(--gray-opacity-50)]">
             AVALIAÇÕES
           </h4>
@@ -73,12 +75,13 @@ const ViewProfile = () => {
               industry.
             </p>
           </article>
+*/}
         </aside>
 
         <section className="w-full">
           <div className="flex gap-[38px]">
             <h1 className="text-2xl font-bold text-[var(--dark-gray)]">
-              {data?.name ? data.name : "Lewis Ramilthon"}
+              {user?.name}
             </h1>
             <div className="flex items-center">
               <MapPin size={32} className="text-[var(--dark-green)]" />
@@ -92,6 +95,7 @@ const ViewProfile = () => {
             Professional pilot
           </h4>
 
+          {/*
           <h4 className="mt-11 text-sm font-bold text-[var(--gray-opacity-50)]">
             AVALIAÇÕES
           </h4>
@@ -105,9 +109,10 @@ const ViewProfile = () => {
               onChange={(e) => setRating(e.value)}
             />
           </div>
+		  */}
 
           <section className="flex w-full justify-between mt-10">
-            <div className="flex items-center gap-[10px]">
+            {/*<div className="flex items-center gap-[10px]">
               <Chat size={32} className="text-[var(--dark-green)]" />
               <p className="font-medium text-[var(--dark-green)]">
                 Enviar mensagens
@@ -126,9 +131,10 @@ const ViewProfile = () => {
               />
               <p className="text-[var(--dark-green)]">Atualizar dados</p>
             </div>
+		   */}
           </section>
 
-          <div className="border-b-2 mt-[45px]">
+          <div className="border-b-2">
             <div className="inline-flex items-end border-b-2 border-[var(--strong-green)] pb-[5px]">
               <User size={32} className="text-[var(--strong-green)]" />
               <p className="text-[var(--strong-green)]">Sobre</p>
@@ -139,15 +145,17 @@ const ViewProfile = () => {
             INFORMAÇÕES ESSENCIAIS/DE CONTATO
           </h4>
 
-          <div className="flex gap-4 my-3">
-            <p className="font-semibold text-[var(--dark-gray)]">Telefone:</p>
-            <p className="text-[var(--gray)] font-medium">(79) 2386-7533</p>
-          </div>
+          {/*
+			  <div className="flex gap-4 my-3">
+				<p className="font-semibold text-[var(--dark-gray)]">Telefone:</p>
+				<p className="text-[var(--gray)] font-medium">(79) 2386-7533</p>
+			  </div>
+		  */}
 
           <div className="flex gap-4 my-3">
             <p className="font-semibold text-[var(--dark-gray)]">E-mail:</p>
             <p className="text-[var(--gray)] font-medium">
-              {data?.email ? data.email : "ramilthonbmw@gmail.com"}
+              {(user?.email && reduceString(user.email)) || ""}
             </p>
           </div>
 
@@ -162,7 +170,7 @@ const ViewProfile = () => {
 
           <div className="flex gap-4 my-3">
             <p className="font-semibold text-[var(--dark-gray)]">CPF/CNPJ:</p>
-            <p className="text-[var(--gray)] font-medium">746.652.352-87</p>
+            <p className="text-[var(--gray)] font-medium">{user?.cpfcnpj}</p>
           </div>
 
           <button
@@ -178,18 +186,3 @@ const ViewProfile = () => {
 };
 
 export default ViewProfile;
-
-const userAvatar = (data) => {
-  if (data?.img_profile) {
-    return data.img_profile;
-  } else if (data) {
-    const initialsName = [
-      data.name.split(" ")[0][0],
-      data.name.split(" ").at(-1)[0],
-    ];
-
-    return `https://ui-avatars.com/api/?name=${initialsName[0]}+${initialsName[1]}&format=svg&background=97FFA8`;
-  }
-
-  return `https://ui-avatars.com/api/?name=Ramilthon&format=svg&background=97FFA8`;
-};

@@ -1,39 +1,23 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { cpf as cpfValidator } from "cpf-cnpj-validator";
 import { useRef } from "react";
 
 import * as yup from "yup";
 import { api } from "../services/api";
 
 const schema = yup.object().shape({
-  name: yup.string().required("Seu nome é necessário!"),
   email: yup
     .string()
     .email("Email invalido!")
     .required("O campo email é necessário!"),
-  username: yup.string().required("O campo username é necessário!"),
-  cpfcnpj: yup
-    .string()
-    .min(11, "Informe um numero de cpf válido!")
-    .required("O campo CPF é necessário")
-    .test("cpfcnpj", "Cpf Inválido!", (cpf) => {
-      if (cpf && cpf.length < 14) return true;
-
-      return cpfValidator.isValid(cpf);
-    }),
   password: yup
     .string()
-    .min(6, "A senha deve ter 6 caracteres ou mais")
+    .min(4, "A senha deve ter 6 caracteres ou mais")
     .required("A senha é necessária!"),
-  confirmPassword: yup
-    .string()
-    .required("É necessário confirmar a senha!")
-    .oneOf([yup.ref("password"), null], "A senhas devem ser iguais!"),
 });
 
-const useRegister = () => {
+const useLogin = () => {
   const toast = useRef(null);
   const navigate = useNavigate();
   const {
@@ -46,6 +30,7 @@ const useRegister = () => {
     mode: "onBlur",
     reValidateMode: "onChange",
   });
+  // const { setLogin } = useContext(AuthContext);
 
   const getFormErrorMessage = (name) => {
     return errors[name] ? (
@@ -57,18 +42,11 @@ const useRegister = () => {
 
   const sendData = async (data) => {
     try {
-      const response = await api.post("/user", data);
+      const response = await api.post("/login", data);
 
-      if (response.status !== 201) throw new Error(response.data);
+      if (!response.data) throw new Error(response.data);
 
-      toast.current.show({
-        severity: "info",
-        summary: "info",
-        detail: "Usuário criado, redirecionando para tela de login",
-        life: 3000,
-      });
-
-      return setTimeout(() => navigate("/login"), 3000);
+      return navigate("/");
     } catch (err) {
       toast.current.show({
         severity: "error",
@@ -80,13 +58,15 @@ const useRegister = () => {
   };
 
   return [
-    register,
-    handleSubmit,
     control,
     toast,
+    register,
+    handleSubmit,
     sendData,
+    navigate,
     getFormErrorMessage,
+    Controller,
   ];
 };
 
-export default useRegister;
+export default useLogin;

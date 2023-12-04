@@ -6,11 +6,13 @@ import {
   LinkedinLogo,
 } from "@phosphor-icons/react";
 import logo from "../../assets/HS-ICON.png";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const urlFacebook = "https://google.com";
   const urlInstagram = "https://google.com";
   const urlLinkedin = "https://google.com";
+  const navigator = useNavigate();
 
   const redirectForSite = (url) => {
     window.location.href = url;
@@ -63,14 +65,24 @@ const Footer = () => {
               className="text-[var(--gray-almost-white)] cursor-pointer"
               onClick={() => redirectForSite(urlLinkedin)}
             />
-
           </div>
         </div>
       </section>
 
-      <section className="flex items-center mt-6">
-        <img loading="lazy" src={logo} alt="icon logo" className="w-[60px] h-[60px]"/>
-        <h1 className="font-extrabold text-[26px] text-[var(--gray-almost-white)]" onClick={() => (window.location.href = appUrl)}>
+      <section
+        className="flex items-center mt-6 gap-[5px]"
+        onClick={() => navigator("/")}
+      >
+        <img
+          loading="lazy"
+          src={logo}
+          alt="icon logo"
+          className="w-[60px] h-[60px] cursor-pointer"
+        />
+        <h1
+          className="font-extrabold text-[26px] text-[var(--gray-almost-white)] cursor-pointer"
+          onClick={() => (window.location.href = appUrl)}
+        >
           HubServis
         </h1>
       </section>

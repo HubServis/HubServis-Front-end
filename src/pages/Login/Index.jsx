@@ -1,60 +1,32 @@
-import { useContext } from "react";
 import logoImg from "../../assets/HS-ICON.png";
 import { BtnFillGreen, CheckBox } from "../../components";
 import { Password } from "primereact/password";
 import { InputText } from "primereact/inputtext";
-import Ilustration from "../../assets/Login/login-ilustration.svg";
-import { Navigate, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { Toast } from "primereact/toast";
 
-const schema = yup.object({
-  email: yup
-    .string()
-    .required("Email é um campo obrigatório.")
-    .email("Este email não é valido!"),
-  password: yup
-    .string()
-    .required("Password é um campo obrigatório")
-    .min(6, "Informe uma senha de no minimo 6 caracters."),
-});
+import Ilustration from "../../assets/Login/login-ilustration.svg";
+import useLogin from "../../hooks/useLogin";
+import { useGetUser } from "../../hooks/useGetUser";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
-  const navigation = useNavigate();
-  const { signIn, signed } = useContext(AuthContext);
-
-  const {
+  const [
+    control,
+	toast,
     register,
     handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+    sendData,
+    navigate,
+    getFormErrorMessage,
+    Controller,
+  ] = useLogin();
 
-  const getFormErrorMessage = (name) => {
-    return errors[name] ? (
-      <small className="p-error">{errors[name].message}</small>
-    ) : (
-      <small className="p-error">&nbsp;</small>
-    );
-  };
+  const [user] = useGetUser('login');
 
-  const onSubmit = async (data) => {
-    const dataUser = {
-      email: data.email,
-      password: data.password,
-    };
-
-    await signIn(dataUser);
-  };
-
-  if (signed) return <Navigate to="/" />;
-
-  return (
+  return user ? <Navigate to="/"/> : (
     <>
+      <Toast ref={toast}></Toast>
+
       <main className="flex">
         <section className="w-full md:min-w-[50%] px-10">
           <div className="flex items-center gap-2 mt-14">
@@ -76,7 +48,7 @@ const Login = () => {
             Bem vindo de volta! Por favor, insira seus dados.
           </p>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(sendData)}>
             <div className="flex flex-col gap-2 mt-8">
               <label
                 htmlFor="seu-email"
@@ -105,7 +77,7 @@ const Login = () => {
                 name="password"
                 control={control}
                 defaultValue=""
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <>
                     <Password
                       inputStyle={{ width: "100%", alignItems: "center" }}
@@ -143,7 +115,7 @@ const Login = () => {
             Não tem uma conta?{" "}
             <span
               className="text-[var(--dark-green)] text-sm font-medium cursor-pointer"
-              onClick={() => navigation("/register")}
+              onClick={() => navigate("/register")}
             >
               Registre-se
             </span>

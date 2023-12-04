@@ -29,13 +29,13 @@ const Register = () => {
 
       <main className="flex">
         <section className="w-full md:min-w-[50%] px-10 pb-8">
-          <div className="flex items-center gap-2 mt-14">
+          <div className="flex items-center gap-2 mt-14" onClick={() => navigator('/')}>
             <img
               src={logoImg}
               alt="logo image"
-              className="max-w-[78px] max-h-[78px]"
+              className="max-w-[78px] max-h-[78px] cursor-pointer"
             />
-            <h1 className="text-[var(--dark-green-2)] text-[26px] font-extrabold">
+            <h1 className="text-[var(--dark-green-2)] text-[26px] font-extrabold cursor-pointer">
               HubServis
             </h1>
           </div>
