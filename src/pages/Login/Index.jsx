@@ -122,7 +122,7 @@ const Login = () => {
             </div>
 
           <div className="flex justify-between mt-2 items-center mb-10">
-            <div className="flex gap-1 mt-2 items-center">
+            {/* <div className="flex gap-1 mt-2 items-center">
               <CheckBox />
               <p className="text-[#7E8082] text-sm font-medium">
                 Lembrar por 30 dias
@@ -131,7 +131,7 @@ const Login = () => {
 
             <p className="text-[var(--dark-green)] text-sm font-medium cursor-pointer">
               Esqueci a senha
-            </p>
+            </p> */}
           </div>
 
           <BtnFillGreen width={"full"} >

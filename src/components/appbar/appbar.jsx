@@ -25,17 +25,17 @@ const AppBar = ({ children }) => {
 	const toast = useRef(null);
 	const { img_profile } = userDataApi;
 	const items = [
-		permissionAdmin && {
-			label: "Admin",
-			items: [
-				{
-					label: "Dashboard",
-					command: () => {
-						navigation("/admin/dashboard");
-					},
-				},
-			],
-		},
+		// permissionAdmin && {
+		// 	label: "Admin",
+		// 	items: [
+		// 		{
+		// 			label: "Dashboard",
+		// 			command: () => {
+		// 				navigation("/admin/dashboard");
+		// 			},
+		// 		},
+		// 	],
+		// },
 		{
 			label: "Opções Gerais",
 			items: [
@@ -51,16 +51,16 @@ const AppBar = ({ children }) => {
 						navigation("/agendamentos");
 					},
 				},
-				{
-					label: "Agendar serviço",
-					command: () => {
-						navigation("/service/agenda/0");
-					},
-				},
+				// {
+				// 	label: "Agendar serviço",
+				// 	command: () => {
+				// 		navigation("/service/agenda/0");
+				// 	},
+				// },
 				permissionBusiness && {
 					label: "Minha empresa",
 					command: () => {
-						navigation("/managment");
+						alert('A área empresarial ainda está em desenvolvimento')
 					},
 				},
 				{

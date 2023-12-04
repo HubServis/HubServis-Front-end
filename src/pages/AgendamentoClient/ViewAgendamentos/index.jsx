@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AppBar, Footer } from "../../../components";
 import { useFetch } from "../../../hooks/useFetch";
 import RowAgendamentos from "./components/rowAgendamentos";
+import { AuthContext } from "../../../context/AuthContext";
 
 const ViewAgendamento = () => {
 	const { data, error, isFetching } = useFetch("/appointments/user", {
 		headers: {
-			Authorization:
-				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViY2E3MGU2LWVhN2UtNDkxNi1hNjcxLWNlYTc0NjRmZWNkOSIsImlhdCI6MTcwMTI4MTQyOSwiZXhwIjoxNzAxMjk1ODI5fQ.-9DsLDrg5u1kFy1oxwqSoN1nQyHchHj5BbcQHJtUjz4",
+			Authorization: localStorage.getItem("@Auth:token")
 		},
 	});
-
-	console.log(data);
 
 	if (isFetching) {
 		return (

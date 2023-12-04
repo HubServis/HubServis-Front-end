@@ -11,14 +11,29 @@ import search from "../../assets/search.svg";
 
 const About = () => {
   return (
-    <>
-      <AppBar>
-        <a href="/">Home</a>
-        <a href="/plans">Planos</a>
-        <a href="/annuncement">Anuncios e eventos</a>
-      </AppBar>
+		<>
+			<AppBar>
+				<a href="/">Home</a>
+				<a href="/services">Serviços</a>
+				<a href="/saved">Favoritos</a>
+			</AppBar>
 
-      <section className="grid">
+			<section className="max-w-[1440px] mx-auto mb-5 flex flex-col items-center">
+				<h1 className="font-bold text-center text-xl mt-4">
+					PARA SABER MAIS SOBRE O PROJETO HUBSERVIS
+				</h1>
+				<p className="text-center mt-1">
+					Clique abaixo e leia nosso resumo expandido
+				</p>
+				<a
+					href="https://etecspgov-my.sharepoint.com/:b:/g/personal/eduardo_oliveira378_etec_sp_gov_br/EUoEDLptuiVPtStDlhxhETsB3JvmRCyzqD96lz5hQC25Pg?e=vdCoqb"
+					className="text-[var(--dark-green-2)]"
+				>
+					PDF Download
+				</a>
+			</section>
+
+			{/* <section className="grid">
         <div className="w-full h-[300px] bg-[url('assets/about/banner.png')] bg-contain">
           <div className="object-center text-center pt-20 mb-6">
             <h4 className="text-white text-3xl">Tem alguma Duvida?</h4>
@@ -130,39 +145,11 @@ const About = () => {
           id="about-banner"
           className="max-w-[50%]"
         />
-      </div>
+      </div> */}
 
-      <Footer/>
-    </>
-  );
+			<Footer />
+		</>
+	);
 };
 
 export default About;
-
-/* 
-
-                        <img src={AboutImg} alt="aboutimg" id="about-banner" className="float-right w-1/2"/>
-    <div className="content-center pt-20 pl-10 inline-block">
-                    <div className="h-64 w-192 p-4 ">
-                        <h1 className="font-bold pl-10 text-3xl">Sobre Nós</h1>
-
-                        
-
-
-                        <p className="flex-1 text-md pt-10 pl-10 w-1/2 break-words inline-block ">
-                            <span className="break-words">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                               when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                               It has survived not 
-                               only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                         </span>
-                        </p>
-                       
-
-                        
-                    </div>
-                    
-                </div>
-
-*/

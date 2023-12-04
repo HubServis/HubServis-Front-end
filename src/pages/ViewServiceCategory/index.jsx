@@ -21,17 +21,17 @@ const ViewServiceCategory = () => {
 			<AppBar>
 				<a href="/">Home</a>
 				<a href="/services">Serviços</a>
-				<a href="/plans">Planos</a>
-				<a href="/annuncement">Anuncios e eventos</a>
+				<a href="/about">Sobre</a>
+				<a href="/saved">Favoritos</a>
 			</AppBar>
-			<main className="max-w-[1440px] mx-auto mb-4">
+			<main className="max-w-[1440px] mx-auto mb-4 px-[30px]">
 				<h3 className="font-bold text-xl mt-5">
 					Categoria selecionada: {categoryName}
 				</h3>
 
 				{isFetching && <h4 className="text-center my-10">Carregando...</h4>}
 				{error?.response?.status == 404 ? (
-					<NotFound msg={"Não há serviços nessa categoria!"} backToBtn/>
+					<NotFound msg={"Não há serviços nessa categoria!"} backToBtn />
 				) : (
 					ListDataInUI(data)
 				)}

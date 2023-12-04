@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppBar, BtnFillGreen, Footer } from "../../../components";
 import { Clock, Users } from "@phosphor-icons/react";
 import { Calendar } from "primereact/calendar";
@@ -12,6 +12,7 @@ import {
 } from "./createAgendamentosUtils";
 import { api } from "../../../services/api";
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../../../context/AuthContext";
 
 const CreateAgendamento = () => {
 	const { id } = useParams();
@@ -23,6 +24,7 @@ const CreateAgendamento = () => {
 	const [isFetching, setIsFetching] = useState(true);
 	const [error, setError] = useState(null);
 	const [dataBusinessExpedient, setDataBusinessExpedient] = useState();
+	const { user } = useContext(AuthContext);
 
 	useEffect(() => {
 		(async () => {
@@ -106,7 +108,7 @@ const CreateAgendamento = () => {
 			return;
 		}
 
-		console.log(formatDateTime(date, hourSelect));
+		// console.log(formatDateTime(date, hourSelect));
 
 		try {
 			const responseSubmit = await api.post(
@@ -119,8 +121,7 @@ const CreateAgendamento = () => {
 				},
 				{
 					headers: {
-						Authorization:
-							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViY2E3MGU2LWVhN2UtNDkxNi1hNjcxLWNlYTc0NjRmZWNkOSIsImlhdCI6MTcwMTI4MTQyOSwiZXhwIjoxNzAxMjk1ODI5fQ.-9DsLDrg5u1kFy1oxwqSoN1nQyHchHj5BbcQHJtUjz4",
+						Authorization: user,
 					},
 				}
 			);

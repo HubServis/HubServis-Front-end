@@ -28,7 +28,7 @@ const Saved = () => {
 	};
 
 	useEffect(() => {
-		servicesSavedStorageAPI.length > 0 && fetchData();
+		servicesSavedStorageAPI?.length > 0 && fetchData();
 	}, []);
 
 	const showError = ({ msg }) => {
@@ -75,12 +75,12 @@ const Saved = () => {
 			<AppBar>
 				<a href="/">Home</a>
 				<a href="/services">Serviços</a>
-				<a href="/annuncement">Anuncios e eventos</a>
+				<a href="/about">Sobre</a>
 			</AppBar>
 			<main className="max-w-[1440px] m-auto">
 				<Toast ref={toast} />
 
-				{checkedList.length > 0 && (
+				{checkedList?.length > 0 && (
 					<BtnFillGreen onclick={() => onRemoveServicesToSaved()}>
 						Remover favoritos
 					</BtnFillGreen>
@@ -90,7 +90,7 @@ const Saved = () => {
 					{errorHandling(error, servicesSaved2, showError, isFetching)}
 				</div>
 
-				{isFetching && !error && servicesSavedStorageAPI.length > 0 && (
+				{isFetching && !error && servicesSavedStorageAPI?.length > 0 && (
 					<p className="text-center my-8 font-bold">Carregando...</p>
 				)}
 				<section
