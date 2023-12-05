@@ -14,7 +14,7 @@ const About = () => {
 
   return (
 		<>
-			<AppBar>
+			<AppBar user={user} permission={permission}>
 				<a href="/">Home</a>
 				<a href="/services">Serviços</a>
 				<a href="/saved">Favoritos</a>
@@ -29,6 +29,8 @@ const About = () => {
 				</p>
 				<a
 					href="https://etecspgov-my.sharepoint.com/:b:/g/personal/eduardo_oliveira378_etec_sp_gov_br/EUoEDLptuiVPtStDlhxhETsB3JvmRCyzqD96lz5hQC25Pg?e=vdCoqb"
+					target="_blank"
+					rel="noreferrer"
 					className="text-[var(--dark-green-2)]"
 				>
 					PDF Download

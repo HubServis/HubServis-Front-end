@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { ListUserModel } from "./components/listUserModel";
 import SelectFilter from "../../../SelectFilter";
 import DateSelectDefault from "../../../Inputs/DateSelectDefault";

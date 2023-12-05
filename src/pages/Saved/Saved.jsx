@@ -3,8 +3,10 @@ import { AppBar, BtnFillGreen } from "../../components";
 import CardSavedService from "./components/SavedCardService";
 import { api } from "../../services/api";
 import { Toast } from "primereact/toast";
+import { useGetUser } from "../../hooks/useGetUser";
 
 const Saved = () => {
+	const [user, permission] = useGetUser();
 	const [servicesSaved2, setServicesSaved2] = useState([]);
 	const [checkedList, setCheckedList] = useState([]);
 	const [isFetching, setIsFetching] = useState(true);
@@ -16,7 +18,7 @@ const Saved = () => {
 
 	const fetchData = async () => {
 		try {
-			const response = await api.post("http://localhost:3000/services/many", {
+			const response = await api.post("http://hubservis.io/api/services/many", {
 				servicesId: servicesSavedStorageAPI,
 			});
 
@@ -72,7 +74,7 @@ const Saved = () => {
 
 	return (
 		<>
-			<AppBar>
+			<AppBar user={user} permission={permission}>
 				<a href="/">Home</a>
 				<a href="/services">Serviços</a>
 				<a href="/about">Sobre</a>

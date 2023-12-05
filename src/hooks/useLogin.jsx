@@ -30,7 +30,6 @@ const useLogin = () => {
     mode: "onBlur",
     reValidateMode: "onChange",
   });
-  // const { setLogin } = useContext(AuthContext);
 
   const getFormErrorMessage = (name) => {
     return errors[name] ? (

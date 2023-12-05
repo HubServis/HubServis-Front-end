@@ -18,7 +18,7 @@ const AppBar = ({ children, user, permission }) => {
   const [logout] = useLogout();
 
   const items = [
-    permission && {
+    /* permission && {
       label: "Admin",
       items: [
         {
@@ -28,7 +28,7 @@ const AppBar = ({ children, user, permission }) => {
           },
         },
       ],
-    },
+    }, */
     {
       label: "Opções Gerais",
       items: [
@@ -50,12 +50,12 @@ const AppBar = ({ children, user, permission }) => {
             navigation("/service/agenda/0");
           },
         },
-        permission && {
+        /* permission && {
           label: "Minha empresa",
           command: () => {
             navigation("/managment");
           },
-        },
+        }, */
         {
           label: "Sair da Conta",
           command: async () => {

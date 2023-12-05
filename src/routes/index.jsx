@@ -23,60 +23,54 @@ import ViewServiceCategory from "../pages/ViewServiceCategory";
 import Saved from "../pages/Saved/Saved";
 
 const ScrollToTop = () => {
-	const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-	return null;
+  return null;
 };
 
 const Routers = () => {
-	return (
-		<BrowserRouter>
-			<ScrollToTop />
-			<Routes>
-				<Route path="*" element={<NotFound />} />
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="*" element={<NotFound />} />
 
-				<Route path="/login" element={<Login />} />
-				<Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-				<Route path="/" element={<PrivateRoute />}>
-					<Route index path="/" element={<Home />} />
-				</Route>
+        <Route index path="/" element={<Home />} />
 
-				<Route path="/service/:nameservice/:id" element={<ViewService />} />
+        <Route path="/service/:nameservice/:id" element={<ViewService />} />
 
-				{/* future private route */}
-				<Route path="/managment" element={<MainManagment />} />
+        {/* future private route */}
+        <Route path="/managment" element={<MainManagment />} />
 
-				<Route path="/annuncement" element={<Annuncement />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/plans" element={<Plans />} />
+        <Route path="/annuncement" element={<Annuncement />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/plans" element={<Plans />} />
 
-				<Route path="/profile" element={<ViewProfile />} />
-				<Route path="/profile/edit" element={<EditProfile />} />
+        <Route path="/profile" element={<ViewProfile />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
 
-				<Route path="/services" element={<ViewAllServices />} />
+        <Route path="/services" element={<ViewAllServices />} />
 
-				<Route path="/service/agenda/:id" element={<PrivateRoute />}>
-					<Route path="/service/agenda/:id" element={<CreateAgendamento />} />
-				</Route>
+        <Route path="/service/agenda/:id" element={<CreateAgendamento />} />
 
-				<Route path="/agendamentos" element={<PrivateRoute />}>
-					<Route path="/agendamentos" element={<ViewAgendamento />} />
-				</Route>
+        <Route path="/agendamentos" element={<ViewAgendamento />} />
 
-				<Route
-					path="/service/category/:categoryName"
-					element={<ViewServiceCategory />}
-				/>
+        <Route
+          path="/service/category/:categoryName"
+          element={<ViewServiceCategory />}
+        />
 
-				<Route path="/saved" element={<Saved />} />
-			</Routes>
-		</BrowserRouter>
-	);
+        <Route path="/saved" element={<Saved />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default Routers;

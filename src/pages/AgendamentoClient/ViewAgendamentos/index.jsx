@@ -2,19 +2,21 @@ import React, { useContext } from "react";
 import { AppBar, Footer } from "../../../components";
 import { useFetch } from "../../../hooks/useFetch";
 import RowAgendamentos from "./components/rowAgendamentos";
-import { AuthContext } from "../../../context/AuthContext";
+import { useGetUser } from "../../../hooks/useGetUser";
 
 const ViewAgendamento = () => {
+	const [user, permission] = useGetUser();
 	const { data, error, isFetching } = useFetch("/appointments/user", {
-		headers: {
-			Authorization: localStorage.getItem("@Auth:token")
-		},
+		withCredentials: true,
+		// headers: {
+		// 	Authorization: localStorage.getItem("@Auth:token")
+		// },
 	});
 
 	if (isFetching) {
 		return (
 			<>
-				<AppBar>
+				<AppBar user={user} permission={permission}>
 					<a href="/about">Sobre</a>
 					<a href="/plans">Planos</a>
 					<a href="/annuncement">Anuncios e eventos</a>
@@ -28,7 +30,7 @@ const ViewAgendamento = () => {
 
 	return (
 		<>
-			<AppBar>
+			<AppBar user={user} permission={permission}>
 				<a href="/about">Sobre</a>
 				<a href="/plans">Planos</a>
 				<a href="/annuncement">Anuncios e eventos</a>

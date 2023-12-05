@@ -20,7 +20,7 @@ const ViewServiceCategory = () => {
 
 	return (
 		<>
-			<AppBar>
+			<AppBar user={user} permission={permission}>
 				<a href="/">Home</a>
 				<a href="/services">Serviços</a>
 				<a href="/about">Sobre</a>

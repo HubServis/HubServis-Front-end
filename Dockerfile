@@ -10,7 +10,7 @@ COPY ./package.json .
 
 RUN pnpm install
 
-COPY . .
+COPY --chown=node:node . .
 
 EXPOSE 4000
 
