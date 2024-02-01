@@ -13,12 +13,27 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - "80:80"
+      - 80:80
 
+  #Postgres DB
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: hubservis
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - hubservis
+
+  #Frontend
   hub-servis-app:
     build: ./
     container_name: App
     stdin_open: true
+    env_file: ./.env
     networks:
       - hubservis
     ports:
@@ -26,19 +41,23 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=TRUE
     volumes:
-      - "./:/app:rw"
+      - ./:/app:rw
+      # - "/app/node_modules"
 
+  #Backend
   hub-servis-backend:
     build: ../HubServis-API/
+    user: node
     container_name: Api
     stdin_open: true
+    env_file: ../HubServis-API/.env
     networks:
       - hubservis
     ports:
       - "3000"
     volumes:
-      - "../HubServis-API/:/app:rw"
-      - "/app/node_modules"
+      - ../HubServis-API/:/app:rw
+      # - "/app/node_modules"
 
 # Docker network
 networks:

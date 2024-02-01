@@ -12,7 +12,7 @@ import { useSaveContent } from "../../hooks/useSaveContent";
 import { useImageHandler } from "../../hooks/useImageHandler";
 
 const EditProfile = () => {
-  const [user, permission, error, load] = useGetUser("editProfile");
+  const [user, permission, error, load] = useGetUser("editProfile", []);
 
   const [register, handleSubmit, toast, sendData, getFormErrorMessage] =
     useSaveContent();

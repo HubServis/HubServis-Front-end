@@ -1,16 +1,16 @@
-FROM node:18-alpine as build
+FROM node:21-alpine as build
 
-RUN apk add --no-cache curl \
+RUN apk update ; apk upgrade -i -a --update-cache -y ; apk add --no-cache curl \
     && curl -fsSL 'https://github.com/pnpm/pnpm/releases/download/v8.6.12/pnpm-linuxstatic-x64' -o /bin/pnpm \
     && chmod +x /bin/pnpm
 
+USER node
+
 WORKDIR /app
 
-COPY ./package.json .
+COPY package.json ./
 
 RUN pnpm install
-
-COPY --chown=node:node . .
 
 EXPOSE 4000
 

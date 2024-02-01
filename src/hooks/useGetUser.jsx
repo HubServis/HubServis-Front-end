@@ -31,7 +31,7 @@ export function useGetUser(url, permissions) {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              permissions: permissions || ["dashbord", "admin", "bussiness"],
+              permissions: permissions,
             }),
           }),
         ]).then((callArray) => callArray);
@@ -59,7 +59,7 @@ export function useGetUser(url, permissions) {
     };
 
     getUser();
-  }, [url]);
+  }, [url, permissions]);
 
   return [user, permission, error, load];
 }
