@@ -27,9 +27,11 @@ services:
       - CHOKIDAR_USEPOLLING=TRUE
     volumes:
       - "./:/app:rw"
+      - "/app/node_modules"
 
   hub-servis-backend:
     build: ../HubServis-API/
+    user: node
     container_name: Api
     stdin_open: true
     networks:

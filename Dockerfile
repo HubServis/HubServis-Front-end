@@ -6,9 +6,9 @@ RUN apk add --no-cache curl \
 
 WORKDIR /app
 
-COPY ./package.json .
+COPY package.json ./
 
-RUN pnpm install
+RUN npm install
 
 COPY --chown=node:node . .
 
@@ -18,4 +18,4 @@ ENV PORT 4000
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
-CMD [ "pnpm", "run", "dev-exposed" ]
+CMD [ "npm", "run", "dev-exposed" ]
