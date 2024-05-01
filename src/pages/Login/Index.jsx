@@ -7,12 +7,12 @@ import { Toast } from "primereact/toast";
 import Ilustration from "../../assets/Login/login-ilustration.svg";
 import useLogin from "../../hooks/useLogin";
 import { useGetUser } from "../../hooks/useGetUser";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [
     control,
-	toast,
+    toast,
     register,
     handleSubmit,
     sendData,
@@ -21,9 +21,11 @@ const Login = () => {
     Controller,
   ] = useLogin();
 
-  const [user] = useGetUser('login');
+  const [user] = useGetUser("login");
 
-  return user ? <Navigate to="/"/> : (
+  return user ? (
+    <Navigate to="/" />
+  ) : (
     <>
       <Toast ref={toast}></Toast>
 
@@ -93,22 +95,23 @@ const Login = () => {
               />
             </div>
 
-          <div className="flex justify-between mt-2 items-center mb-10">
-            {/* <div className="flex gap-1 mt-2 items-center">
+            <div className="flex justify-between mt-2 items-center mb-10">
+              {/* <div className="flex gap-1 mt-2 items-center">
               <CheckBox />
               <p className="text-[#7E8082] text-sm font-medium">
                 Lembrar por 30 dias
               </p>
+            </div>*/}
+
+              <p
+                className="text-[var(--dark-green)] text-sm font-medium cursor-pointer"
+                onClick={() => navigate("/resetpass")}
+              >
+                Esqueci a senha
+              </p>
             </div>
 
-            <p className="text-[var(--dark-green)] text-sm font-medium cursor-pointer">
-              Esqueci a senha
-            </p> */}
-          </div>
-
-          <BtnFillGreen width={"full"} >
-            Entrar
-          </BtnFillGreen>
+            <BtnFillGreen width={"full"}>Entrar</BtnFillGreen>
           </form>
 
           <p className="text-[#7E8082] text-sm font-medium mb-10 mt-8">

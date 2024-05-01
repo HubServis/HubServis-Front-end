@@ -21,6 +21,7 @@ import ViewAgendamento from "../pages/AgendamentoClient/ViewAgendamentos";
 // import { PrivateRoute } from "./privateRoutes";
 import ViewServiceCategory from "../pages/ViewServiceCategory";
 import Saved from "../pages/Saved/Saved";
+import ResetPassword from "../pages/ResetPassword/Index";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -41,6 +42,8 @@ const Routers = () => {
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route path="/resetpass" element={<ResetPassword />} />
 
         <Route index path="/" element={<Home />} />
 
