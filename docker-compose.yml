@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   #Load Balancer / Reverse Proxy
   nginx:
@@ -17,7 +15,7 @@ services:
 
   #Postgres DB
   postgres:
-    container_name: postgres
+    container_name: hub-servis-postgres
     image: postgres
     restart: always
     environment:
