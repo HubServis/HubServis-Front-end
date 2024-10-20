@@ -4,7 +4,7 @@ services:
     container_name: nginx
     depends_on:
       - hub-servis-app
-      - hub-servis-backend
+      # - hub-servis-backend
     networks:
       - hubservis
     image: nginx:1.16.0-alpine
@@ -12,6 +12,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 80:80
+      - 443:433
 
   #Postgres DB
   postgres:
@@ -40,9 +41,9 @@ services:
       - CHOKIDAR_USEPOLLING=TRUE
     volumes:
       - ./:/app:rw
-      # - "/app/node_modules"
+      - "/app/node_modules"
 
-  #Backend
+  # Backend
   hub-servis-backend:
     build: ../HubServis-API/
     user: node
@@ -52,10 +53,10 @@ services:
     networks:
       - hubservis
     ports:
-      - "3000"
+      - "4000"
     volumes:
       - ../HubServis-API/:/app:rw
-      # - "/app/node_modules"
+      - "/app/node_modules"
 
 # Docker network
 networks:
