@@ -1,7 +1,9 @@
+import { api } from "../services/api";
+
 export function useLogout() {
   const logout = async () => {
     try {
-      const request = await fetch("http://hubservis.io/api/logout");
+      const request = await api.get("/logout");
 
       if (request.ok) return true;
     } catch (err) {
