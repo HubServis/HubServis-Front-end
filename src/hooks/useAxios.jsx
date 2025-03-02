@@ -19,7 +19,7 @@ export const useAxios = ({ url, method, payload, start }) => {
 
 		setIsFetching(true);
 
-		const staticURL = "http://localhost:3000/services/many";
+		const staticURL = "http://localhost:4000/services/many";
 
 		try {
 			const response = await fetch(staticURL, {

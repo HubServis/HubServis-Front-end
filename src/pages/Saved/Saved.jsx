@@ -18,7 +18,7 @@ const Saved = () => {
 
 	const fetchData = async () => {
 		try {
-			const response = await api.post("http://hubservis.io/api/services/many", {
+			const response = await api.post("http://localhost:4000services/many", {
 				servicesId: servicesSavedStorageAPI,
 			});
 

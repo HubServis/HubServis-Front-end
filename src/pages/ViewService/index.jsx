@@ -37,12 +37,13 @@ const ViewService = () => {
   const [user, permission] = useGetUser()
 	const navigation = useNavigate();
   const { data, error, isFetching } = useFetch(`/service/${id}`);
+
   const dataApi = {
     images: mockImagesAPI,
     description: data?.description ?? "Sem descrição...",
     nameService: data?.name ?? "Nome do serviço não informado",
     averageRatingDisplay:
-      data?.averageRating.toFixed(1).toString().replace(".", ",") ?? "0,0",
+      Number(data?.averageRating).toFixed(1).toString().replace(".", ",") ?? "0,0",
     averageRating: data?.averageRating ?? "0,0",
     totalRatings: data?.totalRatings
       ? `${data?.totalRatings} Avaliações de clientes`
