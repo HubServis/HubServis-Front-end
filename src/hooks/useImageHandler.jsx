@@ -8,14 +8,14 @@ export const useImageHandler = (initialState) => {
     type: initialState?.type || "",
   });
 
-  const onChangeImage = async (element) => {
+  const onChangeImage = (element) => {
     if (element?.target.files.length) {
       const reader = new FileReader();
 
-      await reader.readAsDataURL(element?.target.files[0]);
+      reader.readAsDataURL(element?.target.files[0]);
 
-      reader.onload = async () => {
-        const result = await reader.result;
+      reader.onload = () => {
+        const result = reader.result;
 
         setImage({
           preview: URL.createObjectURL(element?.target.files[0]),

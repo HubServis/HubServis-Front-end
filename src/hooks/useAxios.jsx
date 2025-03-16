@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { api } from "../services/api";
 
-export const useAxios = ({ url, method, payload, start }) => {
+export const useAxios = ({ method, payload, start }) => {
 	const [data, setData] = useState(null);
 	const [error, setError] = useState("");
 	const [isFetching, setIsFetching] = useState(false);
