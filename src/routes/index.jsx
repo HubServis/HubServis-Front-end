@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+	BrowserRouter,
+	Route,
+	Routes,
+	useNavigate,
+	Navigate,
+} from "react-router-dom";
 
 import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
@@ -21,56 +27,76 @@ import ViewAgendamento from "../pages/AgendamentoClient/ViewAgendamentos";
 // import { PrivateRoute } from "./privateRoutes";
 import ViewServiceCategory from "../pages/ViewServiceCategory";
 import Saved from "../pages/Saved/Saved";
+import { useGetUser } from "../hooks/useGetUser";
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+	const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 
-  return null;
+	return null;
 };
 
 const Routers = () => {
-  return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="*" element={<NotFound />} />
+	return (
+		<BrowserRouter>
+			<ScrollToTop />
+			<Routes>
+				<Route path="*" element={<NotFound />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
 
-        <Route index path="/" element={<Home />} />
+				<Route index path="/" element={<Home />} />
 
-        <Route path="/service/:nameservice/:id" element={<ViewService />} />
+				<Route
+					path="/service/:nameservice/:id"
+					element={<ViewService />}
+				/>
 
-        {/* future private route */}
-        <Route path="/managment" element={<MainManagment />} />
+				{/* future private route */}
+				<Route
+					path="/managment"
+					element={
+						<PrivateRoute>
+							<MainManagment />
+						</PrivateRoute>
+					}
+				/>
 
-        <Route path="/annuncement" element={<Annuncement />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/plans" element={<Plans />} />
+				<Route path="/annuncement" element={<Annuncement />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/plans" element={<Plans />} />
 
-        <Route path="/profile" element={<ViewProfile />} />
-        <Route path="/profile/edit" element={<EditProfile />} />
+				<Route path="/profile" element={<ViewProfile />} />
+				<Route path="/profile/edit" element={<EditProfile />} />
 
-        <Route path="/services" element={<ViewAllServices />} />
+				<Route path="/services" element={<ViewAllServices />} />
 
-        <Route path="/service/agenda/:id" element={<CreateAgendamento />} />
+				<Route
+					path="/service/agenda/:id"
+					element={<CreateAgendamento />}
+				/>
 
-        <Route path="/agendamentos" element={<ViewAgendamento />} />
+				<Route path="/agendamentos" element={<ViewAgendamento />} />
 
-        <Route
-          path="/service/category/:categoryName"
-          element={<ViewServiceCategory />}
-        />
+				<Route
+					path="/service/category/:categoryName"
+					element={<ViewServiceCategory />}
+				/>
 
-        <Route path="/saved" element={<Saved />} />
-      </Routes>
-    </BrowserRouter>
-  );
+				<Route path="/saved" element={<Saved />} />
+			</Routes>
+		</BrowserRouter>
+	);
+};
+
+const PrivateRoute = ({ children }) => {
+	let [user] = useGetUser("managment");
+
+	return user ? children : <Navigate to="/login" />;
 };
 
 export default Routers;

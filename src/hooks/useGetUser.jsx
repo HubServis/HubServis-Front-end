@@ -23,8 +23,8 @@ export function useGetUser(url, permissions) {
         setLoad(true);
 
         const requestedDataAsync = await Promise.allSettled([
-          fetchAll("http://localhost:4000user", { credentials: "include" }),
-          fetchAll("http://localhost:4000user/permissions", {
+          fetchAll("http://localhost:4000/user", { credentials: "include" }),
+          fetchAll("http://localhost:4000/user/permissions", {
             method: "POST",
             credentials: "include",
             headers: {
