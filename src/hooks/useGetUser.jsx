@@ -53,6 +53,7 @@ export function useGetUser(url, permissions) {
         }
       } catch (err) {
         setError(true);
+        console.log("error", err);
       } finally {
         setLoad(false);
       }

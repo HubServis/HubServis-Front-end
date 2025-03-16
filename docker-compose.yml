@@ -21,43 +21,44 @@ services:
     environment:
       POSTGRES_USER: hubservis
       POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hubservis
     ports:
       - 5432:5432
-    networks:
-      - hubservis
-
-  #Frontend
-  hub-servis-app:
-    build: ./
-    container_name: App
-    stdin_open: true
-    env_file: ./.env
-    networks:
-      - hubservis
-    ports:
-      - "5173:5173"
-    environment:
-      - CHOKIDAR_USEPOLLING=TRUE
-    volumes:
-      - ./:/app:rw
-      - "/app/node_modules"
-
-  # Backend
-  hub-servis-backend:
-    build: ../HubServis-API/
-    user: node
-    container_name: Api
-    stdin_open: true
-    env_file: ../HubServis-API/.env
-    networks:
-      - hubservis
-    ports:
-      - "4000:4000"
-    volumes:
-      - ../HubServis-API/:/app:rw
-      - "/app/node_modules"
-
-# Docker network
-networks:
-  hubservis:
-    driver: bridge
+    # networks:
+    #   - hubservis
+#
+#   #Frontend
+#   hub-servis-app:
+#     build: ./
+#     container_name: App
+#     stdin_open: true
+#     env_file: ./.env
+#     networks:
+#       - hubservis
+#     ports:
+#       - "5173:5173"
+#     environment:
+#       - CHOKIDAR_USEPOLLING=TRUE
+#     volumes:
+#       - ./:/app:rw
+#       - "/app/node_modules"
+#
+#   # Backend
+#   hub-servis-backend:
+#     build: ../HubServis-API/
+#     user: node
+#     container_name: Api
+#     stdin_open: true
+#     env_file: ../HubServis-API/.env
+#     networks:
+#       - hubservis
+#     ports:
+#       - "4000:4000"
+#     volumes:
+#       - ../HubServis-API/:/app:rw
+#       - "/app/node_modules"
+#
+# # Docker network
+# networks:
+#   hubservis:
+#     driver: bridge
