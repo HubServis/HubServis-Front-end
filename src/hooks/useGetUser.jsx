@@ -1,66 +1,70 @@
 import { useState, useEffect } from "react";
 
 const fetchAll = async (url, options) => {
-  const request = await fetch(url, options);
+    const request = await fetch(url, options);
 
-  const data = await request.json();
+    const data = await request.json();
 
-  return {
-    statusRequest: request,
-    data,
-  };
+    return {
+        statusRequest: request,
+        data,
+    };
 };
 
 export function useGetUser(url, permissions) {
-  const [user, setUser] = useState(false);
-  const [permission, setPermission] = useState(false);
-  const [load, setLoad] = useState(false);
-  const [error, setError] = useState(false);
+    const [user, setUser] = useState(false);
+    const [permission, setPermission] = useState(false);
+    const [load, setLoad] = useState(false);
+    const [error, setError] = useState(false);
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        setLoad(true);
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                setLoad(true);
 
-        const requestedDataAsync = await Promise.allSettled([
-          fetchAll("http://localhost:4000/user", { credentials: "include" }),
-          fetchAll("http://localhost:4000/user/permissions", {
-            method: "POST",
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              permissions: permissions,
-            }),
-          }),
-        ]).then((callArray) => callArray);
+                const requestedDataAsync = await Promise.all([
+                    fetchAll("http://localhost:4000/user", {
+                        credentials: "include",
+                    }),
+                    fetchAll("http://localhost:4000/user/permissions", {
+                        method: "POST",
+                        credentials: "include",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            permissions: permissions,
+                        }),
+                    }),
+                ]).then((callArray) => callArray);
 
-        if (requestedDataAsync[0].value.statusRequest.status !== 201) {
-          setUser(false);
-          setPermission(false);
-          setLoad(false);
-          setError(true);
-        } else {
-          setUser(requestedDataAsync[0].value.data);
-          setPermission(
-            requestedDataAsync[1].value.statusRequest.status === 404
-              ? true
-              : false,
-          );
-          setError(false);
-          setLoad(false);
-        }
-      } catch (err) {
-        setError(true);
-        console.log("error", err);
-      } finally {
-        setLoad(false);
-      }
-    };
+                console.debug("request", requestedDataAsync);
 
-    getUser();
-  }, [url, permissions]);
+                if (requestedDataAsync[0].value.statusRequest.status !== 201) {
+                    setUser(false);
+                    setPermission(false);
+                    setLoad(false);
+                    setError(true);
+                } else {
+                    setUser(requestedDataAsync[0].value.data);
+                    setPermission(
+                        requestedDataAsync[1].value.statusRequest.status === 404
+                            ? true
+                            : false,
+                    );
+                    setError(false);
+                    setLoad(false);
+                }
+            } catch (err) {
+                setError(true);
+                console.log("error", err);
+            } finally {
+                setLoad(false);
+            }
+        };
 
-  return [user, permission, error, load];
+        getUser();
+    }, [url, permissions]);
+
+    return [user, permission, error, load];
 }
